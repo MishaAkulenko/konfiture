@@ -1,0 +1,24 @@
+{
+  "name": "konfiture",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MishaAkulenko <mishaakulenko@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^3.0.3",
+    "gulp-connect": "^5.0.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-less": "^3.3.0",
+    "gulp-live-server": "0.0.30",
+    "gulp-livereload": "^3.8.1",
+    "gulp-uglify": "^2.0.1",
+    "jshint": "^2.9.4",
+    "less": "^2.7.2"
+  }
+}

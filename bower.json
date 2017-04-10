@@ -1,0 +1,23 @@
+{
+  "name": "konfiture",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "MishaAkulenko <mishaakulenko@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/MishaAkulenko/konfiture",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery-touch-events": "^1.0.8",
+    "jquery-template": "^1.4.4"
+  }
+}
