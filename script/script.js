@@ -53,6 +53,7 @@ $(document).ready(function($) {
     });
 
     function openMenu() {  //открыть мобильное меню
+        $(".home-arrow").fadeOut('0');
         $(".menu").css('opacity', '0'); 
         $(".menu-mobile .banner").css('display', 'none');
         $(".menu").animate({
@@ -70,6 +71,7 @@ $(document).ready(function($) {
     }
 
     function closeMenu() { //закрыть мобильное меню
+        $(".home-arrow").fadeIn('0');
         $(".menu-icon").css('display', 'block'); 
         $(".menu-close").css('display', 'none');
         $(".menu-mobile .banner").css('display', 'block');
@@ -153,7 +155,9 @@ $(document).ready(function($) {
             $(".banner").css('opacity', "0");
         } 
     }
-// КАРУСЕЛЬ ДЛЯ ПОРТФОЛИО
+
+    // КАРУСЕЛЬ
+
     var portfolio = {
         galery1 : {
                     partners: 'Юли и Семена',
@@ -185,67 +189,163 @@ $(document).ready(function($) {
         }
     };
 
-    var portfolioСounter = 0;
+    var reviews = {
+        review1 : {
+                    content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
+                    title: 'Анна Семёнова',
+                    portrait: 'images/rewiew/portrait-1.jpg',
+                },
+        review2 : {
+                    content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
+                    title: 'Саша Алексеева',
+                    portrait: 'images/rewiew/portrait-2.jpg',
+                },
+        review3 : {
+                    content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
+                    title: 'Меган Фокс',
+                    portrait: 'images/rewiew/portrait-3.jpg',
+                },
+        review4 : {
+                    content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
+                    title: 'Кот Аркадий',
+                    portrait: 'images/rewiew/portrait-4.jpg',
+                },
+        review5 : {
+            content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
+            title: 'Дуся',
+            portrait: 'images/rewiew/portrait-5.jpg',
+        }
+    };
 
-    for (var key in portfolio) {
-        $("#portfolio-carousel .carousel-items").append('<div class="carousel-block"></div>');
-        $("#portfolio-carousel .carousel-block").eq(portfolioСounter).attr('id', [key]);
-        portfolioСounter++;
-        var itemForTemplate = "#portfolio-carousel"+" "+'#'+key;
-        $(itemForTemplate).loadTemplate("../templates/portfolio-tmpl.html", portfolio[key]);
+    var news = {
+        news1 : {
+                    title: 'news1',
+                    poster: 'images/news/news-1.jpg',
+                    content: 'Interdum et malesuada fames ac ante ipsum primis in faucibus.  purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna.',
+                    link: 'images'
+                },
+        news2 : {
+                    title: 'news2',
+                    poster: 'images/news/news-2.jpg',
+                    content: 'LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM',
+                    link: 'images'
+                },
+        news3 : {
+                    title: 'news3',
+                    poster: 'images/news/news-3.jpg',
+                    content: 'LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM',
+                    link: 'images'
+                },
+        news4 : {
+            title: 'news4',
+                    poster: 'images/news/news-1.jpg',
+                    content: 'LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM',
+                    link: 'images'
+        },
+        news5 : {
+            title: 'news5',
+                    poster: 'images/news/news-3.jpg',
+                    content: 'LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM',
+                    link: 'images'
+        }
+    };
+
+    var counter = 0;
+
+    function caruselSvipe(caruselObj, caruselId, template, carouselItemsClass, carouselBlockClass, tmplWrapp) {
+        var counterOfProperty = 0; //счетчик свойств
+
+        for (var property in caruselObj) {
+            counterOfProperty++;
+        }
+
+        for (var key in caruselObj) {
+            $(caruselId).find(carouselItemsClass).append(tmplWrapp);
+            $(caruselId).find(carouselBlockClass).eq(counter).attr('id', [key]);//уникальный айди для каждого блока в который вставляется темплейт
+            counter++;
+            var itemOfCarusel = caruselId + " " + '#' + key; 
+            $(itemOfCarusel).loadTemplate(template, caruselObj[key]);//грузим темплейт
+
+            if (counter == counterOfProperty) {
+                counter = 0; //если счетчик свойств достиг максимального значения, то сбросить его в ноль
+            }
+        }
+
+        if (caruselId !== "#reviews-carousel") {
+            $(caruselId).on('click', '.right', function(){ 
+                var carusel = $(this).parents('.carousel');
+                mooveRightCarusel(carusel);
+                clearInterval(caruselSvipeinterval);
+                return false;
+            });
+            
+            $(caruselId).on('click', '.left', function(){ 
+                var carusel = $(this).parents('.carousel');
+                mooveLeftCarusel(carusel);
+                return false;
+            });
+
+            $(caruselId).swiperight(function() {
+                mooveRightCarusel(caruselId);
+            }).swipeleft(function() {
+                mooveLeftCarusel(caruselId);
+            });
+        } 
     }
 
-    $("#portfolio-carousel").on('click', '.right', function(){ 
-        var carusel = $(this).parents('.carousel');
-        mooveRightCarusel(carusel);
-        return false;
-    });
-    
-    $("#portfolio-carousel").on('click', '.left', function(){ 
-        var carusel = $(this).parents('.carousel');
-        mooveLeftCarusel(carusel);
-        return false;
-    });
+    // $('#reviews-carousel').swiperight(function() {
+    //     $("#reviews-carousel").carousel('prev');
+    // }).swipeleft(function() {
+    //     $("#reviews-carousel").carousel('next');
+    // });
 
+    caruselSvipe(news, "#news-carousel", "../templates/news-preview-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
+    caruselSvipe(portfolio, "#portfolio-carousel", "../templates/portfolio-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
+    caruselSvipe(reviews, "#reviews-carousel", "../templates/review-tmpl.html",  '.carousel-inner', '.item', '<div class="item"></div>');
+
+    autoCaruselSvipe('#portfolio-carousel');
+
+    autoCaruselSvipe('#news-carousel');
+
+    $("#reviews-carousel .item").eq(0).addClass('active');//нужно для того чтобы работала бутстраповская карусель
+    
     function mooveLeftCarusel(carusel){
-       var block_width = $(carusel).find('.carousel-block').outerWidth();
+       var blockWidth = $(carusel).find('.carousel-block').outerWidth();
        $(carusel).find(".carousel-items .carousel-block").eq(-1).clone().prependTo($(carusel).find(".carousel-items")); 
-       $(carusel).find(".carousel-items").css({"left":"-"+block_width+"px"});
+       $(carusel).find(".carousel-items").css({"left":"-"+blockWidth+"px"});
        $(carusel).find(".carousel-items .carousel-block").eq(-1).remove();    
        $(carusel).find(".carousel-items").animate({left: "0px"}, 500); 
        
     }
 
     function mooveRightCarusel(carusel){
-       var block_width = $(carusel).find('.carousel-block').outerWidth();
-       $(carusel).find(".carousel-items").animate({left: "-"+ block_width +"px"}, 500, function(){
+       var blockWidth = $(carusel).find('.carousel-block').outerWidth();
+       $(carusel).find(".carousel-items").animate({left: "-"+ blockWidth +"px"}, 500, function(){
           $(carusel).find(".carousel-items .carousel-block").eq(0).clone().appendTo($(carusel).find(".carousel-items")); 
           $(carusel).find(".carousel-items .carousel-block").eq(0).remove(); 
           $(carusel).find(".carousel-items").css({"left":"0px"}); 
        }); 
     }
 
-    caruselSvipe('#portfolio-carousel');
+    function autoCaruselSvipe(carusel){
+        var caruselSvipeinterval = setInterval(function(){
+            if (!$(carusel).is('.hover'))
+                mooveRightCarusel(carusel);
+        }, 5000);
+    }
 
     $('.carousel').on('mouseenter', function(){$(this).addClass('hover')});
 
     $('.carousel').on('mouseleave', function(){$(this).removeClass('hover')});
 
-    function caruselSvipe(carusel){
-        setInterval(function(){
-            if (!$(carusel).is('.hover'))
-                mooveRightCarusel(carusel);
-        }, 3000);
-    }
-
-//АНИМАЦИЯ ПИСЬМА
+    //АНИМАЦИЯ ПИСЬМА
 
     var letterIsOpen = false;
 
     function openLetter() {
         if (letterIsOpen === false) {
             $(".stamp").fadeOut(0);
-            $(".letter-wrap").animate({"margin-top": "230px"}, 1000) 
+            $(".letter-wrap").animate({"margin-top": "230px"}, 1000);
             $(".top").css('display', 'none');
             $(".cover-wrap").fadeIn(500);
             $(".letter-form").delay(1200).animate({
@@ -258,7 +358,7 @@ $(document).ready(function($) {
     }
 
     function closeLetter() {
-        $(".letter-wrap").animate({"margin-top": "0px"}, 1000)
+        $(".letter-wrap").animate({"margin-top": "0px"}, 1000);
         $(".letter-form").animate({
             top: 0 
         }, 400, function() {
@@ -345,10 +445,10 @@ $(document).ready(function($) {
 
 
 
-    // $('#carousel-example-generic').swiperight(function() {
-    //     $("#carousel-example-generic").carousel('prev');
-    // }).swipeleft(function() {
-    //     $("#carousel-example-generic").carousel('next');
-    // });
+    $('#reviews-carousel').swiperight(function() {
+        $("#reviews-carousel").carousel('prev');
+    }).swipeleft(function() {
+        $("#reviews-carousel").carousel('next');
+    });
     
 });
