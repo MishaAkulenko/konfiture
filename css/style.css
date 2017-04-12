@@ -827,41 +827,43 @@ header .header-title .content-wrapper .content img {
 .portfolio .content-wrapp .row {
   margin: 0;
 }
-.portfolio #portfolio-carousel {
+.portfolio #video-carousel {
   margin-bottom: 40px;
+}
+.portfolio .carousel {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
-.portfolio #portfolio-carousel .carousel {
+.portfolio .carousel .carousel {
   max-width: 1080px;
   margin: 50px auto;
   width: 100%;
 }
-.portfolio #portfolio-carousel .carousel-wrapper {
+.portfolio .carousel .carousel-wrapper {
   margin: 0 20px;
   overflow: hidden;
   position: relative;
 }
 @media (max-width: 480px) {
-  .portfolio #portfolio-carousel .carousel-wrapper {
+  .portfolio .carousel .carousel-wrapper {
     margin: 0 5px;
   }
 }
-.portfolio #portfolio-carousel .carousel-items {
+.portfolio .carousel .carousel-items {
   width: 10000px;
   position: relative;
 }
-.portfolio #portfolio-carousel .carousel-block {
+.portfolio .carousel .carousel-block {
   float: left;
   width: 330px;
   padding: 10px 10px 10px 10px;
 }
-.portfolio #portfolio-carousel .carousel-block img {
+.portfolio .carousel .carousel-block img {
   display: block;
 }
-.portfolio #portfolio-carousel .carousel-ctrl {
+.portfolio .carousel .carousel-ctrl {
   background-image: none !important;
   display: -webkit-box;
   display: -webkit-flex;
@@ -871,23 +873,23 @@ header .header-title .content-wrapper .content img {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 43px;
+  width: 33px;
   cursor: pointer;
 }
 @media (max-width: 470px) {
-  .portfolio #portfolio-carousel .carousel-ctrl {
+  .portfolio .carousel .carousel-ctrl {
     width: 10px;
   }
 }
-.portfolio #portfolio-carousel .carousel-ctrl img {
+.portfolio .carousel .carousel-ctrl img {
   width: 43px;
 }
 @media (max-width: 470px) {
-  .portfolio #portfolio-carousel .carousel-ctrl img {
+  .portfolio .carousel .carousel-ctrl img {
     width: 10px;
   }
 }
-.portfolio #portfolio-carousel .hidden-content {
+.portfolio .carousel .hidden-content {
   background-color: rgba(255, 255, 255, 0.65);
   position: absolute;
   top: 0;
@@ -911,45 +913,45 @@ header .header-title .content-wrapper .content img {
   flex-flow: column;
   font-size: 18px;
 }
-.portfolio #portfolio-carousel .hidden-content p {
+.portfolio .carousel .hidden-content p {
   margin: 0 0 8px 0;
 }
-.portfolio #portfolio-carousel .hidden-content p:hover .galery img {
+.portfolio .carousel .hidden-content p:hover .galery img {
   -webkit-transform: scale(1.1, 1.1);
   -ms-transform: scale(1.1, 1.1);
   transform: scale(1.1, 1.1);
   -webkit-transition: 2s;
   transition: 2s;
 }
-.portfolio #portfolio-carousel .galery {
+.portfolio .carousel .galery {
   height: 245px;
   width: 100%;
   max-width: 330px;
   overflow: hidden;
   position: relative;
 }
-.portfolio #portfolio-carousel .galery:hover img {
+.portfolio .carousel .galery:hover img {
   -webkit-transform: scale(1.1, 1.1);
   -ms-transform: scale(1.1, 1.1);
   transform: scale(1.1, 1.1);
   -webkit-transition: 2s;
   transition: 2s;
 }
-.portfolio #portfolio-carousel .galery:hover .hidden-content {
+.portfolio .carousel .galery:hover .hidden-content {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
-.portfolio #portfolio-carousel .galery:hover .play {
+.portfolio .carousel .galery:hover .play {
   display: none;
 }
 @media (max-width: 400px) {
-  .portfolio #portfolio-carousel .galery {
+  .portfolio .carousel .galery {
     max-width: 245px;
   }
 }
-.portfolio #portfolio-carousel .galery a {
+.portfolio .carousel .galery a {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -957,16 +959,16 @@ header .header-title .content-wrapper .content img {
   right: 0;
   z-index: 4;
 }
-.portfolio #portfolio-carousel .foto {
+.portfolio .carousel .foto {
   margin: 0 0 20px 0;
 }
-.portfolio #portfolio-carousel .foto .hidden-content {
+.portfolio .carousel .foto .hidden-content {
   color: #033f49;
 }
-.portfolio #portfolio-carousel .video .hidden-content {
+.portfolio .carousel .video .hidden-content {
   color: #25325a;
 }
-.portfolio #portfolio-carousel .video .play {
+.portfolio .carousel .video .play {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -975,7 +977,7 @@ header .header-title .content-wrapper .content img {
   transform: translate(-50%, -50%);
   z-index: 3;
 }
-.portfolio #portfolio-carousel .video .play:hover .galery img {
+.portfolio .carousel .video .play:hover .galery img {
   -webkit-transform: scale(1.1, 1.1);
   -ms-transform: scale(1.1, 1.1);
   transform: scale(1.1, 1.1);

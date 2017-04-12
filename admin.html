@@ -1,0 +1,91 @@
+<!DOCTYPE  html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <title>Свадебное агентство KONFITURE Киев</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="dist/style.css"> -->
+</head>
+
+<body>
+    <style>
+        .input-group {
+            margin: 0 auto 20px;
+            width: 50%;
+            height: 50px;
+            font-size: 30px;
+        }
+        input {
+            height: 50px !important;
+        }
+        h1 {
+            padding: 20px;
+            margin: 0;
+        }
+        p {
+            color: #000;
+        }
+    </style>
+    <div style="background-color: #bedfff; color: #4f4f4f">
+        <h1 class="text-center">Портфолио</h1>
+        <p class="text-center">Все фотографии должны находиться в директории images\galery\ каждая галерея должна иметь свою папку. Название папки должно формироваться транслитом из названия вводимого в пункте "Имя пары" плюс уникальный айди. Например svadba_leny_i_maksima_1 </p>
+        <div class="input-group">
+            <span class="input-group-addon">Имя пары</span>
+            <input type="text" class="form-control" placeholder="Записывается в 'partners'">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Ссылка на льбом</span>
+            <input class="form-control" placeholder="Тут поле загрузки фоток для галереи, ссылка на папку записываеться в 'link'">
+        </div>
+        <p class="text-center">Постер сохраняеться в папку галереи под именем preview.jpg</p>
+        <div class="input-group">
+            <span class="input-group-addon">Превью альбома</span>
+            <input class="form-control" placeholder="Тут поле загрузки постера для галереи, ссылка записываеться в 'poster'">
+        </div>
+        <h1 class="text-center">Видео</h1>
+        <div class="input-group">
+            <span class="input-group-addon">Имя пары</span>
+            <input type="text" class="form-control" placeholder="Записывается в 'partners'">
+        </div>
+        <p class="text-center">Все превью должны находиться в директории \images\galery\video_preview Название картинки должно формироваться транслитом из названия вводимого в пункте "Имя пары" плюс уникальный айди. Например svadba_leny_i_maksima_1</p>
+        <div class="input-group">
+            <span class="input-group-addon">Превью альбома</span>
+            <input type="text" class="form-control" placeholder="Тут поле загрузки постера для галереи, ссылка записываеться в 'poster'">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Ссылка на видео</span>
+            <input type="text" class="form-control" placeholder="тут ссылка с ютуб или вимео (вводит пользователь) записываеться в 'Link'">
+        </div>
+        <p class="text-center">Мне нужно отдать данные в виде:</p>
+        <pre>[
+        {
+            partners: 'Лены и Максима',
+            poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
+            link: 'images/galery/svadba_leny_i_maksima_1/'
+        },
+        {
+             partners: 'Лены и Максима',
+            poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
+            link: 'images/galery/svadba_leny_i_maksima_1/'
+        },
+       {
+             partners: 'Лены и Максима',
+            poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
+            link: 'images/galery/svadba_leny_i_maksima_1/'
+        },
+        {
+             partners: 'Лены и Максима',
+            poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
+            link: 'images/galery/svadba_leny_i_maksima_1/'
+        }
+    ];</pre>
+    </div>
+
+    <!-- <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/jquery-touch-events/src/jquery.mobile-events.min.js"></script>
+    <script type="text/javascript" src="bower_components/jquery-template/jquery-loadTemplate/jquery.loadTemplate-1.4.4.min.js"></script>
+    <script type="text/javascript" src="script/script.js"></script> -->
+</body>
+
+</html>

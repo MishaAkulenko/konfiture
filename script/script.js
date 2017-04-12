@@ -158,106 +158,114 @@ $(document).ready(function($) {
 
     // КАРУСЕЛЬ
 
-    var portfolio = {
-        galery1 : {
-                    partners: 'Юли и Семена',
-                    poster: 'images/galery/preview/3.jpg',
-                    video: 'images/galery/preview/6.jpg',
-                    videoSRC: 'images',
-                    imagesSRC: 'video'
-                },
-        galery2 : {
-                    partners: 'Игоря и Лены',
-                    poster: 'images/galery/preview/1.jpg',
-                    video: 'images/galery/preview/4.jpg',
-                    videoSRC: 'images',
-                    imagesSRC: 'video'
-                },
-        galery3 : {
-                    partners: 'Gtnhf и Лены',
-                    poster: 'images/galery/preview/2.jpg',
-                    video: 'images/galery/preview/5.jpg',
-                    videoSRC: 'images',
-                    imagesSRC: 'video'
-                },
-        galery4 : {
-            partners: 'Gtnhf и Лены',
-            poster: 'images/galery/preview/1.jpg',
-            video: 'images/galery/preview/1.jpg',
-            videoSRC: 'images',
-            imagesSRC: 'video'
+    var portfolio = [
+        {
+            partners: 'Лены и Максима',
+            poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
+            link: 'images/galery/svadba_leny_i_maksima_1/'
+        },
+        {
+             partners: 'Лены и Максима',
+            poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
+            link: 'images/galery/svadba_leny_i_maksima_1/'
+        },
+       {
+             partners: 'Лены и Максима',
+            poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
+            link: 'images/galery/svadba_leny_i_maksima_1/'
+        },
+        {
+             partners: 'Лены и Максима',
+            poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
+            link: 'images/galery/svadba_leny_i_maksima_1/'
         }
-    };
-
-    var reviews = {
-        review1 : {
-                    content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
-                    title: 'Анна Семёнова',
-                    portrait: 'images/rewiew/portrait-1.jpg',
-                },
-        review2 : {
-                    content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
-                    title: 'Саша Алексеева',
-                    portrait: 'images/rewiew/portrait-2.jpg',
-                },
-        review3 : {
-                    content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
-                    title: 'Меган Фокс',
-                    portrait: 'images/rewiew/portrait-3.jpg',
-                },
-        review4 : {
-                    content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
-                    title: 'Кот Аркадий',
-                    portrait: 'images/rewiew/portrait-4.jpg',
-                },
-        review5 : {
+    ];
+    var video = [
+        {
+            partners: 'Лены и Максима',
+            poster: 'images/galery/video_preview/svadba_leny_i_maksima_1.jpg',
+            link: 'https://www.youtube.com/watch?v=h7rkOQvFmd0'
+        },
+        {
+            partners: 'Юли и Игоря',
+            poster: 'images/galery/preview/3.jpg',
+            link: 'video'
+        },
+       {
+            partners: 'Юли и Ивана',
+            poster: 'images/galery/preview/2.jpg',
+            link: 'video'
+        },
+        {
+            partners: 'Юли и Пети',
+            poster: 'images/galery/preview/1.jpg',
+            link: 'video'
+        }
+    ];
+    var reviews = [
+        {
+            content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
+            title: 'Анна Семёнова',
+            portrait: 'images/rewiew/portrait-1.jpg',
+        },
+       {
+            content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
+            title: 'Саша Алексеева',
+            portrait: 'images/rewiew/portrait-2.jpg',
+        },
+        {
+            content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
+            title: 'Меган Фокс',
+            portrait: 'images/rewiew/portrait-3.jpg',
+        },
+        {
+            content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
+            title: 'Кот Аркадий',
+            portrait: 'images/rewiew/portrait-4.jpg',
+        },
+        {
             content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
             title: 'Дуся',
             portrait: 'images/rewiew/portrait-5.jpg',
         }
-    };
+    ];
 
-    var news = {
-        news1 : {
+    var news = [
+        {
                     title: 'news1',
                     poster: 'images/news/news-1.jpg',
                     content: 'Interdum et malesuada fames ac ante ipsum primis in faucibus.  purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna.',
                     link: 'images'
                 },
-        news2 : {
+        {
                     title: 'news2',
                     poster: 'images/news/news-2.jpg',
                     content: 'LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM',
                     link: 'images'
                 },
-        news3 : {
+        {
                     title: 'news3',
                     poster: 'images/news/news-3.jpg',
                     content: 'LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM',
                     link: 'images'
                 },
-        news4 : {
+        {
             title: 'news4',
                     poster: 'images/news/news-1.jpg',
                     content: 'LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM',
                     link: 'images'
         },
-        news5 : {
+        {
             title: 'news5',
                     poster: 'images/news/news-3.jpg',
                     content: 'LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM',
                     link: 'images'
         }
-    };
+    ];
 
     var counter = 0;
 
     function caruselSvipe(caruselObj, caruselId, template, carouselItemsClass, carouselBlockClass, tmplWrapp) {
-        var counterOfProperty = 0; //счетчик свойств
-
-        for (var property in caruselObj) {
-            counterOfProperty++;
-        }
 
         for (var key in caruselObj) {
             $(caruselId).find(carouselItemsClass).append(tmplWrapp);
@@ -266,7 +274,7 @@ $(document).ready(function($) {
             var itemOfCarusel = caruselId + " " + '#' + key; 
             $(itemOfCarusel).loadTemplate(template, caruselObj[key]);//грузим темплейт
 
-            if (counter == counterOfProperty) {
+            if (counter == caruselObj.length) {
                 counter = 0; //если счетчик свойств достиг максимального значения, то сбросить его в ноль
             }
         }
@@ -275,7 +283,6 @@ $(document).ready(function($) {
             $(caruselId).on('click', '.right', function(){ 
                 var carusel = $(this).parents('.carousel');
                 mooveRightCarusel(carusel);
-                clearInterval(caruselSvipeinterval);
                 return false;
             });
             
@@ -285,7 +292,7 @@ $(document).ready(function($) {
                 return false;
             });
 
-            $(caruselId).swiperight(function() {
+            $(caruselId).swiperight(function() {//для тачскринов
                 mooveRightCarusel(caruselId);
             }).swipeleft(function() {
                 mooveLeftCarusel(caruselId);
@@ -293,19 +300,22 @@ $(document).ready(function($) {
         } 
     }
 
-    // $('#reviews-carousel').swiperight(function() {
-    //     $("#reviews-carousel").carousel('prev');
-    // }).swipeleft(function() {
-    //     $("#reviews-carousel").carousel('next');
-    // });
+    $('#reviews-carousel').swiperight(function() {//для тачскринов
+        $("#reviews-carousel").carousel('prev');
+    }).swipeleft(function() {
+        $("#reviews-carousel").carousel('next');
+    });
 
     caruselSvipe(news, "#news-carousel", "../templates/news-preview-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
     caruselSvipe(portfolio, "#portfolio-carousel", "../templates/portfolio-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
     caruselSvipe(reviews, "#reviews-carousel", "../templates/review-tmpl.html",  '.carousel-inner', '.item', '<div class="item"></div>');
+    caruselSvipe(video, "#video-carousel", "../templates/video-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
 
     autoCaruselSvipe('#portfolio-carousel');
 
     autoCaruselSvipe('#news-carousel');
+
+    autoCaruselSvipe('#video-carousel');
 
     $("#reviews-carousel .item").eq(0).addClass('active');//нужно для того чтобы работала бутстраповская карусель
     
@@ -442,13 +452,4 @@ $(document).ready(function($) {
 
     //     }
     // });
-
-
-
-    $('#reviews-carousel').swiperight(function() {
-        $("#reviews-carousel").carousel('prev');
-    }).swipeleft(function() {
-        $("#reviews-carousel").carousel('next');
-    });
-    
 });
