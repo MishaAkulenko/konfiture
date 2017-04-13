@@ -80,7 +80,103 @@
         }
     ];</pre>
     </div>
-
+    <div style="background-color: #e6ddee; color: #4f4f4f">
+       <h1 class="text-center">Отзывы</h1>
+        <p class="text-center">Все фотографии должны находиться в директории images\rewiew\ Название картинки должно формироваться транслитом из названия вводимого в пункте "Имя клиента" плюс уникальный айди. Например Megan_Fox_1.jpg</p> 
+        <div class="input-group">
+            <span class="input-group-addon">Аватарка пользователя</span>
+            <input class="form-control" placeholder="Тут поле загрузки аватара для отзыва, ссылка записываеться в 'poster'">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Отзыв</span>
+            <input type="text" class="form-control" placeholder="Тут поле ввода самого отзыва записываеться в 'content'">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Имя</span>
+            <input type="text" class="form-control" placeholder="Тут поле ввода имени клиента который оставлял отзыв, записывается  в 'title'">
+        </div>
+        <p class="text-center">Мне нужно отдать данные в виде:</p>
+        <pre>[
+        {
+            content: 'тут отзыв',
+            title: 'Анна Семёнова',
+            portrait: 'images/rewiew/Megan_Fox_1.jpg',
+        },
+       {
+            content: 'тут отзыв',
+            title: 'Саша Алексеева',
+            portrait: 'images/rewiew/Megan_Fox_2.jpg',
+        },
+        {
+            content: 'тут отзыв',
+            title: 'Меган Фокс',
+            portrait: 'images/rewiew/Megan_Fox_3.jpg',
+        },
+        {
+            content: 'тут отзыв',
+            title: 'Кот Аркадий',
+            portrait: 'images/rewiew/Megan_Fox_4.jpg',
+        },
+        {
+            content: 'тут отзыв',
+            title: 'Дуся',
+            portrait: 'images/rewiew/Megan_Fox_5.jpg',
+        }
+    ];</pre>
+    </div>
+    <div style="background-color: #bedfff; color: #4f4f4f">
+       <h1 class="text-center">Новости</h1>
+        <p class="text-center">Все фотографии к новости должны находиться в директории images\news\ каждая новость должна иметь свою папку. Название папки должно формироваться транслитом из названия вводимого в пункте "Заглавие новости" плюс уникальный айди. Например akcija_ko_dnu_vlublennyh_1.</p>
+         <p class="text-center">Все что ниже относиться к новостям на главной, по самому разделу новости и как они будут формироваться порешаем позже. Но то что будет отображаться на главной - а именное короткое описание будет вводиться следующим образом ограничение в 175 символов</p>
+        <div class="input-group">
+            <span class="input-group-addon">Превью новости</span>
+            <input class="form-control" placeholder="Тут поле загрузки превью для новости, ссылка записываеться в 'poster'">
+        </div>
+        <p class="text-center">Превью должно находится в папке новостей и иметь имя preview.jpg</p>
+        <div class="input-group">
+            <span class="input-group-addon">Заглавие новости</span>
+            <input type="text" class="form-control" placeholder="Тут поле ввода заглавия новости записывается в  'title'">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">Короткое описание</span>
+            <input type="text" class="form-control" placeholder="Тут поле ввода короткого описания новости ограничение 175 символов, записывается  в 'content'">
+        </div>
+        <p class="text-center">Также нужно не забыть про ссылку на саму новость, я не знаю как они формируються, тут уж ты подскажи</p>
+        <p class="text-center">Мне нужно отдать данные в виде:</p>
+        <pre>[
+        {
+            title: 'Акция ко дню влюбленных',
+            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+            content: 'бла бла блабля бла чето атм расказывается, короткое превью ограничение в 175 символов',
+            link: 'тут ссылка на полную статью в самом разделе новости'
+        },
+        {
+            title: 'Акция ко дню влюбленных',
+            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+            content: 'бла бла блабля бла чето атм расказывается',
+            link: 'тут ссылка на полную статью в самом разделе новости'
+        },
+        {
+            title: 'Акция ко дню влюбленных',
+            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+            content: 'бла бла блабля бла чето атм расказывается',
+            link: 'тут ссылка на полную статью в самом разделе новости'
+        },
+        {
+            title: 'Акция ко дню влюбленных',
+            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+            content: 'бла бла блабля бла чето атм расказывается',
+            link: 'тут ссылка на полную статью в самом разделе новости'
+        },
+        {
+            title: 'Акция ко дню влюбленных',
+            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+            content: 'бла бла блабля бла чето атм расказывается',
+            link: 'тут ссылка на полную статью в самом разделе новости'
+        },
+    ];</pre>
+    </div>
+    <h2>Также на главной есть две формы обратной связи, данные с них нужно отправить на какоето корпоративное мыло, пока неизвестное мне</h2>
     <!-- <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/jquery-touch-events/src/jquery.mobile-events.min.js"></script>

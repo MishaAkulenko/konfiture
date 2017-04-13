@@ -188,17 +188,17 @@ $(document).ready(function($) {
         },
         {
             partners: 'Юли и Игоря',
-            poster: 'images/galery/preview/3.jpg',
+            poster: 'images/galery/video_preview/svadba_leny_i_maksima_1.jpg',
             link: 'video'
         },
        {
             partners: 'Юли и Ивана',
-            poster: 'images/galery/preview/2.jpg',
+            poster: 'images/galery/video_preview/svadba_leny_i_maksima_1.jpg',
             link: 'video'
         },
         {
             partners: 'Юли и Пети',
-            poster: 'images/galery/preview/1.jpg',
+            poster: 'images/galery/video_preview/svadba_leny_i_maksima_1.jpg',
             link: 'video'
         }
     ];
@@ -232,35 +232,35 @@ $(document).ready(function($) {
 
     var news = [
         {
-                    title: 'news1',
-                    poster: 'images/news/news-1.jpg',
-                    content: 'Interdum et malesuada fames ac ante ipsum primis in faucibus.  purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna.',
-                    link: 'images'
-                },
-        {
-                    title: 'news2',
-                    poster: 'images/news/news-2.jpg',
-                    content: 'LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM',
-                    link: 'images'
-                },
-        {
-                    title: 'news3',
-                    poster: 'images/news/news-3.jpg',
-                    content: 'LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM',
-                    link: 'images'
-                },
-        {
-            title: 'news4',
-                    poster: 'images/news/news-1.jpg',
-                    content: 'LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM',
-                    link: 'images'
+            title: 'Акция ко дню влюбленных',
+            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+            content: 'бла бла блабля бла чето атм расказывается',
+            link: 'тут ссылка на полную статью в самом разделе новости'
         },
         {
-            title: 'news5',
-                    poster: 'images/news/news-3.jpg',
-                    content: 'LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM',
-                    link: 'images'
-        }
+            title: 'Акция ко дню влюбленных',
+            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+            content: 'бла бла блабля бла чето атм расказывается бла бла блабля бла чето атм расказывается, короткое превью бла бла блабля бла чето атм расказывается, короткое превью бла бла блабля бла чето атм расказывается, короткое превью',
+            link: 'тут ссылка на полную статью в самом разделе новости'
+        },
+        {
+            title: 'Акция ко дню влюбленных',
+            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+            content: 'бла бла блабля бла чето атм расказывается',
+            link: 'тут ссылка на полную статью в самом разделе новости'
+        },
+        {
+            title: 'Акция ко дню влюбленных',
+            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+            content: 'бла бла блабля бла чето атм расказывается',
+            link: 'тут ссылка на полную статью в самом разделе новости'
+        },
+        {
+            title: 'Акция ко дню влюбленных',
+            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+            content: 'бла бла блабля бла чето атм расказывается',
+            link: 'тут ссылка на полную статью в самом разделе новости'
+        },
     ];
 
     var counter = 0;
