@@ -8,7 +8,7 @@ window.onload = function() {
             opacity: 0 
         }, 500, function() {
             $(".loading-screen").css('display', 'none'); 
-            $(".content-wrapper").animate({"opacity": "1"}, 500) 
+            $(".content-wrapper").animate({"opacity": "1"}, 500) ;
         });
     }
   };
@@ -162,22 +162,22 @@ $(document).ready(function($) {
         {
             partners: 'Лены и Максима',
             poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
-            link: 'images/galery/svadba_leny_i_maksima_1/'
+            galeryId: '1'
         },
         {
-             partners: 'Лены и Максима',
+            partners: 'Светы и Василия',
             poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
-            link: 'images/galery/svadba_leny_i_maksima_1/'
+            galeryId: '2'
         },
        {
-             partners: 'Лены и Максима',
+             partners: 'Иры и Романа',
             poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
-            link: 'images/galery/svadba_leny_i_maksima_1/'
+            galeryId: '3'
         },
         {
-             partners: 'Лены и Максима',
+             partners: 'Насти и Паши',
             poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
-            link: 'images/galery/svadba_leny_i_maksima_1/'
+            galeryId: '4'
         }
     ];
     var video = [
@@ -273,7 +273,7 @@ $(document).ready(function($) {
             counter++;
             var itemOfCarusel = caruselId + " " + '#' + key; 
             $(itemOfCarusel).loadTemplate(template, caruselObj[key]);//грузим темплейт
-
+            
             if (counter == caruselObj.length) {
                 counter = 0; //если счетчик свойств достиг максимального значения, то сбросить его в ноль
             }
@@ -406,6 +406,55 @@ $(document).ready(function($) {
             }
     });
 
+    function showGalery(event) {
+        var partners = "Свадьба " + $(event.target).attr('alt');
+        //     // link = ["images/galery/svadba_leny_i_maksima_1/photo1.jpg","images/galery/svadba_leny_i_maksima_1/photo2.jpg","images/galery/svadba_leny_i_maksima_1/photo3.jpg"];
+        //     link = "["+ $(event.target).attr('href') + "]";
+        //     console.log(link);
+        // for (var i = 0; i < link.length; i++) {
+        //     // console.log(link[i]);
+        // }
+        $('#gallery').show().jGallery({
+            mode: 'full-screen',
+            slideshowAutostart: false,
+            canChangeMode: false,
+            canZoom:false,
+            canClose: true,
+            swipeEvents: true,
+            thumbnailsHideOnMobile: false,
+            slideshowCanRandom: false,
+            thumbnailsFullScreen: false,
+            tooltipRandom: 'Рандом',
+            tooltipSlideshow: 'Слайдшоу',
+            tooltipClose: 'Закрыть',
+            tooltipSeeAllPhotos: 'Все фото',
+            tooltipToggleThumbnails: 'Скрыть миниатюры',
+            backgroundColor: '#25325a',
+            textColor: 'white',
+            items: [
+                {
+                    url: 'images/galery/svadba_leny_i_maksima_1/photo1.jpg',
+                    thumbUrl: 'images/galery/svadba_leny_i_maksima_1/photo1.jpg',
+                    title: partners
+                },
+                {
+                    url: 'images/galery/svadba_leny_i_maksima_1/photo2.jpg',
+                    thumbUrl: 'images/galery/svadba_leny_i_maksima_1/photo2.jpg',
+                    title: partners
+                },
+                {
+                    url: 'images/galery/svadba_leny_i_maksima_1/photo3.jpg',
+                    thumbUrl: 'images/galery/svadba_leny_i_maksima_1/photo3.jpg',
+                    title: partners
+                }
+            ]
+        });
+    }
+
+    $("#portfolio-carousel").on('click', 'a', function(event) {
+        event.preventDefault();
+        showGalery(event);
+    });
     // $(window).scroll(function() { //проверка на растояние от верха для изменения стилей некоторых элементов
     //     var distanceToAboutUs = $("#about-us").offset().top, //растояние до блоков от верха окна
     //         distanceToServHead = $(".services-header").offset().top,

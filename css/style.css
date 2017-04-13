@@ -820,6 +820,9 @@ header .header-title .content-wrapper .content img {
 .portfolio h1 {
   color: #000;
 }
+.portfolio #gallery .nav {
+  font-size: 25px;
+}
 .portfolio .content-wrapp {
   background-color: rgba(136, 155, 211, 0.75);
   margin: 0 -15px;
