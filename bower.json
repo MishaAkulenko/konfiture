@@ -18,6 +18,7 @@
   "devDependencies": {
     "bootstrap": "^3.3.7",
     "jquery-touch-events": "^1.0.8",
-    "jquery-template": "^1.4.4"
+    "jquery-template": "^1.4.4",
+    "plyr": "^2.0.12"
   }
 }

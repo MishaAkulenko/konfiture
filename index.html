@@ -13,9 +13,10 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="touch-icon-ipad.png" type="image/x-icon"/>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="dist/style.css">
     <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/plyr/dist/plyr.css">
     <link rel="stylesheet" type="text/css" media="all" href="node_modules/jgallery/dist/css/jgallery.min.css" />
+    <link rel="stylesheet" href="dist/style.css">
 </head>
 
 <body>
@@ -277,9 +278,13 @@
                                 <img src="images/devider-black.png" alt="2">
                             </div>
                         </div>
-                        <div id="gallery">
-                            
+                        <div id="video-gallery">
+                            <div class="wrapp">
+                                <div class="portfolio-player" data-type="youtube" data-video-id=""></div>
+                                <div class="close-video"><span class="fa fa-times"></span></div>
+                            </div>
                         </div>
+                        <div id="gallery"></div>
                         <div id="portfolio-carousel" class="carousel">
                             <div class="left carousel-ctrl">
                                 <img src="images/carousel-control-left.png" alt="2">
@@ -496,6 +501,7 @@
     <script type="text/javascript" src="bower_components/jquery-template/jquery-loadTemplate/jquery.loadTemplate-1.4.4.min.js"></script>
     <script type="text/javascript" src="node_modules\jgallery\dist\js\jgallery.min.js"></script>
     <script type="text/javascript" src="node_modules\jgallery\dist\js\tinycolor-0.9.16.min.js"></script>
+    <script src="bower_components/plyr/dist/plyr.js"></script>
     <script type="text/javascript" src="script/script.js"></script>
 </body>
 

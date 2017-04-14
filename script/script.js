@@ -166,17 +166,17 @@ $(document).ready(function($) {
         },
         {
             partners: 'Светы и Василия',
-            poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
+            poster: 'images/galery/svadba_leny_i_maksima_2/preview.jpg',
             galeryId: '2'
         },
        {
              partners: 'Иры и Романа',
-            poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
+            poster: 'images/galery/svadba_leny_i_maksima_3/preview.jpg',
             galeryId: '3'
         },
         {
              partners: 'Насти и Паши',
-            poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
+            poster: 'images/galery/svadba_leny_i_maksima_4/preview.jpg',
             galeryId: '4'
         }
     ];
@@ -184,22 +184,22 @@ $(document).ready(function($) {
         {
             partners: 'Лены и Максима',
             poster: 'images/galery/video_preview/svadba_leny_i_maksima_1.jpg',
-            link: 'https://www.youtube.com/watch?v=h7rkOQvFmd0'
+            link: 'watch?v=xyCdd9qoiKY'
         },
         {
             partners: 'Юли и Игоря',
-            poster: 'images/galery/video_preview/svadba_leny_i_maksima_1.jpg',
-            link: 'video'
+            poster: 'images/galery/video_preview/svadba_leny_i_maksima_2.jpg',
+            link: 'watch?v=zJyd5z6LvEg'
         },
        {
             partners: 'Юли и Ивана',
-            poster: 'images/galery/video_preview/svadba_leny_i_maksima_1.jpg',
-            link: 'video'
+            poster: 'images/galery/video_preview/svadba_leny_i_maksima_3.jpg',
+            link: 'watch?v=Y6Cy9uws_Ew'
         },
         {
             partners: 'Юли и Пети',
-            poster: 'images/galery/video_preview/svadba_leny_i_maksima_1.jpg',
-            link: 'video'
+            poster: 'images/galery/video_preview/svadba_leny_i_maksima_4.jpg',
+            link: 'watch?v=9qoqcEB6_D8'
         }
     ];
     var reviews = [
@@ -293,9 +293,9 @@ $(document).ready(function($) {
             });
 
             $(caruselId).swiperight(function() {//для тачскринов
-                mooveRightCarusel(caruselId);
-            }).swipeleft(function() {
                 mooveLeftCarusel(caruselId);
+            }).swipeleft(function() {
+                mooveRightCarusel(caruselId);
             });
         } 
     }
@@ -451,10 +451,42 @@ $(document).ready(function($) {
         });
     }
 
+    // Инициализация плеера
+    var portfolioPlayer = plyr.setup('.portfolio-player', {
+        controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'fullscreen'],
+        volume: 2,
+        autoplay: true
+    });
+
+    $("#video-carousel").on('click', 'a', function(event) {
+        event.preventDefault();
+        $("body").css('overflow', 'hidden');
+        var videoLink = $(this).attr('href');
+
+        $("#video-gallery").css('display', 'flex');
+
+        portfolioPlayer[0].source({
+          type:       'video',
+          sources: [{
+            src:    videoLink,
+            type:   'youtube' 
+          }]
+        });
+    });
+    portfolioPlayer[0].play();
+
+    $(".close-video").on('click', "span", function(event) {
+        event.preventDefault();
+        $("#video-gallery").fadeOut("500");
+        portfolioPlayer[0].stop();
+        $("body").css('overflow', 'visible');
+    });
+
     $("#portfolio-carousel").on('click', 'a', function(event) {
         event.preventDefault();
         showGalery(event);
     });
+
     // $(window).scroll(function() { //проверка на растояние от верха для изменения стилей некоторых элементов
     //     var distanceToAboutUs = $("#about-us").offset().top, //растояние до блоков от верха окна
     //         distanceToServHead = $(".services-header").offset().top,
@@ -502,3 +534,6 @@ $(document).ready(function($) {
     //     }
     // });
 });
+
+    
+
