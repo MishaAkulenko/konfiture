@@ -184,7 +184,7 @@ header {
 				}
 			}
 
-			.menu {
+			.menu, .news-article-menu {
 				height: 80px;
 				display: flex;
 				border-bottom: solid 1px #fff;
@@ -266,7 +266,7 @@ header {
 						}
 					}
 
-					.banner {
+					.banner, .article-banner {
 						padding-right: 30px;
 						margin-bottom: 10px;
 
@@ -274,6 +274,35 @@ header {
 							display: none;
 						}
 					}
+				}
+			}
+
+			.news-article-menu {
+				background-color: #1d233b;
+				border: none;
+				
+				&:hover {
+					background-color: #fff;
+
+					a, span {
+						color: #313f6c;
+
+						@media (max-width: 1200px) {
+							color: #fff;
+						}
+					}
+		
+					.article-logo-color {
+						display: block;
+					}
+
+					.article-logo-white {
+						display: none;
+					}
+				}
+
+				.article-logo-color {
+					display: none;
 				}
 			}
 		}  
@@ -355,7 +384,7 @@ header {
      ABOUT-US
 ===================
 */
-#about-us {
+.chess-block {
 	.row {
 		margin: 0;
 		display: flex;
@@ -386,6 +415,10 @@ header {
 
 	.second-chapter {
 		background-color: #ebf5ff;
+	}
+
+	.news-article {
+		background-color: #e5e8f4;
 	}
 
 	p {
@@ -1575,13 +1608,6 @@ header {
 		padding: 5px 6px 0 0;
 	}
 
-	.mail {
-		padding-top: 21px;
-		@media (max-width: 768px) {
-			padding-top: 11px;
-		}
-	}
-
 	.social {
 		font-size: 26px;
 		padding-top: 40px;
@@ -1618,6 +1644,101 @@ header {
 
 	@media (max-width: 768px) {
 		left: 5px;
+	}
+}
+// NEWS ARTICLE
+
+.article-content {
+	color: #1d233b;
+
+	.row {
+		margin: 0;
+	}
+
+	.chess-block {
+		margin: 30px 0 40px;
+	}
+
+	.lover-block {
+		margin-bottom: 40px;
+	}
+
+	.article-galery {
+		background-color: #1d233b;
+		margin: 40px 0;
+		padding: 32px 0 22px;
+
+		.video-wrapp {
+			width: 700px;
+			margin: 0 auto;
+
+			@media (max-width: 730px) {
+				width: 100%;
+			}
+		}
+	}
+}
+
+#article-gallery {
+	margin:  0 0 25px;
+}
+.news-date {
+	font-size: 19px;
+	margin: 0 0 5px;
+}
+.article-title {
+	text-align: center;
+	text-transform: uppercase;
+
+	h4 {
+		font-size: 16px;
+		padding: 35px 0 17px;
+		margin: 0;
+	}
+
+	h1 {
+		font-size: 26px;
+		padding: 0 0 32px;
+	}
+
+	img {
+		margin-bottom: 5px;
+		width: 90%;
+	}
+
+}
+
+header {
+	.article-header-title {
+		height: 500px;
+
+		.header-wrapper {
+			height: 500px;
+			background-image: url("../images/news/akcija_ko_dnu_vlublennyh_1/article-header.jpg");
+			background-size: cover;
+			background-position: center;
+		}
+		.back-to-news {
+			position: fixed;
+			height: 50px;
+			top: 80px;
+			left: 0;
+			right: 0;
+			background-color: rgba(29, 35, 59, 0.5);
+			z-index: 2;
+			display: none;
+
+			a {
+				text-transform: uppercase;
+				text-decoration: none;
+				font-size: 14px;
+				color: #fff;
+				width: 100%;
+				height: 100%;
+				vertical-align: middle;
+				line-height: 50px;
+			}
+		}
 	}
 }
 

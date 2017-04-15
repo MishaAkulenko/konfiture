@@ -6,7 +6,7 @@ window.onload = function() {
         $("body").css('overflow', 'visible');
         $(".loading-screen").animate({
             opacity: 0 
-        }, 500, function() {
+        }, 0, function() {
             $(".loading-screen").css('display', 'none'); 
             $(".content-wrapper").animate({"opacity": "1"}, 500) ;
         });
@@ -54,14 +54,14 @@ $(document).ready(function($) {
 
     function openMenu() {  //открыть мобильное меню
         $(".home-arrow").fadeOut('0');
-        $(".menu").css('opacity', '0'); 
+        $(".menu, .news-article-menu").css('opacity', '0'); 
         $(".menu-mobile .banner").css('display', 'none');
-        $(".menu").animate({
+        $(".menu, .news-article-menu").animate({
             opacity: 1 
         }, 400).css('display', 'block');
         $(".menu-icon").css('display', 'none'); 
         $(".menu-close").css('display', 'block'); 
-        $(".menu").css({
+        $(".menu, .news-article-menu").css({
             position: 'fixed',
             top: '0',
             bot: '0',
@@ -75,10 +75,10 @@ $(document).ready(function($) {
         $(".menu-icon").css('display', 'block'); 
         $(".menu-close").css('display', 'none');
         $(".menu-mobile .banner").css('display', 'block');
-        $(".menu").animate({
+        $(".menu, .news-article-menu").animate({
             opacity: 0 
         }, 400, function() {
-            $(".menu").css('display', 'none');  
+            $(".menu, .news-article-menu").css('display', 'none');  
             $(".navigation").css('height', '80px');
         });
     }
@@ -132,7 +132,7 @@ $(document).ready(function($) {
         }
     }
 
-    if ($(window).width() > 1200) { //анимация меню при прокрутке
+    if ($(".main-page").width() > 1200) { //анимация меню при прокрутке
         var state; //переменная состояния, меняет свое значение когда меню изменяет свой размер, нужна для того, чтобы анимация не происходила при каждом событии прокрутки 
 
         if ($(window).scrollTop() !== 0) {
@@ -306,19 +306,6 @@ $(document).ready(function($) {
         $("#reviews-carousel").carousel('next');
     });
 
-    caruselSvipe(news, "#news-carousel", "../templates/news-preview-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
-    caruselSvipe(portfolio, "#portfolio-carousel", "../templates/portfolio-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
-    caruselSvipe(reviews, "#reviews-carousel", "../templates/review-tmpl.html",  '.carousel-inner', '.item', '<div class="item"></div>');
-    caruselSvipe(video, "#video-carousel", "../templates/video-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
-
-    autoCaruselSvipe('#portfolio-carousel');
-
-    autoCaruselSvipe('#news-carousel');
-
-    autoCaruselSvipe('#video-carousel');
-
-    $("#reviews-carousel .item").eq(0).addClass('active');//нужно для того чтобы работала бутстраповская карусель
-    
     function mooveLeftCarusel(carusel){
        var blockWidth = $(carusel).find('.carousel-block').outerWidth();
        $(carusel).find(".carousel-items .carousel-block").eq(-1).clone().prependTo($(carusel).find(".carousel-items")); 
@@ -339,14 +326,30 @@ $(document).ready(function($) {
 
     function autoCaruselSvipe(carusel){
         var caruselSvipeinterval = setInterval(function(){
-            if (!$(carusel).is('.hover'))
+            if ($(carusel).is('.hover') !== true && $(carusel).is('.galeryIsOpen') !== true)
                 mooveRightCarusel(carusel);
         }, 5000);
+
     }
 
-    $('.carousel').on('mouseenter', function(){$(this).addClass('hover')});
+    if ($(".main-page").length) { //генерим разные карусели для главной страницы
+        caruselSvipe(news, "#news-carousel", "../templates/news-preview-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
+        caruselSvipe(portfolio, "#portfolio-carousel", "../templates/portfolio-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
+        caruselSvipe(reviews, "#reviews-carousel", "../templates/review-tmpl.html",  '.carousel-inner', '.item', '<div class="item"></div>');
+        caruselSvipe(video, "#video-carousel", "../templates/video-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
 
-    $('.carousel').on('mouseleave', function(){$(this).removeClass('hover')});
+        autoCaruselSvipe('#portfolio-carousel');
+
+        autoCaruselSvipe('#news-carousel');
+
+        autoCaruselSvipe('#video-carousel');
+
+        $("#reviews-carousel .item").eq(0).addClass('active');//нужно для того чтобы работала бутстраповская карусель
+        
+        $('.carousel').on('mouseenter', function(){$(this).addClass('hover')});//когда курсор на карусели, карусель останавливаеться
+
+        $('.carousel').on('mouseleave', function(){$(this).removeClass('hover')});
+    }
 
     //АНИМАЦИЯ ПИСЬМА
 
@@ -391,9 +394,10 @@ $(document).ready(function($) {
     });
 
     $(window).scroll(function() {
-        var distanceFromTop = $(window).scrollTop(), //растояние до блоков от верха окна
-            distanceToFeedbackForm = $(".feedback-form").offset().top;
-            distanceToAboutUs = $("#about-us").offset().top;
+        if ($(".main-page").length) {
+            var distanceFromTop = $(window).scrollTop(), //растояние до блоков от верха окна
+                distanceToFeedbackForm = $(".feedback-form").offset().top,
+                distanceToAboutUs = $("#about-us").offset().top;
 
             if ($(window).width() >=  768 && distanceFromTop > distanceToFeedbackForm -200) {
                 setTimeout(openLetter, 500);
@@ -404,17 +408,53 @@ $(document).ready(function($) {
             } else {
                $(".home-arrow").fadeIn(500); 
             }
+        } 
+
+        if ($(".article-page").length) {
+            var distanceFromTop = $(window).scrollTop(), //растояние до блоков от верха окна
+
+            distanceToArticleContent = $(".article-content").offset().top;
+
+            if (distanceFromTop < 40) {
+                $(".home-arrow").fadeOut(500);
+            } else {
+               $(".home-arrow").fadeIn(500); 
+            }
+
+            if (distanceFromTop > distanceToArticleContent && $(window).width() > 1200) {
+                $(".back-to-news").fadeIn(500);
+            }
+        }
+
     });
 
+    // $(".article-page").scroll(function() {
+    //     var distanceFromTop = $(window).scrollTop(), //растояние до блоков от верха окна
+    //         distanceToArticleContent = $(".article-content").offset().top;
+
+    //         if (distanceFromTop < 40) {
+    //             $(".home-arrow").fadeOut(500);
+    //         } else {
+    //            $(".home-arrow").fadeIn(500); 
+    //         }
+
+    //         if (distanceFromTop > distanceToArticleContent) {
+    //             $(".back-to-news").fadeIn(500);
+    //         }
+    // });
+
+
     function showGalery(event) {
-        var partners = "Свадьба " + $(event.target).attr('alt');
-        //     // link = ["images/galery/svadba_leny_i_maksima_1/photo1.jpg","images/galery/svadba_leny_i_maksima_1/photo2.jpg","images/galery/svadba_leny_i_maksima_1/photo3.jpg"];
-        //     link = "["+ $(event.target).attr('href') + "]";
-        //     console.log(link);
-        // for (var i = 0; i < link.length; i++) {
-        //     // console.log(link[i]);
-        // }
-        $('#gallery').show().jGallery({
+        var partners = "Свадьба " + $(event.target).attr('alt'),
+            galeryId = $(event.target).attr('href'),
+            arrOfPhotosLinks = ["images/galery/svadba_leny_i_maksima_1/photo1.jpg","images/galery/svadba_leny_i_maksima_1/photo2.jpg","images/galery/svadba_leny_i_maksima_1/photo3.jpg", "images/galery/svadba_leny_i_maksima_1/photo4.jpg","images/galery/svadba_leny_i_maksima_1/photo5.jpg","images/galery/svadba_leny_i_maksima_1/photo6.jpg","images/galery/svadba_leny_i_maksima_1/photo7.jpg","images/galery/svadba_leny_i_maksima_1/photo8.jpg","images/galery/svadba_leny_i_maksima_1/photo9.jpg"],
+            fotosInGaleryUrl = [];
+
+        for (var i = 0; i < arrOfPhotosLinks.length; i++) {
+            fotosInGaleryUrl.push({"url": arrOfPhotosLinks[i], "thumbUrl": arrOfPhotosLinks[i], "title": partners});  
+        }
+
+        $('#gallery').show().jGallery({//галерея на главной странице
             mode: 'full-screen',
             slideshowAutostart: false,
             canChangeMode: false,
@@ -423,7 +463,9 @@ $(document).ready(function($) {
             swipeEvents: true,
             thumbnailsHideOnMobile: false,
             slideshowCanRandom: false,
-            thumbnailsFullScreen: false,
+            thumbnailsFullScreen: true,
+            canMinimalizeThumbnails: false,
+            maxMobileWidth: 300,
             tooltipRandom: 'Рандом',
             tooltipSlideshow: 'Слайдшоу',
             tooltipClose: 'Закрыть',
@@ -431,39 +473,52 @@ $(document).ready(function($) {
             tooltipToggleThumbnails: 'Скрыть миниатюры',
             backgroundColor: '#25325a',
             textColor: 'white',
-            items: [
-                {
-                    url: 'images/galery/svadba_leny_i_maksima_1/photo1.jpg',
-                    thumbUrl: 'images/galery/svadba_leny_i_maksima_1/photo1.jpg',
-                    title: partners
-                },
-                {
-                    url: 'images/galery/svadba_leny_i_maksima_1/photo2.jpg',
-                    thumbUrl: 'images/galery/svadba_leny_i_maksima_1/photo2.jpg',
-                    title: partners
-                },
-                {
-                    url: 'images/galery/svadba_leny_i_maksima_1/photo3.jpg',
-                    thumbUrl: 'images/galery/svadba_leny_i_maksima_1/photo3.jpg',
-                    title: partners
-                }
-            ]
+            items: fotosInGaleryUrl
         });
     }
 
-    // Инициализация плеера
+    $('#article-gallery').jGallery({//новостная галерея
+        mode: 'standard',
+        slideshowAutostart: false,
+        canChangeMode: true,
+        canZoom:false,
+        canClose: false,
+        swipeEvents: true,
+        thumbnailsHideOnMobile: false,
+        slideshowCanRandom: false,
+        thumbnailsFullScreen: false,
+        slideshow: false,
+        canMinimalizeThumbnails: false,
+        maxMobileWidth: 300,
+        tooltipRandom: 'Рандом',
+        tooltipSlideshow: 'Слайдшоу',
+        tooltipClose: 'Закрыть',
+        tooltipSeeAllPhotos: 'Все фото',
+        tooltipToggleThumbnails: 'Скрыть миниатюры',
+        backgroundColor: '#21284d',
+        textColor: 'white',
+        items: [{"url": "images/galery/svadba_leny_i_maksima_1/photo1.jpg", "thumbUrl": "images/galery/svadba_leny_i_maksima_1/photo1.jpg"},{"url": "images/galery/svadba_leny_i_maksima_1/photo2.jpg", "thumbUrl": "images/galery/svadba_leny_i_maksima_1/photo2.jpg"}]
+    });
+
+    // ВИДЕО ПЛЕЕР
     var portfolioPlayer = plyr.setup('.portfolio-player', {
         controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'fullscreen'],
         volume: 2,
-        autoplay: true
+        autoplay: false
+    });
+
+    var articlePlayer = plyr.setup('.article-player', {
+        controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'fullscreen'],
+        volume: 2,
+        autoplay: false
     });
 
     $("#video-carousel").on('click', 'a', function(event) {
         event.preventDefault();
+        $("#video-carousel").addClass('galeryIsOpen');
         $("body").css('overflow', 'hidden');
-        var videoLink = $(this).attr('href');
-
         $("#video-gallery").css('display', 'flex');
+        var videoLink = $(this).attr('href');
 
         portfolioPlayer[0].source({
           type:       'video',
@@ -473,10 +528,10 @@ $(document).ready(function($) {
           }]
         });
     });
-    portfolioPlayer[0].play();
 
     $(".close-video").on('click', "span", function(event) {
         event.preventDefault();
+        $("#video-carousel").removeClass('galeryIsOpen');
         $("#video-gallery").fadeOut("500");
         portfolioPlayer[0].stop();
         $("body").css('overflow', 'visible');
@@ -485,6 +540,12 @@ $(document).ready(function($) {
     $("#portfolio-carousel").on('click', 'a', function(event) {
         event.preventDefault();
         showGalery(event);
+        $("#portfolio-carousel").addClass('galeryIsOpen');
+    });
+
+    $("#gallery").on('click', ".fa-times", function(event) {
+        event.preventDefault();
+        $("#portfolio-carousel").removeClass('galeryIsOpen');
     });
 
     // $(window).scroll(function() { //проверка на растояние от верха для изменения стилей некоторых элементов
