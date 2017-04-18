@@ -1,6 +1,10 @@
+if ($(".coordination-page").length) { //для страницы координация свадьбы
+    $("body").css('overflow', 'visible');
+    $(".content-wrapper").animate({"opacity": "1"}, 500);
+}
 
 window.onload = function() {
-    setTimeout(closeLoadingScreen, 10);
+    setTimeout(closeLoadingScreen, 100);
 
     function closeLoadingScreen() {
         $("body").css('overflow', 'visible');
@@ -14,6 +18,34 @@ window.onload = function() {
   };
 
 $(document).ready(function($) {
+
+    $(window).scroll(function() {
+        var distanceFromTop = $(window).scrollTop();
+
+        if (distanceFromTop < 40) {
+            $(".home-arrow").fadeOut(500);
+        } else {
+           $(".home-arrow").fadeIn(0);
+        }
+
+        if ($(".main-page").length || $(".coordination-page").length) {
+            var  distanceToFeedbackForm = $(".feedback-form").offset().top,
+                distanceToAboutUs = $("#about-us").offset().top;
+
+            if ($(window).width() >=  768 && distanceFromTop > distanceToFeedbackForm -200) {
+                setTimeout(openLetter, 500);
+            } 
+        } 
+
+        if ($(".article-page").length) {
+
+            var distanceToArticleContent = $(".article-content").offset().top;
+
+            if (distanceFromTop > distanceToArticleContent && $(window).width() > 1200) {
+                $(".back-to-news").fadeIn(500);
+            }
+        }
+    });
 
     $(".menu").on("click", "a", function(event) { //перход по якорным ссылкам из меню навигации
         event.preventDefault(); 
@@ -92,14 +124,14 @@ $(document).ready(function($) {
     });
 
     function growMenu(speed) {
-            if  ($(window).scrollTop() === 0) {
-                if (state === "menuIsSmall" || state === undefined) {
-                    animateMenu ("80px", "transparent", "#fff", "10px", speed, "block", "none");
-                    state = "menuIsBig";
-                }
+        if  ($(window).scrollTop() === 0) {
+            if (state === "menuIsSmall" || state === undefined) {
+                animateMenu ("80px", "transparent", "#fff", "10px", speed, "block", "none");
+                state = "menuIsBig";
             }
-            return  state;
         }
+        return  state;
+    }
 
     function decreasesMenu(speed) {
         if  ($(window).scrollTop() !== 0) {
@@ -132,7 +164,7 @@ $(document).ready(function($) {
         }
     }
 
-    if ($(".main-page").width() > 1200 || $(".news-page").width() > 1200) { //анимация меню при прокрутке
+    if ($(".main-page").width() > 1200 || $(".news-page").width() > 1200 || $(".coordination-page").width() > 1200) { //анимация меню при прокрутке
         var state; //переменная состояния, меняет свое значение когда меню изменяет свой размер, нужна для того, чтобы анимация не происходила при каждом событии прокрутки 
 
         if ($(window).scrollTop() !== 0) {
@@ -392,52 +424,6 @@ $(document).ready(function($) {
         letterIsOpen = false;
         openLetter();
     });
-
-    $(window).scroll(function() {
-        var distanceFromTop = $(window).scrollTop();
-
-        if (distanceFromTop < 40) {
-            $(".home-arrow").fadeOut(500);
-        } else {
-           $(".home-arrow").fadeIn(0);
-        }
-
-        if ($(".main-page").length) {
-            var  distanceToFeedbackForm = $(".feedback-form").offset().top,
-                distanceToAboutUs = $("#about-us").offset().top;
-
-            if ($(window).width() >=  768 && distanceFromTop > distanceToFeedbackForm -200) {
-                setTimeout(openLetter, 500);
-            } 
-        } 
-
-        if ($(".article-page").length) {
-
-            var distanceToArticleContent = $(".article-content").offset().top;
-
-            if (distanceFromTop > distanceToArticleContent && $(window).width() > 1200) {
-                $(".back-to-news").fadeIn(500);
-            }
-        }
-
-
-    });
-
-    // $(".article-page").scroll(function() {
-    //     var distanceFromTop = $(window).scrollTop(), //растояние до блоков от верха окна
-    //         distanceToArticleContent = $(".article-content").offset().top;
-
-    //         if (distanceFromTop < 40) {
-    //             $(".home-arrow").fadeOut(500);
-    //         } else {
-    //            $(".home-arrow").fadeIn(500); 
-    //         }
-
-    //         if (distanceFromTop > distanceToArticleContent) {
-    //             $(".back-to-news").fadeIn(500);
-    //         }
-    // });
-
 
     function showGalery(event) {
         var partners = "Свадьба " + $(event.target).attr('alt'),
