@@ -501,9 +501,65 @@ header .header-title .content-wrapper .content img {
 .chess-block .content {
   padding: 30px;
 }
-@media (max-width: 767px) {
+@media (max-width: 769px) {
   .chess-block .content {
-    padding: 10px 20px;
+    padding: 0 20px;
+  }
+}
+.chess-block .first-chapter .content,
+.chess-block .second-chapter .content {
+  max-height: 300px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+@media (max-width: 1400px) {
+  .chess-block .first-chapter .content,
+  .chess-block .second-chapter .content {
+    height: 400px;
+  }
+}
+@media (max-width: 768px) {
+  .chess-block .first-chapter .content,
+  .chess-block .second-chapter .content {
+    height: 300px;
+  }
+}
+.chess-block .first-chapter .img-wrapp,
+.chess-block .second-chapter .img-wrapp {
+  overflow: hidden;
+  max-height: 300px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+@media (max-width: 1400px) {
+  .chess-block .first-chapter .img-wrapp,
+  .chess-block .second-chapter .img-wrapp {
+    height: 400px;
   }
 }
 .chess-block img {
@@ -2075,35 +2131,42 @@ header .article-header-title .back-to-news a {
   width: 60%;
   height: auto;
 }
-.coordination-page header .header-title {
+.coordination-page header .header-title,
+.organisation-page header .header-title {
   height: 580px;
   background-image: url("../images/coordination-header-bg.jpg");
   background-size: cover;
   background-position: center;
 }
-.coordination-page header h1 {
+.coordination-page header h1,
+.organisation-page header h1 {
   font-size: 44px;
   padding: 0 0 30px;
 }
 @media (max-width: 768px) {
-  .coordination-page header h1 {
+  .coordination-page header h1,
+  .organisation-page header h1 {
     font-size: 36px;
   }
 }
-.coordination-page header .content-wrapper .content img {
+.coordination-page header .content-wrapper .content img,
+.organisation-page header .content-wrapper .content img {
   max-width: 90%;
   margin-bottom: 30px;
 }
-.coordination-page .info-about-coordinator {
+.coordination-page .info-about-coordinator,
+.organisation-page .info-about-coordinator {
   background-color: #bccedd;
   padding: 40px 15px;
 }
 @media (max-width: 768px) {
-  .coordination-page .info-about-coordinator {
+  .coordination-page .info-about-coordinator,
+  .organisation-page .info-about-coordinator {
     padding: 0 15px;
   }
 }
-.coordination-page .info-about-coordinator .img-wrapp {
+.coordination-page .info-about-coordinator .img-wrapp,
+.organisation-page .info-about-coordinator .img-wrapp {
   overflow: hidden;
   height: 200px;
   display: -webkit-box;
@@ -2119,36 +2182,43 @@ header .article-header-title .back-to-news a {
   -ms-flex-pack: center;
   justify-content: center;
 }
-.coordination-page .info-about-coordinator .content-wrapp {
+.coordination-page .info-about-coordinator .content-wrapp,
+.organisation-page .info-about-coordinator .content-wrapp {
   padding: 0 110px;
 }
 @media (max-width: 1200px) {
-  .coordination-page .info-about-coordinator .content-wrapp {
+  .coordination-page .info-about-coordinator .content-wrapp,
+  .organisation-page .info-about-coordinator .content-wrapp {
     padding: 0 20px;
   }
 }
 @media (max-width: 768px) {
-  .coordination-page .info-about-coordinator .content-wrapp {
+  .coordination-page .info-about-coordinator .content-wrapp,
+  .organisation-page .info-about-coordinator .content-wrapp {
     padding: 0 30px;
   }
 }
-.coordination-page .info-about-coordinator .content-wrapp h2 {
+.coordination-page .info-about-coordinator .content-wrapp h2,
+.organisation-page .info-about-coordinator .content-wrapp h2 {
   font-size: 20px;
   color: #4fd2f8;
   text-transform: uppercase;
   padding: 10px;
   text-align: center;
 }
-.coordination-page .info-about-coordinator .content-wrapp p {
+.coordination-page .info-about-coordinator .content-wrapp p,
+.organisation-page .info-about-coordinator .content-wrapp p {
   color: #242c4f;
   font-size: 18px;
 }
 @media (max-width: 768px) {
-  .coordination-page .info-about-coordinator .content-wrapp p {
+  .coordination-page .info-about-coordinator .content-wrapp p,
+  .organisation-page .info-about-coordinator .content-wrapp p {
     text-align: center;
   }
 }
-.coordination-page .wrapp {
+.coordination-page .wrapp,
+.organisation-page .wrapp {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2162,46 +2232,59 @@ header .article-header-title .back-to-news a {
   flex-wrap: wrap;
   background-color: rgba(36, 44, 79, 0.38);
 }
-.coordination-page .wrapp .col-lg-5 {
+.coordination-page .wrapp .col-lg-5,
+.organisation-page .wrapp .col-lg-5 {
   padding: 0;
 }
-.coordination-page .work-width-us i {
+.coordination-page .work-width-us i,
+.organisation-page .work-width-us i {
   color: #bedfff;
   font-style: normal;
 }
-.coordination-page .about-work {
+.coordination-page .about-work,
+.organisation-page .about-work {
   background-image: url("../images/about-work-bg.jpg");
   background-size: cover;
   background-position: center;
 }
-.coordination-page .about-work h1 {
+.coordination-page .about-work h1,
+.organisation-page .about-work h1 {
   color: #242c4f;
 }
-.coordination-page .about-work p {
+.coordination-page .about-work p,
+.organisation-page .about-work p {
   color: #242c4f;
 }
-.coordination-page .chess-block .third-chapter .content {
+.coordination-page .chess-block .third-chapter .content,
+.organisation-page .chess-block .third-chapter .content {
   padding: 0 10px;
+  height: 300px;
 }
 @media (max-width: 1400px) {
-  .coordination-page .chess-block .third-chapter .content {
+  .coordination-page .chess-block .third-chapter .content,
+  .organisation-page .chess-block .third-chapter .content {
     padding: 0 30px 20px;
   }
 }
-.coordination-page .chess-block .third-chapter .content .devider {
+.coordination-page .chess-block .third-chapter .content .devider,
+.organisation-page .chess-block .third-chapter .content .devider {
   height: 135px;
 }
 @media (max-width: 1400px) {
-  .coordination-page .chess-block .third-chapter .content .devider {
+  .coordination-page .chess-block .third-chapter .content .devider,
+  .organisation-page .chess-block .third-chapter .content .devider {
     display: none;
   }
 }
-.coordination-page .chess-block .third-chapter .content .content-item {
+.coordination-page .chess-block .third-chapter .content .content-item,
+.organisation-page .chess-block .third-chapter .content .content-item {
   padding-top: 45px;
   max-width: 16%;
+  height: 300px;
 }
 @media (max-width: 1400px) {
-  .coordination-page .chess-block .third-chapter .content .content-item {
+  .coordination-page .chess-block .third-chapter .content .content-item,
+  .organisation-page .chess-block .third-chapter .content .content-item {
     max-width: 33%;
     width: 32%;
     border-bottom: solid 1px #fff;
@@ -2210,27 +2293,32 @@ header .article-header-title .back-to-news a {
   }
 }
 @media (max-width: 768px) {
-  .coordination-page .chess-block .third-chapter .content .content-item {
+  .coordination-page .chess-block .third-chapter .content .content-item,
+  .organisation-page .chess-block .third-chapter .content .content-item {
     max-width: 48%;
     width: 48%;
   }
 }
 @media (max-width: 450px) {
-  .coordination-page .chess-block .third-chapter .content .content-item {
+  .coordination-page .chess-block .third-chapter .content .content-item,
+  .organisation-page .chess-block .third-chapter .content .content-item {
     max-width: 100%;
     width: 80%;
   }
 }
-.coordination-page .chess-block .third-chapter .content .content-item p {
+.coordination-page .chess-block .third-chapter .content .content-item p,
+.organisation-page .chess-block .third-chapter .content .content-item p {
   font-size: 13px;
   line-height: 1.6em;
 }
 @media (max-width: 1400px) {
-  .coordination-page .chess-block .third-chapter .content .content-item p {
+  .coordination-page .chess-block .third-chapter .content .content-item p,
+  .organisation-page .chess-block .third-chapter .content .content-item p {
     margin-bottom: 0;
   }
 }
-.coordination-page .chess-block .third-chapter .content .content-item h3 {
+.coordination-page .chess-block .third-chapter .content .content-item h3,
+.organisation-page .chess-block .third-chapter .content .content-item h3 {
   font-size: 15px;
 }
 .complementary-services {
@@ -2256,9 +2344,29 @@ header .article-header-title .back-to-news a {
     margin-bottom: 10px;
   }
 }
+.complementary-services .content {
+  height: 300px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
 .complementary-services .img-wrapp {
   overflow: hidden;
-  height: 200px;
+  height: 300px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2304,5 +2412,32 @@ header .article-header-title .back-to-news a {
 }
 .complementary-services h3 {
   font-size: 20px;
+  color: #4fd2f8;
+}
+.organisation-page header .header-title {
+  height: 580px;
+  background-image: url("../images/organisation-header-bg.jpg");
+}
+.organisation-page .org-entrance-first {
+  background-image: url("../images/org-1-bg.jpg");
+  background-size: cover;
+}
+.organisation-page .first-chapter {
+  background-color: #2a354f;
+}
+.organisation-page .second-chapter {
+  background-color: #242c4f;
+}
+@media (max-width: 768px) {
+  .organisation-page .second-chapter {
+    margin-bottom: 0px;
+  }
+}
+.organisation-page .second-chapter .org-entrance-second {
+  background-image: url("../images/org-2.jpg");
+  background-size: cover;
+  z-index: 2;
+}
+.organisation-page b {
   color: #4fd2f8;
 }

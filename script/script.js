@@ -1,7 +1,3 @@
-if ($(".coordination-page").length) { //для страницы координация свадьбы
-    $("body").css('overflow', 'visible');
-    $(".content-wrapper").animate({"opacity": "1"}, 500);
-}
 
 window.onload = function() {
     setTimeout(closeLoadingScreen, 100);
@@ -28,7 +24,7 @@ $(document).ready(function($) {
            $(".home-arrow").fadeIn(0);
         }
 
-        if ($(".main-page").length || $(".coordination-page").length) {
+        if ($(".main-page").length || $(".coordination-page").length || $(".organisation-page").length)  {
             var  distanceToFeedbackForm = $(".feedback-form").offset().top,
                 distanceToAboutUs = $("#about-us").offset().top;
 
@@ -164,7 +160,7 @@ $(document).ready(function($) {
         }
     }
 
-    if ($(".main-page").width() > 1200 || $(".news-page").width() > 1200 || $(".coordination-page").width() > 1200) { //анимация меню при прокрутке
+    if ($(".main-page").width() > 1200 || $(".news-page").width() > 1200 || $(".coordination-page").width() > 1200 || $(".organisation-page").width() > 1200) { //анимация меню при прокрутке
         var state; //переменная состояния, меняет свое значение когда меню изменяет свой размер, нужна для того, чтобы анимация не происходила при каждом событии прокрутки 
 
         if ($(window).scrollTop() !== 0) {
@@ -238,27 +234,27 @@ $(document).ready(function($) {
         {
             content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
             title: 'Анна Семёнова',
-            portrait: 'images/rewiew/portrait-1.jpg',
+            portrait: 'images/review/portrait-1.jpg',
         },
        {
             content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
             title: 'Саша Алексеева',
-            portrait: 'images/rewiew/portrait-2.jpg',
+            portrait: 'images/review/portrait-2.jpg',
         },
         {
             content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
             title: 'Меган Фокс',
-            portrait: 'images/rewiew/portrait-3.jpg',
+            portrait: 'images/review/portrait-3.jpg',
         },
         {
             content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
             title: 'Кот Аркадий',
-            portrait: 'images/rewiew/portrait-4.jpg',
+            portrait: 'images/review/portrait-4.jpg',
         },
         {
             content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
             title: 'Дуся',
-            portrait: 'images/rewiew/portrait-5.jpg',
+            portrait: 'images/review/portrait-5.jpg',
         }
     ];
 

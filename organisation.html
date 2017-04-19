@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="dist/style.css">
 </head>
 
-<body class="coordination-page">
+<body class="organisation-page">
     <!--[if lt IE 10]>
     <style type="text/css">
         header,article,footer {
@@ -33,6 +33,16 @@
     <p class="chromeframe">Вы используете <strong>устаревший</strong> браузер. Пожалуйста, <a href="http://browsehappy.com/">обновите его</a></p>
     <p>=)</p>
     <![endif]-->
+    <div class="loading-screen">
+        <div>
+            <img src="images/Кonfiture.png" alt="1">
+        </div>
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
     <header>
         <div class="header-title">
             <div class="navigation">
@@ -69,7 +79,7 @@
             </div>
             <div class="content-wrapper">
                 <div class="content color-white">
-                    <h1 class="uppercase">Координация свадьбы</h1>
+                    <h1 class="uppercase">Организация свадьбы</h1>
                         <img src="images/devider.png" alt="logo">
                     <h2>Информация о стоимости</h2>
                 </div>
@@ -79,18 +89,20 @@
     </header>
 
     <article>
-        <div id="about-us" class="container-fluid info-about-coordinator">
-            <div class="row">
-                <div class="col-xs-12 col-lg-offset-1 col-lg-10">
-                    <div class="row wrapp">
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5 img-wrapp">
-                            <img src="images/coordination-first.jpg" alt="">
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-7 content-wrapp">
-                            <h2>Свадебный координатор</h2>
-                            <p>Свадебный координатор - это незаменимый помощник накануне и в день свадьбы, специалист, который сэкономит Ваши силы и время, избавит от множества хлопот,  а также предотвратит стресcы и лишнюю суету</p>
-                        </div>
-                    </div>
+        <div class="chess-block complementary-services" id="about-us">
+            <div class="row first-chapter org-entrance-first">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-wrapp">
+                    <img src="images/org-1.jpg" alt="1">
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content">
+                    <p>Это как вкусный <b>Конфитюр</b>, в котором сочетают множество ингредиентов, чаще Вы не знаете технологию — Вам важен <b>результат</b>.</p>
+                </div>
+            </div>
+            <div class="row second-chapter">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content">
+                    <p>Но именно над результатом и работает <b>свадебный организатор</b>. Задача нашего организатора — создать целостную картину Вашей <b>идеальной свадьбы</b> из множества деталей и ньюансов.</p>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-wrapp org-entrance-second">
                 </div>
             </div>
         </div>
@@ -99,7 +111,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-lg-offset-1 col-lg-10">
                         <div class="title">
-                            <h1 class="uppercase">Вам нужен свадебный координатор если</h1>
+                            <h1 class="uppercase">Почему с нами стоит работать</h1>
                             <div>
                                 <img class="" src="images/devider.png" alt="2">
                             </div>
@@ -108,40 +120,45 @@
                             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                 <div class="circle">1</div>
                                 <div class="text">
-                                    <p>Вы занимаетесь организацией свадьбы <i>самостоятельно</i></p>
+                                    <h3>Работаем честно и открыто</h3>
+                                    <p>Каждая цифра сметы открыта и обоснована</p>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                 <div class="circle">2</div>
                                 <div class="text">
-                                    <p>Вам нужна <i>консультация специалиста</i></p>
+                                    <h3>Мы всегда в тренде</h3>
+                                    <p>Отслеживаем мировые тренды и предлагаем только свежие идеи</p>
                                 </div>
                             </div>
                             <div class="clearfix visible-sm"></div>
                             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                 <div class="circle">3</div>
                                 <div class="text">
-                                    <p>Вы хотите наслаждаться своим <i>праздником</i>, а не контролировать и решать организационные, техниеские и прочие вопросы, что возникают в <i>день свадьбы</i></p>
+                                    <h3>Мобильны</h3>
+                                    <p>Проведём встречу в удобное для Вас время и в любой точке города</p>
                                 </div>
                             </div>
                             <div class="clearfix visible-lg visible-md"></div>
                             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                 <div class="circle">4</div>
                                 <div class="text">
-                                    <p>Вы хотите дать возможность <i>родителям и друзьям отдыхать</i> вместе с Вами, а не распределять задачу между ними</p>
+                                    <h3>Оперативны</h3>
+                                    <p>Ваши чётко поставленные задачи и наше оперативное исполнение даёт возможность организовать свадьбу всего за 1 месяц</p>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                 <div class="circle">5</div>
                                 <div class="text">
-                                    <p>Комплексный подход Мы не предлаем отдельные услуги или специалистов, а комплексно создаём атмосеру Вашего события</p>
+                                    <h3>Комплексный подход</h3>
+                                    <p>Мы не предлаем отдельные услуги или специалистов, а комплексно создаём атмосеру Вашего события</p>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                 <div class="circle">6</div>
                                 <div class="text">
-                                    <p>Гарантия качества
-                                    В проекте принимают участие только проверенные специалисты</p>
+                                    <h3>Гарантия качества</h3>
+                                    <p>В проекте принимают участие только проверенные специалисты</p>
                                 </div>
                             </div>
                         </div>
@@ -180,6 +197,10 @@
                         <p>Встреча</p>
                     </div>
                     <div>
+                        <img src="images/icon/calculator-blue.png" alt="1">
+                        <p>Подготовка <br>предложения</p>
+                    </div>
+                    <div>
                         <img src="images/icon/contract-blue.png" alt="1">
                         <p>Подписание <br>договора</p>
                     </div>
@@ -188,8 +209,8 @@
                         <p>Согласование <br>проекта</p>
                     </div>
                     <div>
-                        <img src="images/icon/final-work.png" alt="1">
-                        <p>Заключительные<br> работы</p>
+                        <img src="images/icon/preparation-blue.png" alt="1">
+                        <p>Подготовка <br>мероприятия</p>
                     </div>
                     <div>
                         <img src="images/icon/execution-blue.png" alt="1">
@@ -198,58 +219,11 @@
                 </div>
             </div>
         </div>
-        <div class="chess-block">
-            <div class="row third-chapter">
-                <div class="fon"></div>
-                <div class="wrapper">
-                    <div class="col-xs-12 col-lg-offset-1 col-lg-10">
-                        <div class="col-xs-12">
-                            <h1 class="uppercase text-center">Зачем Вам свадебный организатор?</h3>
-                            <p class="text-center">Мы сделаем за Вас самую сложную работу</p>
-                        </div>
-                        <div class="col-xs-12">
-                            <img class="second-img" src="images/devider.png" alt="2">
-                        </div>
-                        <div class="col-xs-12 content">
-                            <div class="content-item">
-                                <h3 class="uppercase">Консультируем</h3>
-                                <p>Бесплатная <br>консультация в процессе подготовки</p>
-                            </div>
-                            <div class="devider"></div>
-                            <div class="content-item">
-                                <h3>анализируем</h3>
-                                <p>Готовность мероприятия и вносим свои предложения и рекомендации</p>
-                            </div>
-                            <div class="devider"></div>
-                            <div class="content-item">
-                                <h3>Разрабатываем</h3>
-                                <p>Персональные инструкции и тайминг-план для каждого специалиста</p>
-                            </div>
-                            <div class="devider"></div>
-                            <div class="content-item">
-                                <h3>Координируем</h3>
-                                <p>Командная работа <br> минимум 3 <br>координатора в день свадьбы</p>
-                            </div>
-                            <div class="devider"></div>
-                            <div class="content-item">
-                                <h3>Предотвращаем</h3>
-                                <p>Форс-мажорные <br> ситуации незаметно <br> для Вас и Ваших гостей</p>
-                            </div>
-                            <div class="devider"></div>
-                            <div class="content-item">
-                                <h3>Находимся</h3>
-                                <p>На площадке от приезда первого специалиста и до последнего гостя</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="chess-block complementary-services">
             <div class="row">
                 <div class="col-xs-12 col-lg-offset-1 col-lg-10">
                     <div class="title">
-                        <h1 class="uppercase">Помимо координации свадьбы вы можете заказать дополнительные услуги*</h1>
+                        <h1 class="uppercase">Как проходит организация свадьбы</h1>
                         <div>
                             <img src="images/devider.png" alt="2">
                         </div>
@@ -261,14 +235,12 @@
                     <img src="images/complementary-1.jpg" alt="1">
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content">
-                    <h3 class="uppercase">Подружка невесты</h3>
-                    <p>1 человек сопровождает молодоженов в течении всего свадебного дня (сборы, прогулка, роспись, фотосессия и прочее), решая организационные и поточные вопросы.</p>
+                    <p>Подберем <b>формат свадьбы</b>, разработаем концепцию и стиль</p>
                 </div>
             </div>
             <div class="row second-chapter">
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content">
-                    <h3 class="uppercase">Номер телефона в пригласителных</h3>
-                    <p>Для уточнения гостями организационных и прочих вопросов относительно подготовки к свадьбе и самого свадебного дня.</p>
+                    <p>Подберем площадку наиболее подходящую под Вашу <b>концепцию свадьбы</b> (ресторан, шатер, загородный дом, сад или другая нестандартная площадка).</p>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-wrapp">
                     <img class="second-img" src="images/complementary-2.jpg" alt="2">
@@ -279,11 +251,74 @@
                     <img src="images/complementary-3.jpg" alt="1">
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content">
-                    <h3 class="uppercase">Помощь в организации свадьбы</h3>
-                    <p>Организация отдельных элементов и этапов свадьбы.</p>
+                    <p>Разработаем визуализации, <b>эскизы декора</b> и флористического оформления мероприятия.</p>
                 </div>
             </div>
-            <p class="option text-bold">*Заказать дополнительные услуги можно только при условии заказа Координации свадьбы</p>
+            <div class="row second-chapter">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content">
+                    <p>Подберем свадебную полиграфию или разработаем индивидуальный дизайн <b>пригласительных</b>, плана разсадки, гостевых картоек, <b>меню</b>, програмку и прочее</p>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-wrapp">
+                    <img class="second-img" src="images/org-3.jpg" alt="2">
+                </div>
+            </div>
+            <div class="row first-chapter">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-wrapp">
+                    <img src="images/org-4.jpg" alt="1">
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content">
+                    <p>Подберем <b>ведущего</b> и церемониймейстера (ведущего свадебной церемонии), проведем совместные встречи и разработаем <b>сценарий мероприятия</b></p>
+                </div>
+            </div>
+            <div class="row second-chapter">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content">
+                    <p>Подберем <b>фотографа</b> и <b>видеографа</b>, совместно разработаем маршрут фотосессии и сценарий съемки</p>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-wrapp">
+                    <img class="second-img" src="images/org-5.jpg" alt="2">
+                </div>
+            </div>
+            <div class="row first-chapter">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-wrapp">
+                    <img src="images/org-6.jpg" alt="1">
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content">
+                    <p>Поможем в составлении банкетного и фуршетного <b>меню</b></p>
+                </div>
+            </div>
+            <div class="row second-chapter">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content">
+                    <p>Подберем <b>визажиста</b> и мастера по прическам, разработаем образы невесты и жениха</p>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-wrapp">
+                    <img class="second-img" src="images/org-7.jpg" alt="2">
+                </div>
+            </div>
+            <div class="row first-chapter">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-wrapp">
+                    <img src="images/org-8.jpg" alt="1">
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content">
+                    <p>Наполним программу <b>артистами</b>, <b>шоу-номерами</b> и другими элементами согласно концепции свадьбы</p>
+                </div>
+            </div>
+            <div class="row second-chapter">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content">
+                    <p>Проведем <b>дегустацию</b> свадебного <b>торта</b> или других вкусных элементов, согласно общей концепции свадьбы</p>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-wrapp">
+                    <img class="second-img" src="images/org-9.jpg" alt="2">
+                </div>
+            </div>
+            <div class="row first-chapter">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-wrapp">
+                    <img src="images/org-10.jpg" alt="1">
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content">
+                    <p><b>Координация свадебного дня</b></p>
+                </div>
+            </div>
+            <p class="option text-bold">И это только маленькая часть того, что мы можем сделать для Вас!</p>
         </div>
         <div class="container-fluid questions" id="contacts">
             <div class="row">
