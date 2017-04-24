@@ -556,6 +556,10 @@ header .header-title .content-wrapper .content img {
   -ms-flex-pack: center;
   justify-content: center;
 }
+.chess-block .first-chapter .img-wrapp img,
+.chess-block .second-chapter .img-wrapp img {
+  min-width: 800px;
+}
 @media (max-width: 1400px) {
   .chess-block .first-chapter .img-wrapp,
   .chess-block .second-chapter .img-wrapp {
@@ -2258,7 +2262,6 @@ header .article-header-title .back-to-news a {
 .coordination-page .chess-block .third-chapter .content,
 .organisation-page .chess-block .third-chapter .content {
   padding: 0 10px;
-  height: 300px;
 }
 @media (max-width: 1400px) {
   .coordination-page .chess-block .third-chapter .content,
@@ -2280,7 +2283,6 @@ header .article-header-title .back-to-news a {
 .organisation-page .chess-block .third-chapter .content .content-item {
   padding-top: 45px;
   max-width: 16%;
-  height: 300px;
 }
 @media (max-width: 1400px) {
   .coordination-page .chess-block .third-chapter .content .content-item,
@@ -2338,11 +2340,6 @@ header .article-header-title .back-to-news a {
 }
 .complementary-services .second-chapter {
   background-color: #242c4f;
-}
-@media (max-width: 768px) {
-  .complementary-services .second-chapter {
-    margin-bottom: 10px;
-  }
 }
 .complementary-services .content {
   height: 300px;
@@ -2432,11 +2429,6 @@ header .article-header-title .back-to-news a {
   .organisation-page .second-chapter {
     margin-bottom: 0px;
   }
-}
-.organisation-page .second-chapter .org-entrance-second {
-  background-image: url("../images/org-2.jpg");
-  background-size: cover;
-  z-index: 2;
 }
 .organisation-page b {
   color: #4fd2f8;
