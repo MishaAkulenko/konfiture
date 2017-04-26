@@ -499,11 +499,11 @@ header .header-title .content-wrapper .content img {
   overflow: hidden;
 }
 .chess-block .content {
-  padding: 30px;
+  padding: 0 30px;
 }
 @media (max-width: 769px) {
   .chess-block .content {
-    padding: 0 20px;
+    padding: 10px 20px 0;
   }
 }
 .chess-block .first-chapter .content,
@@ -575,11 +575,9 @@ header .header-title .content-wrapper .content img {
 .chess-block .second-chapter {
   background-color: #ebf5ff;
 }
-.chess-block .news-article {
-  height: 370px;
-}
 .chess-block p {
   color: #1a1a1a;
+  font-size: 16px;
 }
 .chess-block h3 {
   color: #4a577c;
@@ -1830,41 +1828,68 @@ header .header-title .content-wrapper .content img {
   }
 }
 .contacts img {
-  margin: 20px 0;
+  margin: 20px 0 50px;
+}
+@media (max-width: 1200px) {
+  .contacts img {
+    margin: 20px;
+  }
 }
 .contacts h3 {
-  padding: 0 0 20px;
+  padding: 0 0 10px;
 }
 @media (max-width: 768px) {
   .contacts h3 {
-    padding: 0 0 10px;
+    padding: 0 0 15px;
+    font-size: 16px;
   }
 }
-.contacts .glyphicon-map-marker,
-.contacts .fa-phone {
-  padding: 65px 10px 7px 0;
+.contacts .glyphicon-map-marker {
+  padding: 30px 10px 20px 0;
   font-size: 20px;
 }
 @media (max-width: 991px) {
-  .contacts .glyphicon-map-marker,
-  .contacts .fa-phone {
-    padding: 15px 10px 7px 0;
+  .contacts .glyphicon-map-marker {
+    padding: 0 10px 15px 0;
   }
 }
 .contacts .fa-envelope-o {
   padding-right: 10px;
   font-size: 20px;
+  padding: 0px 10px 0 0;
+}
+.contacts .organisation-mail {
+  padding: 60px 0 10px;
+}
+.contacts .parner-mail {
+  padding: 0 0 15px 0;
+}
+.contacts .org {
+  padding: 30px 0 0;
+}
+@media (max-width: 768px) {
+  .contacts .org {
+    padding: 20px 0 0;
+  }
+}
+.contacts .wrapp-log {
+  margin: 30px 0 0;
 }
 .contacts .icons {
   width: 25px;
   margin: 0 5px 0;
+}
+@media (max-width: 768px) {
+  .contacts .icons {
+    width: 20px;
+  }
 }
 .contacts .phone-number {
   padding: 5px 6px 0 0;
 }
 .contacts .social {
   font-size: 26px;
-  padding-top: 40px;
+  padding-top: 0;
 }
 @media (max-width: 768px) {
   .contacts .social {
@@ -1879,11 +1904,6 @@ header .header-title .content-wrapper .content img {
   -webkit-transform: scale(1.2, 1.2);
   -ms-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
-}
-@media (max-width: 768px) {
-  .contacts .comunication {
-    display: block;
-  }
 }
 .home-arrow {
   position: fixed;
@@ -1902,6 +1922,7 @@ header .header-title .content-wrapper .content img {
 }
 .article-content {
   color: #1d233b;
+  font-size: 16px;
 }
 .article-content .row {
   margin: 0;
@@ -1909,13 +1930,43 @@ header .header-title .content-wrapper .content img {
 .article-content .chess-block {
   margin: 30px 0 40px;
 }
+@media (max-width: 768px) {
+  .article-content .chess-block {
+    margin: 0;
+  }
+}
+.article-content .chess-block .first-chapter {
+  background-color: #fff;
+}
+.article-content .chess-block .second-chapter {
+  background-color: #fff;
+}
+.article-content .chess-block .content {
+  max-height: inherit;
+  height: inherit;
+}
+@media (max-width: 768px) {
+  .article-content .chess-block .content {
+    text-align: center;
+  }
+}
 .article-content .lover-block {
   margin-bottom: 40px;
+}
+@media (max-width: 768px) {
+  .article-content .lover-block {
+    margin: 10px;
+  }
 }
 .article-content .article-galery {
   background-color: #1d233b;
   margin: 40px 0;
   padding: 32px 0 22px;
+}
+@media (max-width: 768px) {
+  .article-content .article-galery {
+    margin: 0;
+  }
 }
 .article-content .article-galery .video-wrapp {
   width: 700px;
@@ -2245,6 +2296,10 @@ header .article-header-title .back-to-news a {
   color: #bedfff;
   font-style: normal;
 }
+.coordination-page .work-width-us .text,
+.organisation-page .work-width-us .text {
+  font-size: 16px;
+}
 .coordination-page .about-work,
 .organisation-page .about-work {
   background-image: url("../images/about-work-bg.jpg");
@@ -2398,7 +2453,7 @@ header .article-header-title .back-to-news a {
   }
 }
 .complementary-services p {
-  font-size: 18px;
+  font-size: 19px;
   color: #fff;
 }
 @media (max-width: 768px) {
@@ -2415,10 +2470,6 @@ header .article-header-title .back-to-news a {
   height: 580px;
   background-image: url("../images/organisation-header-bg.jpg");
 }
-.organisation-page .org-entrance-first {
-  background-image: url("../images/org-1-bg.jpg");
-  background-size: cover;
-}
 .organisation-page .first-chapter {
   background-color: #2a354f;
 }
@@ -2432,4 +2483,16 @@ header .article-header-title .back-to-news a {
 }
 .organisation-page b {
   color: #4fd2f8;
+}
+.organisation-page .org-entrance-first {
+  background-color: #bedfff;
+  font-size: 19px;
+}
+@media (max-width: 768px) {
+  .organisation-page .org-entrance-first {
+    text-align: center;
+  }
+}
+.organisation-page .org-entrance-first b {
+  color: #000;
 }

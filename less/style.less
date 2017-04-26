@@ -414,10 +414,10 @@ header {
 	}
 
 	.content {
-		padding: 30px;
+		padding: 0 30px;
 
 		@media (max-width: 769px) {
-			padding: 0 20px;
+			padding: 10px 20px 0;
 		}
 	}
 	.first-chapter, .second-chapter {
@@ -464,12 +464,9 @@ header {
 		background-color: #ebf5ff;
 	}
 
-	.news-article {
-		height: 370px;
-	}
-
 	p {
 		color: #1a1a1a;
+		font-size: 16px;
 	}
 
 	h3 {
@@ -1617,34 +1614,64 @@ header {
 	}
 
 	img {
-		margin: 20px 0;
-	}
+		margin: 20px 0 50px;
 
-	h3 {
-		padding: 0 0 20px;
-
-		@media (max-width: 768px) {
-			padding: 0 0 10px;
+		@media (max-width: 1200px) {
+			margin: 20px;
 		}
 	}
 
-	.glyphicon-map-marker, .fa-phone {
-		padding: 65px 10px 7px 0;
+	h3 {
+		padding: 0 0 10px;
+
+		@media (max-width: 768px) {
+			padding: 0 0 15px;
+			font-size: 16px;
+		}
+	}
+
+	.glyphicon-map-marker {
+		padding: 30px 10px 20px 0;
 		font-size: 20px;
 
 		@media (max-width: 991px) {
-			padding: 15px 10px 7px 0;
+			padding: 0 10px 15px 0;
 		}
 	}
 
 	.fa-envelope-o {
 		padding-right: 10px;
 		font-size: 20px;
+		padding: 0px 10px 0 0;
+	}
+
+	.organisation-mail {
+		padding: 60px 0 10px;
+	}
+
+	.parner-mail {
+		padding: 0 0 15px 0;
+	}
+
+	.org {
+		padding: 30px 0 0;
+
+		@media (max-width: 768px) {
+			padding: 20px 0 0;
+		}
+	}
+
+	.wrapp-log {
+		margin: 30px 0 0;
 	}
 
 	.icons {
 		width: 25px;
 		margin: 0 5px 0;
+
+		@media (max-width: 768px) {
+			width: 20px;
+		}
 	}
 
 	.phone-number {
@@ -1653,7 +1680,7 @@ header {
 
 	.social {
 		font-size: 26px;
-		padding-top: 40px;
+		padding-top: 0;
 
 		@media (max-width: 768px) {
 			padding-top: 18px;
@@ -1666,11 +1693,6 @@ header {
 			&:hover {
 				transform: scale(1.2, 1.2);
 			}
-		}
-	}
-	.comunication {
-		@media (max-width: 768px) {
-			display: block;
 		}
 	}
 }
@@ -1693,6 +1715,7 @@ header {
 
 .article-content {
 	color: #1d233b;
+	font-size: 16px;
 
 	.row {
 		margin: 0;
@@ -1700,16 +1723,43 @@ header {
 
 	.chess-block {
 		margin: 30px 0 40px;
+
+		@media (max-width: 768px) {
+			margin: 0;
+		}
+
+		.first-chapter {
+			background-color: #fff;
+		}
+		.second-chapter {
+			background-color: #fff;
+		}
+
+		.content {
+			max-height: inherit;
+			height: inherit;
+			@media (max-width: 768px) {
+				text-align: center;
+			}
+		}
 	}
 
 	.lover-block {
 		margin-bottom: 40px;
+
+		@media (max-width: 768px) {
+			margin: 10px;
+		}
 	}
 
 	.article-galery {
 		background-color: #1d233b;
 		margin: 40px 0;
 		padding: 32px 0 22px;
+
+		@media (max-width: 768px) {
+			margin: 0;
+		}
 
 		.video-wrapp {
 			width: 700px;
@@ -2025,6 +2075,9 @@ header {
 			color: #bedfff;
 			font-style: normal;
 		}
+		.text {
+			font-size: 16px;
+		}
 	}
 
 	.about-work {
@@ -2151,7 +2204,7 @@ header {
 	}
 
 	p {
-		font-size: 18px;
+		font-size: 19px;
 		color: #fff;
 
 		@media (max-width: 768px) {
@@ -2173,10 +2226,7 @@ header {
 			background-image: url("../images/organisation-header-bg.jpg");
 		}
 	}
-	.org-entrance-first {
-		background-image: url("../images/org-1-bg.jpg");
-		background-size: cover;
-	}
+
 	.first-chapter {
 		background-color: #2a354f;
 	}
@@ -2187,7 +2237,22 @@ header {
 			margin-bottom: 0px;
 		}
 	}
+
 	b {
 		color: #4fd2f8;
 	}
+
+	.org-entrance-first {
+		background-color: #bedfff;
+		font-size: 19px;
+
+		@media (max-width: 768px) {
+			text-align: center;
+		}
+
+		b {
+			color: #000;
+		}
+	}
+
 }
