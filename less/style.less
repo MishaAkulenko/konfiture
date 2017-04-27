@@ -1433,6 +1433,7 @@ header {
 			top: 60px;
 			left: 30px;
 			display: none;
+			background-color: #fff;
 		}
 
 		.cover-wrap {
@@ -1837,33 +1838,30 @@ header {
 // NEWS
 .news-page {
 	background-color: #424e74;
-
+	
+	.news-content {
+		margin: 40px 0;
+	}
 	.news-header-title {
 		height: 80px;
 		background-color: transparent;
 	}
-
-	.news-content {
-		margin: 40px 0;
-
-		@media (max-width: 768px) {
-			margin: 0 20px;
-		}
-	}
-
-			
+	
 	.big-block {
 		height: 100%;
 		background-color: #e5e8f4;
-		height: 370px;
+		max-height: 370px;
+		overflow: hidden;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
 		img {
-			width: 100%;
-			height: 100%;
+			// min-height: 100%;
 		}
 
 		.col-xs-12 {
-			position: relative;
 			overflow: hidden;
 			padding: 0;
 			color: #fff;
@@ -1888,7 +1886,6 @@ header {
 
 		.left-block {
 			position: relative;
-			width: 50%;
 			overflow: hidden;
 
 			&::after {
@@ -1903,7 +1900,6 @@ header {
 		}
 		.right-block {
 			position: relative;
-			width: 50%;
 			overflow: hidden;
 
 			&::after {
@@ -1951,7 +1947,7 @@ header {
 			}
 
 			div {
-				width: 50%;
+				flex: 1;
 			}
 		}
 	}
@@ -2016,8 +2012,8 @@ header {
 		}
 	}
 	.info-about-coordinator {
-		background-color: #bccedd;
-		padding: 40px 15px;
+		background-color: #bedfff;
+		// padding: 40px 15px;
 
 		@media (max-width: 768px) {
 			padding: 0 15px;
@@ -2025,13 +2021,16 @@ header {
 
 		.img-wrapp {
 			overflow: hidden;
-			height: 200px;
+			height: 300px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			padding: 0;
+			max-height: 300px;
 		}
 		.content-wrapp {
 			padding: 0 110px;
+			max-height: 300px;
 
 			@media (max-width: 1200px) {
 				padding: 0 20px;
@@ -2043,7 +2042,7 @@ header {
 
 			h2 {
 				font-size: 20px;
-				color: #4fd2f8;
+				color: #4a577c;
 				text-transform: uppercase;
 				padding: 10px;
 				text-align: center;
@@ -2063,7 +2062,7 @@ header {
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
-		background-color: rgba(36, 44, 79, 0.38);
+		background-color: #bedfff;
 
 		.col-lg-5 {
 			padding: 0;

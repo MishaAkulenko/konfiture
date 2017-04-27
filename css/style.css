@@ -1632,6 +1632,7 @@ header .header-title .content-wrapper .content img {
   top: 60px;
   left: 30px;
   display: none;
+  background-color: #fff;
 }
 .feedback-form .letter-wrap .cover-wrap {
   position: absolute;
@@ -2033,29 +2034,33 @@ header .article-header-title .back-to-news a {
 .news-page {
   background-color: #424e74;
 }
+.news-page .news-content {
+  margin: 40px 0;
+}
 .news-page .news-header-title {
   height: 80px;
   background-color: transparent;
 }
-.news-page .news-content {
-  margin: 40px 0;
-}
-@media (max-width: 768px) {
-  .news-page .news-content {
-    margin: 0 20px;
-  }
-}
 .news-page .big-block {
   height: 100%;
   background-color: #e5e8f4;
-  height: 370px;
-}
-.news-page .big-block img {
-  width: 100%;
-  height: 100%;
+  max-height: 370px;
+  overflow: hidden;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .news-page .big-block .col-xs-12 {
-  position: relative;
   overflow: hidden;
   padding: 0;
   color: #fff;
@@ -2076,7 +2081,6 @@ header .article-header-title .back-to-news a {
 }
 .news-page .double-block .left-block {
   position: relative;
-  width: 50%;
   overflow: hidden;
 }
 .news-page .double-block .left-block::after {
@@ -2092,7 +2096,6 @@ header .article-header-title .back-to-news a {
 }
 .news-page .double-block .right-block {
   position: relative;
-  width: 50%;
   overflow: hidden;
 }
 .news-page .double-block .right-block::after {
@@ -2150,7 +2153,10 @@ header .article-header-title .back-to-news a {
 }
 .news-page .double-block .upper-block div,
 .news-page .double-block .lower-block div {
-  width: 50%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 .news-page .news-title {
   position: absolute;
@@ -2211,8 +2217,7 @@ header .article-header-title .back-to-news a {
 }
 .coordination-page .info-about-coordinator,
 .organisation-page .info-about-coordinator {
-  background-color: #bccedd;
-  padding: 40px 15px;
+  background-color: #bedfff;
 }
 @media (max-width: 768px) {
   .coordination-page .info-about-coordinator,
@@ -2223,7 +2228,7 @@ header .article-header-title .back-to-news a {
 .coordination-page .info-about-coordinator .img-wrapp,
 .organisation-page .info-about-coordinator .img-wrapp {
   overflow: hidden;
-  height: 200px;
+  height: 300px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2236,10 +2241,13 @@ header .article-header-title .back-to-news a {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  padding: 0;
+  max-height: 300px;
 }
 .coordination-page .info-about-coordinator .content-wrapp,
 .organisation-page .info-about-coordinator .content-wrapp {
   padding: 0 110px;
+  max-height: 300px;
 }
 @media (max-width: 1200px) {
   .coordination-page .info-about-coordinator .content-wrapp,
@@ -2256,7 +2264,7 @@ header .article-header-title .back-to-news a {
 .coordination-page .info-about-coordinator .content-wrapp h2,
 .organisation-page .info-about-coordinator .content-wrapp h2 {
   font-size: 20px;
-  color: #4fd2f8;
+  color: #4a577c;
   text-transform: uppercase;
   padding: 10px;
   text-align: center;
@@ -2285,7 +2293,7 @@ header .article-header-title .back-to-news a {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  background-color: rgba(36, 44, 79, 0.38);
+  background-color: #bedfff;
 }
 .coordination-page .wrapp .col-lg-5,
 .organisation-page .wrapp .col-lg-5 {
