@@ -1,6 +1,7 @@
 
 window.onload = function() {
     setTimeout(closeLoadingScreen, 100);
+    setInterval(changeOrgHeaderBg, 5000);
 
     function closeLoadingScreen() {
         $("body").css('overflow', 'visible');
@@ -11,7 +12,20 @@ window.onload = function() {
             $(".content-wrapper").animate({"opacity": "1"}, 500) ;
         });
     }
-  };
+    var stateOfOrgHeaderBg = "nowIsFirstImg";
+
+    function changeOrgHeaderBg() {
+        if (stateOfOrgHeaderBg == "nowIsFirstImg") {
+            $(".first-header-img").fadeOut("0");
+            $(".second-header-img").fadeIn("500");
+            stateOfOrgHeaderBg = "nowIsSecondImg";
+        } else {
+            $(".first-header-img").fadeIn("500");
+            $(".second-header-img").fadeOut("0");
+            stateOfOrgHeaderBg = "nowIsFirstImg";
+        }
+    }
+};
 
 $(document).ready(function($) {
 
@@ -208,28 +222,43 @@ $(document).ready(function($) {
             galeryId: '4'
         }
     ];
-    var video = [
-        {
-            partners: 'Лены и Максима',
-            poster: 'images/galery/video_preview/svadba_leny_i_maksima_1.jpg',
-            link: 'watch?v=xyCdd9qoiKY'
-        },
-        {
-            partners: 'Юли и Игоря',
-            poster: 'images/galery/video_preview/svadba_leny_i_maksima_2.jpg',
-            link: 'watch?v=zJyd5z6LvEg'
-        },
-       {
-            partners: 'Юли и Ивана',
-            poster: 'images/galery/video_preview/svadba_leny_i_maksima_3.jpg',
-            link: 'watch?v=Y6Cy9uws_Ew'
-        },
-        {
-            partners: 'Юли и Пети',
-            poster: 'images/galery/video_preview/svadba_leny_i_maksima_4.jpg',
-            link: 'watch?v=9qoqcEB6_D8'
-        }
-    ];
+
+    // var video = [
+    //     {
+    //         partners: 'Лены и Максима',
+    //         poster: 'images/galery/video_preview/svadba_leny_i_maksima_1.jpg',
+    //         link: 'watch?v=xyCdd9qoiKY'
+    //     },
+    //     {
+    //         partners: 'Юли и Игоря',
+    //         poster: 'images/galery/video_preview/svadba_leny_i_maksima_2.jpg',
+    //         link: 'watch?v=zJyd5z6LvEg'
+    //     },
+    //    {
+    //         partners: 'Юли и Ивана',
+    //         poster: 'images/galery/video_preview/svadba_leny_i_maksima_3.jpg',
+    //         link: 'watch?v=Y6Cy9uws_Ew'
+    //     },
+    //     {
+    //         partners: 'Юли и Пети',
+    //         poster: 'images/galery/video_preview/svadba_leny_i_maksima_4.jpg',
+    //         link: 'watch?v=9qoqcEB6_D8'
+    //     }
+    // ];
+    var video = $.ajax({
+        url: 'api.php?action=get_video',
+        type: 'GET',
+    })
+    .done(function() {
+        console.log(video);
+    })
+    .fail(function() {
+        console.log("фейл");
+    })
+    .always(function() {
+        console.log(video);
+    });
+    
     var reviews = [
         {
             content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
@@ -409,15 +438,9 @@ $(document).ready(function($) {
         });
     }
 
-    $(".letter-form button").on("click", function(event) {
-        event.preventDefault();
-        if ($(window).width() >= 768) { 
-            closeLetter();
-        } 
-    });
-
     $(".top").on("click", function() {
         letterIsOpen = false;
+        $(".letter-form").parent().find('button').html("Отправить").css('font-size', '16px');
         openLetter();
     });
 
@@ -524,7 +547,94 @@ $(document).ready(function($) {
         event.preventDefault();
         $("#portfolio-carousel").removeClass('galeryIsOpen');
     });
+    // Работа с формами
+    $('#inputPhone').mask("+3 (999) 999-99-99");
 
+    $('.form-group').on('click', 'button', function(event) {
+        event.preventDefault();
+        var phone = $(this).parent().find('#inputPhone'),
+            clientName = $(this).parent().find('#inputName'),
+            organisatorForm = "Имя клиента: " + clientName.val() + " " + "Номер телефона: " + phone.val();
+
+        if (clientName.val() === "") {
+            clientName.css('outline', 'solid red').attr('placeholder', 'Введите ваше имя');
+        } else {
+            clientName.css('outline', 'none').attr('placeholder', 'Ваше имя');
+        }
+
+        if (phone.val() === "") {
+            phone.css('outline', 'solid red').attr('placeholder', 'Введите ваш телефон');
+        } else {
+            phone.css('outline', 'none').attr('placeholder', 'Ваш телефон');
+        }
+
+        if (phone.val() !== "" && clientName.val() !== "") {
+            $.ajax({
+                url: 'organisationForm',
+                type: 'PUL',
+                processData: false,
+                data: organisatorForm,
+            });
+            $(this).parent().find('button').html("Данные отправлены").css('font-size', '16px');
+        }
+    });
+
+    $('.letter-wrap').find('[name = phone]').mask("+3 (999) 999-99-99");
+
+    $('.letter-wrap').on('click', 'button', function(event) {
+        event.preventDefault();
+        var weddingDate = $(this).parent().find('[name = date]'),
+            clientEmail = $(this).parent().find('[name = email]'),
+            phone = $(this).parent().find('[name = phone]'),
+            contactForm = "Дата свадьбы: " + weddingDate.val() + " " + "Номер телефона: " + phone.val() + " " + "Емейл: " + clientEmail.val(),
+            mailMask = /^[a-z0-9_-]+@[a-z0-9-]+\.([a-z]{1,6}\.)?[a-z]{2,6}$/i; 
+
+        if (clientEmail.val().search(mailMask) === 0) {//проверка правильности введения емейл
+            clientEmail.css('border-bottom', 'solid 1px black').attr('placeholder', 'Ваш e-mail');
+            $('.letter-wrap form').find('p').fadeOut('0');
+        } else {
+            clientEmail.css('border-bottom', 'solid 2px red').attr('placeholder', 'Введите E-mail');
+            $('.letter-wrap form').find('p').fadeOut('0');
+            if (clientEmail.val() !== "") {
+                $('.letter-wrap form').append('<p>Неправильная почта</p>').find('p').css({
+                    position: 'absolute',
+                    color: 'red',
+                    top: '230px',
+                    left: '0',
+                    width: '100%',
+                    'font-size': '17px'
+                });
+            }
+        }
+
+        if (phone.val() === "") {
+            phone.css('border-bottom', 'solid 2px red').attr('placeholder', 'Введите ваш телефон');
+        } else {
+            phone.css('border-bottom', 'solid 1px black').attr('placeholder', 'Ваш телефон');
+        }
+        
+        if (phone.val() !== "" && clientEmail.val() !== "" && clientEmail.val().search(mailMask) === 0) {
+
+            $.ajax({
+                url: 'contactForm',
+                type: 'PUL',
+                processData: false,
+                data: contactForm,
+            });
+
+            if ($(window).width() >= 768) { 
+                closeLetter();
+            } 
+
+            $(this).parent().find('button').html("Данные отправлены").css('font-size', '16px');
+        }
+    });
+
+    $('.letter-wrap [name = email]').on('keyup', function() {
+        if ($(this).val() === "") {
+            $('.letter-wrap form').find('p').fadeOut('0');
+        }
+    });
     // $(window).scroll(function() { //проверка на растояние от верха для изменения стилей некоторых элементов
     //     var distanceToAboutUs = $("#about-us").offset().top, //растояние до блоков от верха окна
     //         distanceToServHead = $(".services-header").offset().top,

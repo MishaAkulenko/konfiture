@@ -177,6 +177,12 @@ header .header-title .navigation {
   z-index: 1000;
   width: 100%;
 }
+@media (max-width: 1201px) {
+  header .header-title .navigation {
+    width: 60px;
+    right: 0;
+  }
+}
 header .header-title .navigation .menu-mobile {
   height: 80px;
   z-index: 1001;
@@ -464,10 +470,12 @@ header .header-title .content-wrapper .content h2 {
 header .header-title .content-wrapper .content img {
   max-width: 350px;
   margin-bottom: 50px;
+  max-height: 50%;
 }
 @media (max-width: 768px) {
   header .header-title .content-wrapper .content img {
     max-width: 200px;
+    margin-bottom: 10px;
   }
 }
 @media (max-width: 500px) {
@@ -777,6 +785,7 @@ header .header-title .content-wrapper .content img {
   position: absolute;
   bottom: 0;
   height: 40;
+  left: 0;
   width: 100%;
   background-color: rgba(37, 50, 90, 0.7);
   display: -webkit-box;
@@ -2476,7 +2485,20 @@ header .article-header-title .back-to-news a {
 }
 .organisation-page header .header-title {
   height: 580px;
-  background-image: url("../images/organisation-header-bg.jpg");
+  background-image: none;
+  position: relative;
+  overflow: hidden;
+}
+.organisation-page header .header-title .first-header-img,
+.organisation-page header .header-title .second-header-img {
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  left: 0;
+  right: 0;
+}
+.organisation-page header .header-title .second-header-img {
+  display: none;
 }
 .organisation-page .first-chapter {
   background-color: #2a354f;
