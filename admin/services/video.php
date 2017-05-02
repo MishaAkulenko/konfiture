@@ -46,6 +46,7 @@ if(isset($_GET['action'])){
         if(isset($_POST['name']) && isset($_POST['link'])){
             $file_name = rus2translit($_POST['name']);
             if($_FILES['preview']['name'] && $_FILES['preview']['tmp_name'] && $_FILES['preview']['size']) {
+                $info = pathinfo($_FILES["preview"]["name"]);
                 if (is_uploaded_file($_FILES["preview"]["tmp_name"])) {
                     @unlink('../images/galery/video_preview/' . $data['preview']);
                     copy($_FILES["preview"]["tmp_name"], "../../images/galery/video_preview/" . $file_name . '-' . $id . '.' . $info['extension']);
@@ -56,9 +57,7 @@ if(isset($_GET['action'])){
             } else{
                 video_update($link, $_POST['name'], $_POST['link'], $data['preview'], $id);
             }
-
-
-
+            
             header("Location: /admin/?page=video", true);
             die();
         }
@@ -117,3 +116,4 @@ function get_video($link, $id){
     return mysqli_fetch_assoc($result);
 
 }
+?>
