@@ -34,6 +34,15 @@
             <input type="text" class="form-control" placeholder="Записывается в 'partners'">
         </div>
         <p class="text-center">По аякс запросу по айдишнику надо получить массив ссылок на все картинки</p>
+        <pre>
+            $.ajax({
+                url: galeryId,
+                type: 'GET',
+            })
+            .done(function(data) {
+                arrOfPhotosLinks = data;
+            });
+        </pre>
         <div class="input-group">
             <span class="input-group-addon">Ссылка на льбом</span>
             <input class="form-control" placeholder="Тут поле загрузки фоток для галереи, айди галереи записываеться в 'galeryId'">
@@ -201,7 +210,42 @@
         },
     ];</pre>
     </div>
-    <h2>Также на главной есть две формы обратной связи, данные с них нужно отправить на какоето корпоративное мыло, пока неизвестное мне</h2>
+    <h2>Также на главной есть две формы обратной связи, данные с них нужно отправить на какоето корпоративное мыло, пока неизвестное мне, перадю в формате строки, или можешь чего другого посоветовать</h2>
+    <p class="text-center">Аякс запросы в формате: (URL сам помоги подобрать)</p>
+    <pre>
+$.ajax({
+        url: 'organisationForm',
+        type: 'PUL',
+        processData: false,
+        data: organisatorForm,
+});
+
+ $.ajax({
+    url: 'contactForm',
+    type: 'PUL',
+    processData: false,
+    data: contactForm,
+});
+    </pre>
+        <div style="background-color: #bedfff; color: #4f4f4f">
+       <h1 class="text-center">Новостная статья</h1>
+        <p class="text-center">1. Новостная статья делиться на четыре части, из них первая обязательная и будет всегда, она состоит из картинки (которая кстати сделана через css background-image), раздела (всего разделов два - тренды и советы, и новости), заглавия, даты добавления новости, первого блока текста форматированного по центру, и двух шахматных блоков - половина екрана текст, половина картинка и под ними последний заключительный блок форматированный по центру <a href="http://prntscr.com/f3ahr0">Пример</a></p>
+
+        <p class="text-center">2. Потом идет блок галереи, этот блок не обязательный, его буду строить я, при переходе на страницу статьи автоматом будет делать аякс запрос на массив ссылок на фотографии. URL сам придумай какой должен быть, а  сам аякс запрос будет вида: (Желательно если картинок нету, то передать вместо ссылок какую  нить строку типо 'not-img', чтобы я мог совсем убрать блок галереи)</p>
+        <pre>
+$.ajax({
+    url: newsGaleryLinks,
+    type: 'GET',
+})
+.done(function(data) {
+    arrOfPhotosLinks = data;
+});
+        </pre>
+        <p class="text-center">А массив ссылок в виде:</p>
+        <pre>["images/galery/svadba_leny_i_maksima_1/photo1.jpg","images/galery/svadba_leny_i_maksima_1/photo2.jpg","images/galery/svadba_leny_i_maksima_1/photo3.jpg"];</pre>
+        <p class="text-center">3. Затем идет блок видео, тут надо только записать сылку на видео для <a href="http://prntscr.com/f3aua8">этого блока</a> в дата тег - 'data-video-id', если видео не будет, то скрыть этот блок</p>
+        <p class="text-center">4. Ну и последний заключающий, четвертый блок текста без ничего</p>
+    </div>
     <!-- <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/jquery-touch-events/src/jquery.mobile-events.min.js"></script>
