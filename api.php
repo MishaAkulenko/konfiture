@@ -38,9 +38,9 @@ if($action == 'get_reviews' ) {
     $i = 0;
     while ($row = mysqli_fetch_assoc($result)) {
 
-        $items[$i]['partners'] = $row['link'];
-        $items[$i]['poster'] = $row['preview'];
-        $items[$i]['link'] = 'images/galery/video_preview'.$row['preview'];
+        $items[$i]['partners'] = $row['user_name'];
+        $items[$i]['poster'] = 'images/galery/video_preview'.$row['preview'];
+        $items[$i]['link'] = $row['link'];
         $i ++;
     }
     header('Content-Type: application/json');
