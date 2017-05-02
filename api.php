@@ -23,7 +23,7 @@ if($action == 'get_reviews' ) {
 
         $items[$i]['content'] = $row['text'];
         $items[$i]['title'] = $row['user_name'];
-        $items[$i]['portrait'] = 'images/rewiew/'.$row['photo'];
+        $items[$i]['portrait'] = 'images/review/'.$row['photo'];
         $i ++;
     }
     header('Content-Type: application/json');

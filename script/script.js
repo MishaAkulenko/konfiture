@@ -244,48 +244,7 @@ $(document).ready(function($) {
     //         poster: 'images/galery/video_preview/svadba_leny_i_maksima_4.jpg',
     //         link: 'watch?v=9qoqcEB6_D8'
     //     }
-    // ];
-    var video = $.ajax({
-        url: 'api.php?action=get_video',
-        type: 'GET',
-    })
-    .done(function() {
-        console.log(video);
-    })
-    .fail(function() {
-        console.log("фейл");
-    })
-    .always(function() {
-        console.log(video);
-    });
-    
-    var reviews = [
-        {
-            content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
-            title: 'Анна Семёнова',
-            portrait: 'images/review/portrait-1.jpg',
-        },
-       {
-            content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
-            title: 'Саша Алексеева',
-            portrait: 'images/review/portrait-2.jpg',
-        },
-        {
-            content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
-            title: 'Меган Фокс',
-            portrait: 'images/review/portrait-3.jpg',
-        },
-        {
-            content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
-            title: 'Кот Аркадий',
-            portrait: 'images/review/portrait-4.jpg',
-        },
-        {
-            content: 'Pellentesque vestibulum turpis sit amet felis porttitor, nec maximus risus egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed elementum condimentum purus, eu vehicula magna aliquam eu. Donec sollicitudin dignissim urna. Curabitur sollicitudin.',
-            title: 'Дуся',
-            portrait: 'images/review/portrait-5.jpg',
-        }
-    ];
+    // ]; 
 
     var news = [
         {
@@ -390,18 +349,33 @@ $(document).ready(function($) {
     }
 
     if ($(".main-page").length) { //генерим разные карусели для главной страницы
+
+        $.ajax({ // построение карусели отзывов
+            url: 'api.php?action=get_reviews',
+            type: 'GET',
+        })
+        .done(function(reviews) {
+            caruselSvipe(reviews, "#reviews-carousel", "../templates/review-tmpl.html",  '.carousel-inner', '.item', '<div class="item"></div>');
+            $("#reviews-carousel .item").eq(0).addClass('active');//нужно для того чтобы работала бутстраповская карусель 
+        });
+        
+        $.ajax({// построение видео карусели 
+            url: 'api.php?action=get_video',
+            type: 'GET',
+        })
+        .done(function(video) {
+            caruselSvipe(video, "#video-carousel", "../templates/video-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
+        });
+        
         caruselSvipe(news, "#news-carousel", "../templates/news-preview-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
         caruselSvipe(portfolio, "#portfolio-carousel", "../templates/portfolio-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
-        caruselSvipe(reviews, "#reviews-carousel", "../templates/review-tmpl.html",  '.carousel-inner', '.item', '<div class="item"></div>');
-        caruselSvipe(video, "#video-carousel", "../templates/video-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
+        
 
         autoCaruselSvipe('#portfolio-carousel');
 
         autoCaruselSvipe('#news-carousel');
 
         autoCaruselSvipe('#video-carousel');
-
-        $("#reviews-carousel .item").eq(0).addClass('active');//нужно для того чтобы работала бутстраповская карусель
         
         $('.carousel').on('mouseenter', function(){$(this).addClass('hover')});//когда курсор на карусели, карусель останавливаеться
 
@@ -450,6 +424,14 @@ $(document).ready(function($) {
             arrOfPhotosLinks = ["images/galery/svadba_leny_i_maksima_1/photo1.jpg","images/galery/svadba_leny_i_maksima_1/photo2.jpg","images/galery/svadba_leny_i_maksima_1/photo3.jpg", "images/galery/svadba_leny_i_maksima_1/photo4.jpg","images/galery/svadba_leny_i_maksima_1/photo5.jpg","images/galery/svadba_leny_i_maksima_1/photo6.jpg","images/galery/svadba_leny_i_maksima_1/photo7.jpg","images/galery/svadba_leny_i_maksima_1/photo8.jpg","images/galery/svadba_leny_i_maksima_1/photo9.jpg"],
             fotosInGaleryUrl = [];
 
+            // $.ajax({
+            //     url: galeryId,
+            //     type: 'GET',
+            // })
+            // .done(function(data) {
+            //     arrOfPhotosLinks = data;
+            // });
+            
         for (var i = 0; i < arrOfPhotosLinks.length; i++) {
             fotosInGaleryUrl.push({"url": arrOfPhotosLinks[i], "thumbUrl": arrOfPhotosLinks[i], "title": partners});  
         }
@@ -477,27 +459,59 @@ $(document).ready(function($) {
         });
     }
 
-    $('#article-gallery').jGallery({//новостная галерея
-        mode: 'standard',
-        slideshowAutostart: false,
-        canChangeMode: true,
-        canZoom:false,
-        canClose: false,
-        swipeEvents: true,
-        thumbnailsHideOnMobile: false,
-        slideshowCanRandom: false,
-        thumbnailsFullScreen: false,
-        slideshow: false,
-        canMinimalizeThumbnails: false,
-        maxMobileWidth: 300,
-        tooltipRandom: 'Рандом',
-        tooltipSlideshow: 'Слайдшоу',
-        tooltipClose: 'Закрыть',
-        tooltipSeeAllPhotos: 'Все фото',
-        tooltipToggleThumbnails: 'Скрыть миниатюры',
-        backgroundColor: '#21284d',
-        textColor: 'white',
-        items: [{"url": "images/galery/svadba_leny_i_maksima_1/photo1.jpg", "thumbUrl": "images/galery/svadba_leny_i_maksima_1/photo1.jpg"},{"url": "images/galery/svadba_leny_i_maksima_1/photo2.jpg", "thumbUrl": "images/galery/svadba_leny_i_maksima_1/photo2.jpg"}]
+    if ($(".news-article-page").length) {// Построение новостной галереи 
+        bildArticleGalery();
+    }
+
+    function bildArticleGalery() {//Новостная галерея
+        var arrOfPhotosLinks = [{"url": "images/galery/svadba_leny_i_maksima_1/photo1.jpg", "thumbUrl": "images/galery/svadba_leny_i_maksima_1/photo1.jpg"},{"url": "images/galery/svadba_leny_i_maksima_1/photo2.jpg", "thumbUrl": "images/galery/svadba_leny_i_maksima_1/photo2.jpg"}],
+            fotosInGaleryUrl = [];
+            
+            // $.ajax({
+            //     url: newsGaleryLinks,
+            //     type: 'GET',
+            // })
+            // .done(function(data) {
+            //     arrOfPhotosLinks = data;
+            // });
+            
+        for (var i = 0; i < arrOfPhotosLinks.length; i++) {
+            fotosInGaleryUrl.push({"url": arrOfPhotosLinks[i], "thumbUrl": arrOfPhotosLinks[i]});  
+        }
+
+        $('#article-gallery').jGallery({//новостная галерея
+            mode: 'standard',
+            slideshowAutostart: false,
+            canChangeMode: true,
+            canZoom:false,
+            canClose: false,
+            swipeEvents: true,
+            thumbnailsHideOnMobile: false,
+            slideshowCanRandom: false,
+            thumbnailsFullScreen: false,
+            slideshow: false,
+            canMinimalizeThumbnails: false,
+            maxMobileWidth: 300,
+            tooltipRandom: 'Рандом',
+            tooltipSlideshow: 'Слайдшоу',
+            tooltipClose: 'Закрыть',
+            tooltipSeeAllPhotos: 'Все фото',
+            tooltipToggleThumbnails: 'Скрыть миниатюры',
+            backgroundColor: '#21284d',
+            textColor: 'white',
+            items: arrOfPhotosLinks
+        });
+    }
+
+    $("#portfolio-carousel").on('click', 'a', function(event) {//отркытие галереи на главной
+        event.preventDefault();
+        showGalery(event);
+        $("#portfolio-carousel").addClass('galeryIsOpen');//остановка карусели, когда галерея открыта
+    });
+
+    $("#gallery").on('click', ".fa-times", function(event) { //запуск карусели, когда галерея закрыта
+        event.preventDefault();
+        $("#portfolio-carousel").removeClass('galeryIsOpen');
     });
 
     // ВИДЕО ПЛЕЕР
@@ -537,17 +551,7 @@ $(document).ready(function($) {
         $("body").css('overflow', 'visible');
     });
 
-    $("#portfolio-carousel").on('click', 'a', function(event) {
-        event.preventDefault();
-        showGalery(event);
-        $("#portfolio-carousel").addClass('galeryIsOpen');
-    });
-
-    $("#gallery").on('click', ".fa-times", function(event) {
-        event.preventDefault();
-        $("#portfolio-carousel").removeClass('galeryIsOpen');
-    });
-    // Работа с формами
+    // РАБОТА С ФОРМАМИ СВЯЗИ
     $('#inputPhone').mask("+3 (999) 999-99-99");
 
     $('.form-group').on('click', 'button', function(event) {
@@ -683,5 +687,4 @@ $(document).ready(function($) {
     // });
 });
 
-    
 
