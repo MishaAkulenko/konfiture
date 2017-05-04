@@ -223,27 +223,20 @@ $(document).ready(function($) {
         }
     ];
 
-    // var video = [
+    // var mainNews = [
     //     {
-    //         partners: 'Лены и Максима',
-    //         poster: 'images/galery/video_preview/svadba_leny_i_maksima_1.jpg',
+    //         title: 'Свадьбы на природе',
+    //         chapter: 'Новости',
+    //         poster: 'images/news/news3.jpg',
     //         link: 'watch?v=xyCdd9qoiKY'
     //     },
     //     {
-    //         partners: 'Юли и Игоря',
-    //         poster: 'images/galery/video_preview/svadba_leny_i_maksima_2.jpg',
-    //         link: 'watch?v=zJyd5z6LvEg'
+    //         title: 'Свадьбы на природе',
+    //         chapter: 'Новости',
+    //         poster: 'images/news/news3.jpg',
+    //         link: 'watch?v=xyCdd9qoiKY'
     //     },
-    //    {
-    //         partners: 'Юли и Ивана',
-    //         poster: 'images/galery/video_preview/svadba_leny_i_maksima_3.jpg',
-    //         link: 'watch?v=Y6Cy9uws_Ew'
-    //     },
-    //     {
-    //         partners: 'Юли и Пети',
-    //         poster: 'images/galery/video_preview/svadba_leny_i_maksima_4.jpg',
-    //         link: 'watch?v=9qoqcEB6_D8'
-    //     }
+       
     // ]; 
 
     var news = [
@@ -277,9 +270,78 @@ $(document).ready(function($) {
             content: 'бла бла блабля бла чето атм расказывается',
             link: 'тут ссылка на полную статью в самом разделе новости'
         },
+        {
+            title: 'Акция ко дню влюбленных',
+            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+            content: 'бла бла блабля бла чето атм расказывается',
+            link: 'тут ссылка на полную статью в самом разделе новости'
+        },
+        {
+            title: 'Акция ко дню влюбленных',
+            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+            content: 'бла бла блабля бла чето атм расказывается',
+            link: 'тут ссылка на полную статью в самом разделе новости'
+        },
     ];
 
-    var counter = 0;
+    var counter = 0,
+        newsCounter = 0;//В зависимости от значения строяться определенные блоки новостей, сбрасывается в ноль каждые 6 итераций
+        itemCount = 0;//Нужен для присвоения айдишников для блоков в которые вставляются темплейты
+
+    function bildNews(mainNews) {//Страница новостей
+        mainNews.forEach(function(elem, i) {
+            var itemOfNews = '#news-wrap' + " " + '#big-' + itemCount;
+            
+            if (newsCounter === 0) { 
+                $('#news-wrap').append('<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 big"></div><div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"><div class="row double-block"><div class="upper-block"></div><div class="lower-block"></div></div></div>');
+                $('#news-wrap').find('.big').eq(itemCount).attr('id', 'big-' + [itemCount]);//уникальный айди для каждого блока в который вставляется темплейт
+                $('#news-wrap').find('.upper-block').eq(itemCount).attr('id', 'upper-block-' + [itemCount]);
+                $('#news-wrap').find('.lower-block').eq(itemCount).attr('id', 'lower-block-' + [itemCount]);
+                $(itemOfNews).loadTemplate("../templates/big-block-tmpl.html", elem);//грузим темплейт
+                itemCount++;
+            }
+
+            if (newsCounter === 3) {
+                $('#news-wrap').append('<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"><div class="row double-block"><div class="upper-block"></div><div class="lower-block"></div></div></div><div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 big"></div>');
+                $('#news-wrap').find('.upper-block').eq(itemCount).attr('id', 'upper-block-' + [itemCount]);
+                $('#news-wrap').find('.lower-block').eq(itemCount).attr('id', 'lower-block-' + [itemCount]);
+                $('#news-wrap').find('.big').eq(itemCount).attr('id', 'big-' + [itemCount]);
+                itemCount++;
+            }
+
+            if (newsCounter === 1 || newsCounter === 3) {
+                itemOfNews = '#news-wrap' + " " + '#upper-block-' + (itemCount - 1);
+                $(itemOfNews).loadTemplate("../templates/upper-block-tmpl.html", elem);
+            }
+
+            if (newsCounter === 2 || newsCounter === 4) {
+                itemOfNews = '#news-wrap' + " " + '#lower-block-' + (itemCount - 1);
+                $(itemOfNews).loadTemplate("../templates/lower-block-tmpl.html", elem);
+            }
+
+            if (newsCounter === 5) {
+                itemOfNews = '#news-wrap' + " " + '#big-' + (itemCount - 1);
+                $(itemOfNews).loadTemplate("../templates/big-block-tmpl.html", elem);
+            }
+
+            newsCounter++;
+
+            if (newsCounter === 6) {
+                newsCounter = 0;
+            }
+        });
+    }
+
+    if ($('.news-page').length) {
+
+        $.ajax({
+            url: 'newsMainPage',
+            type: 'GET',
+        })
+        .done(function(mainNews) {
+            bildNews(mainNews);// запуск построения страницы с новостями после получения массива с данными для темплейта по аякс
+        }); 
+    }
 
     function caruselSvipe(caruselObj, caruselId, template, carouselItemsClass, carouselBlockClass, tmplWrapp) {
 

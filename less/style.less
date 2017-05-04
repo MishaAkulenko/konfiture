@@ -1889,7 +1889,6 @@ header {
 	.double-block {
 		height: 100%;
 		color:  #3e3e3e;
-		background-color: #bccedd;
 		height: 370px;
 
 		.left-block {
@@ -1937,6 +1936,7 @@ header {
 		}
 
 		.upper-block, .lower-block {
+			position: relative;
 			max-height: 50%;
 			overflow: hidden;
 			padding: 0;
@@ -1945,6 +1945,7 @@ header {
 			text-align: center;
 			align-items: center;
 			position: relative;
+			background-color: #bccedd;
 
 			a {
 				position: absolute;
@@ -1952,6 +1953,7 @@ header {
 				bottom: 0;
 				left: 0;
 				right: 0;
+				z-index: 4;
 			}
 
 			div {

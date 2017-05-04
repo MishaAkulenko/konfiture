@@ -2085,7 +2085,6 @@ header .article-header-title .back-to-news a {
 .news-page .double-block {
   height: 100%;
   color: #3e3e3e;
-  background-color: #bccedd;
   height: 370px;
 }
 .news-page .double-block .left-block {
@@ -2151,6 +2150,7 @@ header .article-header-title .back-to-news a {
   -ms-flex-align: center;
   align-items: center;
   position: relative;
+  background-color: #bccedd;
 }
 .news-page .double-block .upper-block a,
 .news-page .double-block .lower-block a {
@@ -2159,6 +2159,7 @@ header .article-header-title .back-to-news a {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 4;
 }
 .news-page .double-block .upper-block div,
 .news-page .double-block .lower-block div {

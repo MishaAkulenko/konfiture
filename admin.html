@@ -246,6 +246,36 @@ $.ajax({
         <p class="text-center">3. Затем идет блок видео, тут надо только записать сылку на видео для <a href="http://prntscr.com/f3aua8">этого блока</a> в дата тег - 'data-video-id', если видео не будет, то скрыть этот блок</p>
         <p class="text-center">4. Ну и последний заключающий, четвертый блок текста без ничего</p>
     </div>
+    <div style="background-color: #bedfff; color: #4f4f4f">
+       <h1 class="text-center">Главная новостей</h1>
+        <p class="text-center">Данные для построения страницы передать в виде</p>
+        <pre>
+    [{
+        title: 'Свадьбы на природе',
+        chapter: 'Новости',
+        poster: 'images/news/news3.jpg',
+        link: 'watch?v=xyCdd9qoiKY'
+    },
+    {
+        title: 'Свадьбы на природе',
+        chapter: 'Новости',
+        poster: 'images/news/news3.jpg',
+        link: 'watch?v=xyCdd9qoiKY'
+    } ]
+        </pre>
+        <p class="text-center">Где title - вводимый заголовок для новости, chapter - раздел(может быть либо "Новости" либо "Тренды и советы"), poster - ссылка на постер к новости, link - ссылка на полную статью</p>
+        <p class="text-center">Аякс запрос буду делать в виде:</p>
+                <pre>
+    $.ajax({
+        url: 'newsMainPage',
+        type: 'GET',
+    })
+    .done(function(mainNews) {
+        bildNews(mainNews);
+    }); 
+        </pre>
+
+    </div>
     <!-- <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/jquery-touch-events/src/jquery.mobile-events.min.js"></script>
