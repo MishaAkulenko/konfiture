@@ -39,7 +39,7 @@ require_once("config/db_config.php");
                 </li>
                 <li><a href="./?page=news">Новости</a>
                 </li>
-                <li><a href="./?page=albums">Альбомы</a>
+                <li><a href="./?page=album">Альбомы</a>
                 </li>
                 <li><a href="./?page=review">Отзывы</a>
                 </li>
