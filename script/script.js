@@ -1,6 +1,6 @@
 
 window.onload = function() {
-    setTimeout(closeLoadingScreen, 100);
+    setTimeout(closeLoadingScreen, 0);
     setInterval(changeOrgHeaderBg, 5000);
 
     function closeLoadingScreen() {
@@ -46,19 +46,10 @@ $(document).ready(function($) {
                 setTimeout(openLetter, 500);
             } 
         } 
-
-        if ($(".article-page").length) {
-
-            var distanceToArticleContent = $(".article-content").offset().top;
-
-            if (distanceFromTop > distanceToArticleContent && $(window).width() > 1200) {
-                $(".back-to-news").fadeIn(500);
-            }
-        }
     });
 
-    $(".menu").on("click", "a", function(event) { //перход по якорным ссылкам из меню навигации
-        event.preventDefault(); 
+    $(".menu, .news-article-menu").on("click", "a", function(event) { //перход по якорным ссылкам из меню навигации
+         
         var id = $(this).attr('href'), 
             distanceFromTop;
             if ($(window).width() > 1200) {
@@ -223,21 +214,21 @@ $(document).ready(function($) {
         }
     ];
 
-    // var mainNews = [
-    //     {
-    //         title: 'Свадьбы на природе',
-    //         chapter: 'Новости',
-    //         poster: 'images/news/news3.jpg',
-    //         link: 'watch?v=xyCdd9qoiKY'
-    //     },
-    //     {
-    //         title: 'Свадьбы на природе',
-    //         chapter: 'Новости',
-    //         poster: 'images/news/news3.jpg',
-    //         link: 'watch?v=xyCdd9qoiKY'
-    //     },
+    var mainNews = [
+        {
+            title: 'Свадьбы на природе',
+            chapter: 'Новости',
+            poster: 'images/news/news3.jpg',
+            link: 'watch?v=xyCdd9qoiKY'
+        },
+        {
+            title: 'Свадьбы на природе',
+            chapter: 'Новости',
+            poster: 'images/news/news3.jpg',
+            link: 'watch?v=xyCdd9qoiKY'
+        },
        
-    // ]; 
+    ]; 
 
     var news = [
         {
@@ -334,13 +325,14 @@ $(document).ready(function($) {
 
     if ($('.news-page').length) {
 
-        $.ajax({
-            url: 'newsMainPage',
-            type: 'GET',
-        })
-        .done(function(mainNews) {
-            bildNews(mainNews);// запуск построения страницы с новостями после получения массива с данными для темплейта по аякс
-        }); 
+        // $.ajax({
+        //     url: 'newsMainPage',
+        //     type: 'GET',
+        // })
+        // .done(function(mainNews) {
+        //     bildNews(mainNews);// запуск построения страницы с новостями после получения массива с данными для темплейта по аякс
+        // }); 
+        bildNews(mainNews);
     }
 
     function caruselSvipe(caruselObj, caruselId, template, carouselItemsClass, carouselBlockClass, tmplWrapp) {

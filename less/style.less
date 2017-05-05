@@ -1111,6 +1111,10 @@ header {
 	#reviews-carousel {
 		margin-bottom: 60px;
 
+		@media (min-width: 768px) {
+			height: 180px;
+		}
+
 		.carousel-inner {
 			display: flex;
 			justify-content: center;
@@ -1828,7 +1832,10 @@ header {
 			right: 0;
 			background-color: rgba(29, 35, 59, 0.5);
 			z-index: 2;
-			display: none;
+
+			@media (max-width: 1200px) {
+				display: none;
+			}
 
 			a {
 				text-transform: uppercase;

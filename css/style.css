@@ -1288,6 +1288,11 @@ header .header-title .content-wrapper .content img {
 .reviews #reviews-carousel {
   margin-bottom: 60px;
 }
+@media (min-width: 768px) {
+  .reviews #reviews-carousel {
+    height: 180px;
+  }
+}
 .reviews #reviews-carousel .carousel-inner {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2028,7 +2033,11 @@ header .article-header-title .back-to-news {
   right: 0;
   background-color: rgba(29, 35, 59, 0.5);
   z-index: 2;
-  display: none;
+}
+@media (max-width: 1200px) {
+  header .article-header-title .back-to-news {
+    display: none;
+  }
 }
 header .article-header-title .back-to-news a {
   text-transform: uppercase;
