@@ -8,7 +8,7 @@
 
 define('MYSQL_SERVER', '127.0.0.1');
 define('MYSQL_USER', 'root');
-define('MYSQL_PASSWORD', '');
+define('MYSQL_PASSWORD', '2345');
 define('MYSQL_DB', 'konfiture');
 
 function db_connect(){
@@ -50,4 +50,12 @@ function rus2translit($string) {
     //$string = preg_replace("#[.,]#isu", "", $string);
     //$string = preg_replace("#[^A-Za-z0-9\-]#isu", "_", $string);
     return $string;
+}
+function removeDirectory($dir) {
+    if ($objs = glob($dir."/*")) {
+        foreach($objs as $obj) {
+            is_dir($obj) ? removeDirectory($obj) : @unlink($obj);
+        }
+    }
+    @rmdir($dir);
 }

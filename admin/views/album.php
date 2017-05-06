@@ -27,7 +27,7 @@
                 <?if($key == 'preview'):?>
                     <td style='background-size: contain !important;
                         height: 100px;width: 100px; background-position: center  !important; background-repeat: no-repeat !important;
-                        background: url("../images/review/<?=$v?>")' >
+                        background: url("../images/galery/<?=$i['name_translit']?>/<?=$v?>")' >
                     </td>
                 <? else: ?>
                     <td>

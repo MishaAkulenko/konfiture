@@ -46,6 +46,21 @@ if($action == 'get_reviews' ) {
     header('Content-Type: application/json');
     echo json_encode($items);
 
+}elseif ($action == "get_album"){
+    $query = "SELECT * FROM `album` WHERE 1";
+    $result = mysqli_query($link, $query);
+    if (!$result)
+        die(mysqli_error($link));
+    $items = array();
+    $i = 0;
+    while ($row = mysqli_fetch_assoc($result)) {
 
+        $items[$i]['partners'] = $row['name'];
+        $items[$i]['poster'] = 'images/galery/'.$row['name_translit']."/".$row['preview'];
+        $items[$i]['galeryId'] = $row['id_album'];
+        $i ++;
+    }
+    header('Content-Type: application/json');
+    echo json_encode($items);
 
 }

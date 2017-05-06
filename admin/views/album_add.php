@@ -19,14 +19,14 @@
         <label for="exampleTextarea">Link rewrite</label>
         <input value='<?php /*echo ($data['name_translit'] && $action == 'edit' ? $data['name_translit'] : "")*/?>' required type="text" class="form-control" name="name_translit" placeholder="link rewrite" aria-describedby="sizing-addon1">
     </div>-->
-    <?if ($data['photo'] && $action == 'edit'):?>
+    <?if ($data['preview'] && $action == 'edit'):?>
         <div class="form-group">
-            <img style="width: 40%;" src="../images/review/<?php echo ($data['preview'] && $action == 'edit' ? $data['preview'] : "")?>">
+            <img style="width: 40%;" src="../images/galery/<?=$data['name_translit']?>/<?php echo ($data['preview'] && $action == 'edit' ? $data['preview'] : "")?>">
         </div>
     <?endif?>
     <div class="form-group">
         <label for="exampleInputFile">Превью альбома</label>
-        <input type="file" accept="image/*" name="photo" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+        <input type="file" accept="image/*" name="preview" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
     </div>
     <button type="submit" class="btn btn-primary">Сохранить</button>
 </form>
