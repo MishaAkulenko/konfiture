@@ -63,4 +63,27 @@ if($action == 'get_reviews' ) {
     header('Content-Type: application/json');
     echo json_encode($items);
 
+} elseif($action == 'get_photo'){
+
+    $album_id = $_GET['id_album'];
+    $query = "SELECT * FROM album WHERE id_album = ".$album_id;
+    $result = mysqli_query($link, $query);
+    if (!$result)
+        die(mysqli_error($link));
+    $album =  mysqli_fetch_assoc($result);
+
+    $query = "SELECT * FROM album_photo WHERE id_album = ".$album_id;
+    $result = mysqli_query($link, $query);
+    if (!$result)
+        die(mysqli_error($link));
+    $items = array();
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $items[] = 'images/galery/'.$album['name_translit']."/".$row['photo_name'];
+
+    };
+
+    header('Content-Type: application/json');
+    echo json_encode($items);
+
 }
