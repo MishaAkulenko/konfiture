@@ -33,7 +33,7 @@
     <?endif?>
     <div class="form-group">
         <label for="exampleInputFile">Превью фото</label>
-        <input type="file" accept="image/*" name="preview" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+        <input type="file" required accept="image/*" name="preview" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
     </div>
 
     <h2 style="margin-top: 20px;margin-bottom: 20px">Шахматный блок</h2>
@@ -44,7 +44,7 @@
     <?endif?>
     <div class="form-group">
         <label for="exampleInputFile">Первое фото шахматного блока</label>
-        <input type="file" accept="image/*" name="chess_block_photo_1" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+        <input type="file" required accept="image/*" name="chess_block_photo_1" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
     </div>
     <div class="form-group">
         <label for="exampleTextarea">Первый текст шахматного блока</label>
@@ -58,7 +58,7 @@
     <?endif?>
     <div class="form-group">
         <label for="exampleInputFile">Второе фото шахматного блока</label>
-        <input type="file" accept="image/*" name="chess_block_photo_2" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+        <input type="file" required accept="image/*" name="chess_block_photo_2" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
     </div>
     <div class="form-group">
         <label for="exampleTextarea">Второй текст шахматного блока</label>
