@@ -73,7 +73,7 @@
 
     <div style="margin-bottom: 15px" class="input-group input-group-lg">
         <span class="input-group-addon" id="sizing-addon1">Ссылка на видео</span>
-        <input value='<?php echo ($data['video_link'] && $action == 'edit' ? $data['video_link'] : "")?>' required type="text" class="form-control" name="video_link" placeholder="ссылка на видео" aria-describedby="sizing-addon1">
+        <input value='<?php echo ($data['video_link'] && $action == 'edit' ? $data['video_link'] : "")?>'  type="text" class="form-control" name="video_link" placeholder="ссылка на видео" aria-describedby="sizing-addon1">
     </div>
 
     <div class="form-group">
@@ -87,12 +87,14 @@
 <table id="dataTable" class="table  table-bordered table-hover table-responsive">
     <thead>
     <tr>
+        <?php if($photos):?>
         <?php foreach ($photos as $i):
             foreach ($i as $key => $v): ?>
                 <th><?=$key?></th>
             <?php endforeach;
             break;?>
         <?php endforeach ?>
+        <? endif?>
         <th style="max-width: 50px;">
             <form enctype="multipart/form-data" action="./services/news.php?action=add_photo&id_news=<?=$data['id_news']?>" method="post"><input type="submit" value="Добавить">
                 <input multiple type="file" accept="image/*" required name="photo[]" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
@@ -101,6 +103,7 @@
     </tr>
     </thead>
     <tbody>
+    <?php if($photos):?>
     <?php foreach ($photos as $i):?>
         <tr>
             <?php foreach ($i as $key => $v):?>
@@ -120,5 +123,6 @@
             </td>
         </tr>
     <?php endforeach ?>
+    <? endif?>
     </tbody>
 </table>

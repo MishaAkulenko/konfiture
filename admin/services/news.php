@@ -49,23 +49,23 @@ if(isset($_GET['action'])){
                 copy($_FILES["preview"]["tmp_name"], "../../images/news/".$link_rewrite."_".$id."/preview.".$inf_preview['extension']);
                 news_update_key($link,'preview',"preview.".$inf_preview['extension'], $id);
             } else {
-                echo("Ошибка загрузки файла");
+                echo("Ошибка загрузки файла preview");die();
             }
-            if(is_uploaded_file($_FILES["preview"]["tmp_name"]))
+            if(is_uploaded_file($_FILES["chess_block_photo_1"]["tmp_name"]))
             {
                 $inf_preview = pathinfo($_FILES["chess_block_photo_1"]["name"]);
                 copy($_FILES["chess_block_photo_1"]["tmp_name"], "../../images/news/".$link_rewrite."_".$id."/chess_block_photo_1.".$inf_preview['extension']);
                 news_update_key($link,'chess_block_photo_1',"chess_block_photo_1.".$inf_preview['extension'], $id);
             } else {
-                echo("Ошибка загрузки файла");
+                echo("Ошибка загрузки файла chess_block_photo_1");die();
             }
-            if(is_uploaded_file($_FILES["preview"]["tmp_name"]))
+            if(is_uploaded_file($_FILES["chess_block_photo_2"]["tmp_name"]))
             {
                 $inf_preview = pathinfo($_FILES["chess_block_photo_2"]["name"]);
                 copy($_FILES["chess_block_photo_2"]["tmp_name"], "../../images/news/".$link_rewrite."_".$id."/chess_block_photo_2.".$inf_preview['extension']);
                 news_update_key($link,'chess_block_photo_2',"chess_block_photo_2.".$inf_preview['extension'], $id);
             } else {
-                echo("Ошибка загрузки файла");
+                echo("Ошибка загрузки файла chess_block_photo_2");die();
             }
             header("Location: /admin/?page=news", true);
             die();
@@ -100,22 +100,17 @@ if(isset($_GET['action'])){
                 $inf_preview = pathinfo($_FILES["preview"]["name"]);
                 copy($_FILES["preview"]["tmp_name"], "../../images/news/" . $news_title . "_" . $id . "/preview." . $inf_preview['extension']);
                 news_update_key($link, 'preview', "preview." . $inf_preview['extension'], $id);
-            } else {
-                echo("Ошибка загрузки файла");die();
             }
             if ($_FILES['chess_block_photo_1'] && is_uploaded_file($_FILES["chess_block_photo_1"]["tmp_name"])) {
                 $inf_preview = pathinfo($_FILES["chess_block_photo_1"]["name"]);
                 copy($_FILES["chess_block_photo_1"]["tmp_name"], "../../images/news/" . $news_title . "_" . $id . "/chess_block_photo_1." . $inf_preview['extension']);
                 news_update_key($link, 'chess_block_photo_1', "chess_block_photo_1." . $inf_preview['extension'], $id);
-            } else {
-                echo("Ошибка загрузки файла");die();
             }
+
             if ($_FILES['chess_block_photo_2'] && is_uploaded_file($_FILES["chess_block_photo_2"]["tmp_name"])) {
                 $inf_preview = pathinfo($_FILES["chess_block_photo_2"]["name"]);
                 copy($_FILES["chess_block_photo_2"]["tmp_name"], "../../images/news/" . $news_title . "_" . $id . "/chess_block_photo_2." . $inf_preview['extension']);
                 news_update_key($link, 'chess_block_photo_2', "chess_block_photo_2." . $inf_preview['extension'], $id);
-            } else {
-                echo("Ошибка загрузки файла");die();
             }
 
             news_update($link, $title, $texts, $video_link, $type);

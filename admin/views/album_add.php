@@ -35,12 +35,14 @@
 <table id="dataTable" class="table  table-bordered table-hover table-responsive">
     <thead>
     <tr>
+        <?php if($photos):?>
         <?php foreach ($photos as $i):
             foreach ($i as $key => $v): ?>
                 <th><?=$key?></th>
             <?php endforeach;
             break;?>
         <?php endforeach ?>
+        <? endif?>
         <th style="max-width: 50px;">
             <form enctype="multipart/form-data" action="./services/album.php?action=add_photo&id_album=<?=$data['id_album']?>" method="post"><input type="submit" value="Добавить">
                 <input multiple type="file" accept="image/*" required name="photo[]" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
@@ -49,6 +51,7 @@
     </tr>
     </thead>
     <tbody>
+    <?php if($photos):?>
     <?php foreach ($photos as $i):?>
         <tr>
             <?php foreach ($i as $key => $v):?>
@@ -67,6 +70,7 @@
             <td id="buttonTh"><a style="70px margin-top: 5px;" class="btn btn-danger" href="./services/album.php?action=delete_photo&id_photo=<?php echo $i['id_photo']?>&id_album=<?=$data['id_album']?>" >Delete</a>
             </td>
         </tr>
-    <?php endforeach ?>
+    <?php endforeach?>
+    <?endif?>
     </tbody>
 </table>
