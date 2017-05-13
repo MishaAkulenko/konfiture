@@ -113,9 +113,15 @@ if($action == 'get_reviews' ) {
     $i = 0;
     while ($row = mysqli_fetch_assoc($result)) {
 
+        if($row['type'] == 'news'){
+            $type = 'Новости';
+        } else if($row['type'] == 'trends'){
+            $type = 'Тренды и советы';
+        }
         $items[$i]['title'] = $row['title'];
         $items[$i]['poster'] = 'images/news/'.$row['link_rewrite']."/".$row['preview'];
         $items[$i]['link'] = ''.$row['link_rewrite'];
+        $items[$i]['chapter'] = $type;
         $i ++;
     }
     header('Content-Type: application/json');
