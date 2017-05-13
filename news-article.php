@@ -1,3 +1,16 @@
+<?php
+require_once('admin/config/db_config.php');
+$link = db_connect();
+$news_link = $_GET['link'];
+$topic = get_topic_by_link($link,$news_link);
+var_dump($topic['type']);
+if($topic['type'] == 'news'){
+    $type = 'Новости';
+} else if($topic['type'] == 'trends'){
+    $type = 'Тренды и советы';
+}
+
+?>
 <!DOCTYPE  html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8">
@@ -70,7 +83,7 @@
             <div class="back-to-news">
                 <a href="news.html">Вернуться к новостям</a>
             </div>
-            <div class="header-wrapper"></div>
+            <div style="background-image: url(<?='images/news/'.$topic['link_rewrite'].'/'.$topic['news_header']?>);" class="header-wrapper"></div>
         </div>
     </header>
 
@@ -79,40 +92,40 @@
             <div class="row">
                 <div class="col-xs-12 col-lg-offset-1 col-lg-10">
                     <div class="article-title">
-                        <h4>тренды и советы, новости</h4>
-                        <h1 class="uppercase">Свадьбы на природе</h1>
+                        <h4><?= $type?></h4>
+                        <h1 class="uppercase"><?=$topic['title']?></h1>
                         <div>
                             <img src="images/devider-black.png" alt="2">
                         </div>
-                        <p class="text-right news-date text-bold">01.01.2017</p>
+                        <p class="text-right news-date text-bold"><?=date('d.m.Y', strtotime($topic['date']))?></p>
                     </div>
-                    <p class="text-center">Центральными фигурами свадебного торжества являются жених и невеста. В культурах различных стран мира значительная роль в свадебном торжестве отводится родственникам жениха и невесты. Организаторы свадьбы приглашают свадебного распорядителя, так называемого тамаду или МС (мастера церемоний), который на протяжении мероприятия контролирует его ход, предоставляет слово желающим произнести тост, следит за порядком выступления артистов и так далее. В ряде случаев молодожёны приглашают для организации своего торжества профессиональные компании, занимающиеся аранжировкой праздников и торжеств. В некоторых странах свадьбу принято проводить с участием почётных свидетелей.</p>
+                    <p class="text-center"><?=$topic['text']?></p>
                 </div>
             </div>
         </div>
         <div class="chess-block">
             <div class="row first-chapter">
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img-wrapp">
-                    <img src="images/about-us-1.jpg" alt="1">
+                    <img src="<?='images/news/'.$topic['link_rewrite'].'/'.$topic['chess_block_photo_1']?>" alt="1">
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec sem et ligula cursus hendrerit in in libero. Quisque vestibulum malesuada gravida. Duis id felis nibh. Quisque sit amet dolor purus. Vestibulum arcu nunc.
+                    <p><?=$topic['chess_block_text_1']?>
                     </p>
                 </div>
             </div>
             <div class="row second-chapter">
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-sm-push-6 col-md-push-6 col-lg-push-6 img-wrapp">
-                    <img class="second-img" src="images/about-us-2.jpg" alt="2">
+                    <img class="second-img" src="<?='images/news/'.$topic['link_rewrite'].'/'.$topic['chess_block_photo_2']?>" alt="2">
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-sm-pull-6 col-md-pull-6 col-lg-pull-6 content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec sem et ligula cursus hendrerit in in libero. Quisque vestibulum malesuada gravida. Duis id felis nibh. Quisque sit amet dolor purus. Vestibulum arcu nunc.</p>
+                    <p><?=$topic['chess_block_text_2']?></p>
                 </div>
             </div>
         </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-lg-offset-1 col-lg-10">
-                    <p class="text-center">Центральными фигурами свадебного торжества являются жених и невеста. В культурах различных стран мира значительная роль в свадебном торжестве отводится родственникам жениха и невесты. Организаторы свадьбы приглашают свадебного распорядителя, так называемого тамаду или МС (мастера церемоний), который на протяжении мероприятия контролирует его ход, предоставляет слово желающим произнести тост, следит за порядком выступления артистов и так далее. В ряде случаев молодожёны приглашают для организации своего торжества профессиональные компании, занимающиеся аранжировкой праздников и торжеств. В некоторых странах свадьбу принято проводить с участием почётных свидетелей.</p>
+                    <p class="text-center"><?=$topic['second_text']?></p>
                 </div>
             </div>
         </div>
@@ -120,16 +133,18 @@
             <div class="row">
                 <div class="col-xs-12 col-lg-offset-1 col-lg-10">
                     <div id="article-gallery"></div>
+                    <?php if($topic['video_link']):?>
                     <div class="video-wrapp">
-                        <div class="article-player" data-type="youtube" data-video-id="watch?v=zJyd5z6LvEg"></div>
+                        <div class="article-player" data-type="youtube" data-video-id="<?=$topic['video_link']?>"></div>
                     </div>
+                    <? endif?>
                 </div>
             </div>
         </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-lg-offset-1 col-lg-10">
-                    <p class="text-center lover-block">Центральными фигурами свадебного торжества являются жених и невеста. В культурах различных стран мира значительная роль в свадебном торжестве отводится родственникам жениха и невесты. Организаторы свадьбы приглашают свадебного распорядителя, так называемого тамаду или МС (мастера церемоний), который на протяжении мероприятия контролирует его ход, предоставляет слово желающим произнести тост, следит за порядком выступления артистов и так далее. В ряде случаев молодожёны приглашают для организации своего торжества профессиональные компании, занимающиеся аранжировкой праздников и торжеств. В некоторых странах свадьбу принято проводить с участием почётных свидетелей.</p>
+                    <p class="text-center lover-block"><?=($topic['end_text'] ? $topic['end_text'] : '')?> </p>
                 </div>
             </div>
         </div>
