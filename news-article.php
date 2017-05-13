@@ -32,7 +32,7 @@ if($topic['type'] == 'news'){
     <link rel="stylesheet" href="dist/style.css">
 </head>
 
-<body class="news-article-page">
+<body data-news-id="<?=$topic['id_news']?>" class="news-article-page">
     <!--[if lt IE 10]>
     <style type="text/css">
         header,article,footer {
