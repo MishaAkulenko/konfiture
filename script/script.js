@@ -517,7 +517,7 @@ $(document).ready(function($) {
         })
         .done(function(data) {
             arrOfPhotosLinks = data;
-            console.log(arrOfPhotosLinks);
+            
             if (arrOfPhotosLinks.length !== 0) {
                 for (var i = 0; i < arrOfPhotosLinks.length; i++) {
                     fotosInGaleryUrl.push({"url": arrOfPhotosLinks[i], "thumbUrl": arrOfPhotosLinks[i]});  
