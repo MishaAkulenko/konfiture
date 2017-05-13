@@ -301,18 +301,18 @@ $(document).ready(function($) {
         });
     }
 
-    // if ($('.news-page').length) {
+    if ($('.news-page').length) {
 
-    //     $.ajax({
-    //         url: 'newsMainPage',
-    //         type: 'GET',
-    //     })
-    //     .done(function(mainNews) {
-    //         bildNews(mainNews);// запуск построения страницы с новостями после получения массива с данными для темплейта по аякс
-    //         console.log(mainNews);
-    //     }); 
-    //     bildNews(mainNews);
-    // }
+        $.ajax({
+            url: 'api.php?action=get_news_html_preview',
+            type: 'GET',
+        })
+        .done(function(mainNews) {
+            bildNews(mainNews);// запуск построения страницы с новостями после получения массива с данными для темплейта по аякс
+            console.log(mainNews);
+        }); 
+        bildNews(mainNews);
+    }
 
     function caruselSvipe(caruselObj, caruselId, template, carouselItemsClass, carouselBlockClass, tmplWrapp) {
 
@@ -502,46 +502,50 @@ $(document).ready(function($) {
     }
 
     if ($(".news-article-page").length) {// Построение новостной галереи 
-        bildArticleGalery();
+        var newsGaleryId = $("body").attr('data-news-id');
+        bildArticleGalery(newsGaleryId);
     }
 
-    function bildArticleGalery() {//Новостная галерея
-        var arrOfPhotosLinks = [{"url": "images/galery/svadba_leny_i_maksima_1/photo1.jpg", "thumbUrl": "images/galery/svadba_leny_i_maksima_1/photo1.jpg"},{"url": "images/galery/svadba_leny_i_maksima_1/photo2.jpg", "thumbUrl": "images/galery/svadba_leny_i_maksima_1/photo2.jpg"}],
-            fotosInGaleryUrl = [];
+    function bildArticleGalery(newsGaleryId) {//Новостная галерея
+        var arrOfPhotosLinks,
+            fotosInGaleryUrl = [],
+            newsGaleryLinks = 'api.php?action=get_photo_news&id_news=' + newsGaleryId;
             
-            // $.ajax({
-            //     url: newsGaleryLinks,
-            //     type: 'GET',
-            // })
-            // .done(function(data) {
-            //     arrOfPhotosLinks = data;
-            // });
-            
-        for (var i = 0; i < arrOfPhotosLinks.length; i++) {
-            fotosInGaleryUrl.push({"url": arrOfPhotosLinks[i], "thumbUrl": arrOfPhotosLinks[i]});  
-        }
+        $.ajax({
+            url: newsGaleryLinks,
+            type: 'GET',
+        })
+        .done(function(data) {
+            arrOfPhotosLinks = data;
+            console.log(arrOfPhotosLinks);
+            if (arrOfPhotosLinks.length !== 0) {
+                for (var i = 0; i < arrOfPhotosLinks.length; i++) {
+                    fotosInGaleryUrl.push({"url": arrOfPhotosLinks[i], "thumbUrl": arrOfPhotosLinks[i]});  
+                }
 
-        $('#article-gallery').jGallery({//новостная галерея
-            mode: 'standard',
-            slideshowAutostart: false,
-            canChangeMode: true,
-            canZoom:false,
-            canClose: false,
-            swipeEvents: true,
-            thumbnailsHideOnMobile: false,
-            slideshowCanRandom: false,
-            thumbnailsFullScreen: false,
-            slideshow: false,
-            canMinimalizeThumbnails: false,
-            maxMobileWidth: 300,
-            tooltipRandom: 'Рандом',
-            tooltipSlideshow: 'Слайдшоу',
-            tooltipClose: 'Закрыть',
-            tooltipSeeAllPhotos: 'Все фото',
-            tooltipToggleThumbnails: 'Скрыть миниатюры',
-            backgroundColor: '#21284d',
-            textColor: 'white',
-            items: arrOfPhotosLinks
+                $('#article-gallery').jGallery({//новостная галерея
+                    mode: 'standard',
+                    slideshowAutostart: false,
+                    canChangeMode: true,
+                    canZoom:false,
+                    canClose: false,
+                    swipeEvents: true,
+                    thumbnailsHideOnMobile: false,
+                    slideshowCanRandom: false,
+                    thumbnailsFullScreen: false,
+                    slideshow: false,
+                    canMinimalizeThumbnails: false,
+                    maxMobileWidth: 300,
+                    tooltipRandom: 'Рандом',
+                    tooltipSlideshow: 'Слайдшоу',
+                    tooltipClose: 'Закрыть',
+                    tooltipSeeAllPhotos: 'Все фото',
+                    tooltipToggleThumbnails: 'Скрыть миниатюры',
+                    backgroundColor: '#21284d',
+                    textColor: 'white',
+                    items: fotosInGaleryUrl
+                });
+            }
         });
     }
 
