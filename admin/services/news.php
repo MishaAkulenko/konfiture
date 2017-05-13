@@ -135,7 +135,7 @@ if(isset($_GET['action'])){
                 news_update_key($link, 'chess_block_photo_2', "chess_block_photo_2." . $inf_preview['extension'], $id);
             }
 
-            news_update($link, $title, $texts, $video_link, $type);
+            news_update($link, $title, $texts, $video_link, $type, $id);
 
             header("Location: /admin/?page=news", true);
             die();
@@ -273,9 +273,9 @@ function news_update_key($link,$key,$data,$id_news){
     if (!$result)
         die(mysqli_error($link));
 }
-function news_update($link, $title, $texts, $video_link, $type){
+function news_update($link, $title, $texts, $video_link, $type, $id){
     $query = "UPDATE news SET title='".$title."', video_link='".$video_link."', text='".$texts['text']."', end_text='".$texts['end_text']."',
-     second_text='".$texts['second_text']."', chess_block_text_1='".$texts['chess_block_text_1']."', chess_block_text_2='".$texts['chess_block_text_2']."', type='".$type."'";
+     second_text='".$texts['second_text']."', chess_block_text_1='".$texts['chess_block_text_1']."', chess_block_text_2='".$texts['chess_block_text_2']."', type='".$type."' WHERE id_news = ".$id;
 
     $result = mysqli_query($link, $query);
     if (!$result){
