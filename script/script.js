@@ -620,7 +620,7 @@ $(document).ready(function($) {
 
         if (phone.val() !== "" && clientName.val() !== "") {
             $.ajax({
-                url: 'organisationForm',
+                url: 'api.php?action=organization_form',
                 type: 'PUL',
                 processData: false,
                 data: organisatorForm,
@@ -666,7 +666,7 @@ $(document).ready(function($) {
         if (phone.val() !== "" && clientEmail.val() !== "" && clientEmail.val().search(mailMask) === 0) {
 
             $.ajax({
-                url: 'contactForm',
+                url: 'api.php?action=contact_form',
                 type: 'PUL',
                 processData: false,
                 data: contactForm,
