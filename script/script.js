@@ -621,7 +621,7 @@ $(document).ready(function($) {
         if (phone.val() !== "" && clientName.val() !== "") {
             $.ajax({
                 url: 'api.php?action=organization_form',
-                type: 'PUL',
+                type: 'POST',
                 processData: false,
                 data: organisatorForm,
             });
@@ -667,7 +667,7 @@ $(document).ready(function($) {
 
             $.ajax({
                 url: 'api.php?action=contact_form',
-                type: 'PUL',
+                type: 'POST',
                 processData: false,
                 data: contactForm,
             });
