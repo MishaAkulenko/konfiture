@@ -127,4 +127,27 @@ if($action == 'get_reviews' ) {
     header('Content-Type: application/json');
     echo json_encode($items);
 
+}elseif($action == 'get_photo_news'){
+
+    $id = $_GET['id_news'];
+    $query = "SELECT * FROM news WHERE id_news = ".$id;
+    $result = mysqli_query($link, $query);
+    if (!$result)
+        die(mysqli_error($link));
+    $topic =  mysqli_fetch_assoc($result);
+
+    $query = "SELECT * FROM news_photo WHERE id_news = ".$id;
+    $result = mysqli_query($link, $query);
+    if (!$result)
+        die(mysqli_error($link));
+    $items = array();
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $items[] = 'images/news/'.$topic['link_rewrite']."/".$row['photo'];
+
+    };
+
+    header('Content-Type: application/json');
+    echo json_encode($items);
+
 }
