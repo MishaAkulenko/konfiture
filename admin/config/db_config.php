@@ -8,7 +8,7 @@
 
 define('MYSQL_SERVER', '127.0.0.1');
 define('MYSQL_USER', 'root');
-define('MYSQL_PASSWORD', '2345');
+define('MYSQL_PASSWORD', '');
 define('MYSQL_DB', 'konfiture');
 
 function db_connect(){

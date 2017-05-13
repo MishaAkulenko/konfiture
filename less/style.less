@@ -604,7 +604,7 @@ header {
 	background-repeat: no-repeat;
 
 	h1 {
-		color: #424e74;
+		color: #1a1a1a;
 	}
 
 	.wrapp {
@@ -818,7 +818,7 @@ header {
 */
 
 .portfolio {
-	background-image: url(../images/portfolio-bg.jpg); 
+	background-image: url("../images/portfolio-bg.jpg"); 
 
 	h1 {
 		color: #000;
@@ -859,7 +859,7 @@ header {
 	}
 
 	.content-wrapp {
-		background-color: rgba(136, 155, 211, 0.75);
+		background-color: rgba(136, 155, 211, 0.45);
 		margin: 0 -15px;
 
 		.row {
@@ -1112,7 +1112,7 @@ header {
 		margin-bottom: 60px;
 
 		@media (min-width: 768px) {
-			height: 180px;
+			min-height: 200px;
 		}
 
 		.carousel-inner {
@@ -1144,7 +1144,7 @@ header {
 							border-radius: 100%;
 							display: flex;
 							justify-content: center;
-							align-items: center;
+							align-items: flex-start;
 							overflow: hidden;
 							margin: 0 auto;	
 
@@ -1157,14 +1157,15 @@ header {
 				
 				p {
 					color: #1a1a1a;
+					font-size: 16px;
 
 					@media (max-width: 768px) {
-						text-align: center;
+						text-align: justify;
 						font-size: 16px;
 					}
 
 					@media (max-width: 380px) {
-						font-size: 15px;
+						font-size: 13px;
 					}
 				}
 			}
@@ -1820,7 +1821,7 @@ header {
 
 		.header-wrapper {
 			height: 500px;
-			background-image: url("../images/news/akcija_ko_dnu_vlublennyh_1/article-header.jpg");
+			// background-image: url("../images/news/akcija_ko_dnu_vlublennyh_1/article-header.jpg");
 			background-size: cover;
 			background-position: center;
 		}

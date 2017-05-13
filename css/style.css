@@ -725,7 +725,7 @@ header .header-title .content-wrapper .content img {
   background-repeat: no-repeat;
 }
 .services h1 {
-  color: #424e74;
+  color: #1a1a1a;
 }
 .services .wrapp {
   padding-bottom: 40px;
@@ -971,7 +971,7 @@ header .header-title .content-wrapper .content img {
 ===================
 */
 .portfolio {
-  background-image: url(../images/portfolio-bg.jpg);
+  background-image: url("../images/portfolio-bg.jpg");
 }
 .portfolio h1 {
   color: #000;
@@ -1020,7 +1020,7 @@ header .header-title .content-wrapper .content img {
   cursor: pointer;
 }
 .portfolio .content-wrapp {
-  background-color: rgba(136, 155, 211, 0.75);
+  background-color: rgba(136, 155, 211, 0.45);
   margin: 0 -15px;
 }
 .portfolio .content-wrapp .row {
@@ -1290,7 +1290,7 @@ header .header-title .content-wrapper .content img {
 }
 @media (min-width: 768px) {
   .reviews #reviews-carousel {
-    height: 180px;
+    min-height: 200px;
   }
 }
 .reviews #reviews-carousel .carousel-inner {
@@ -1336,10 +1336,10 @@ header .header-title .content-wrapper .content img {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -1350,16 +1350,17 @@ header .header-title .content-wrapper .content img {
 }
 .reviews #reviews-carousel .carousel-inner .item p {
   color: #1a1a1a;
+  font-size: 16px;
 }
 @media (max-width: 768px) {
   .reviews #reviews-carousel .carousel-inner .item p {
-    text-align: center;
+    text-align: justify;
     font-size: 16px;
   }
 }
 @media (max-width: 380px) {
   .reviews #reviews-carousel .carousel-inner .item p {
-    font-size: 15px;
+    font-size: 13px;
   }
 }
 .reviews #reviews-carousel .carousel-control {
@@ -2021,7 +2022,6 @@ header .article-header-title {
 }
 header .article-header-title .header-wrapper {
   height: 500px;
-  background-image: url("../images/news/akcija_ko_dnu_vlublennyh_1/article-header.jpg");
   background-size: cover;
   background-position: center;
 }

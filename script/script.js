@@ -191,91 +191,69 @@ $(document).ready(function($) {
 
     // КАРУСЕЛЬ
 
-    var portfolio = [
-        {
-            partners: 'Лены и Максима',
-            poster: 'images/galery/svadba_leny_i_maksima_1/preview.jpg',
-            galeryId: '1'
-        },
-        {
-            partners: 'Светы и Василия',
-            poster: 'images/galery/svadba_leny_i_maksima_2/preview.jpg',
-            galeryId: '2'
-        },
-       {
-             partners: 'Иры и Романа',
-            poster: 'images/galery/svadba_leny_i_maksima_3/preview.jpg',
-            galeryId: '3'
-        },
-        {
-             partners: 'Насти и Паши',
-            poster: 'images/galery/svadba_leny_i_maksima_4/preview.jpg',
-            galeryId: '4'
-        }
-    ];
-
-    var mainNews = [
-        {
-            title: 'Свадьбы на природе',
-            chapter: 'Новости',
-            poster: 'images/news/news3.jpg',
-            link: 'watch?v=xyCdd9qoiKY'
-        },
-        {
-            title: 'Свадьбы на природе',
-            chapter: 'Новости',
-            poster: 'images/news/news3.jpg',
-            link: 'watch?v=xyCdd9qoiKY'
-        },
+    // var mainNews = [
+    //     {
+    //         title: 'Свадьбы на природе',
+    //         chapter: 'Новости',
+    //         poster: 'images/news/news3.jpg',
+    //         link: 'watch?v=xyCdd9qoiKY'
+    //     },
+    //     {
+    //         title: 'Свадьбы на природе',
+    //         chapter: 'Новости',
+    //         poster: 'images/news/news3.jpg',
+    //         link: 'watch?v=xyCdd9qoiKY'
+    //     },
        
-    ]; 
+    // ]; 
 
-    var news = [
-        {
-            title: 'Акция ко дню влюбленных',
-            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
-            content: 'бла бла блабля бла чето атм расказывается',
-            link: 'тут ссылка на полную статью в самом разделе новости'
-        },
-        {
-            title: 'Акция ко дню влюбленных',
-            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
-            content: 'бла бла блабля бла чето атм расказывается бла бла блабля бла чето атм расказывается, короткое превью бла бла блабля бла чето атм расказывается, короткое превью бла бла блабля бла чето атм расказывается, короткое превью',
-            link: 'тут ссылка на полную статью в самом разделе новости'
-        },
-        {
-            title: 'Акция ко дню влюбленных',
-            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
-            content: 'бла бла блабля бла чето атм расказывается',
-            link: 'тут ссылка на полную статью в самом разделе новости'
-        },
-        {
-            title: 'Акция ко дню влюбленных',
-            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
-            content: 'бла бла блабля бла чето атм расказывается',
-            link: 'тут ссылка на полную статью в самом разделе новости'
-        },
-        {
-            title: 'Акция ко дню влюбленных',
-            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
-            content: 'бла бла блабля бла чето атм расказывается',
-            link: 'тут ссылка на полную статью в самом разделе новости'
-        },
-        {
-            title: 'Акция ко дню влюбленных',
-            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
-            content: 'бла бла блабля бла чето атм расказывается',
-            link: 'тут ссылка на полную статью в самом разделе новости'
-        },
-        {
-            title: 'Акция ко дню влюбленных',
-            poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
-            content: 'бла бла блабля бла чето атм расказывается',
-            link: 'тут ссылка на полную статью в самом разделе новости'
-        },
-    ];
+    // var news = [
+    //     {
+    //         title: 'Акция ко дню влюбленных',
+    //         poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+    //         content: 'бла бла блабля бла чето атм расказывается',
+    //         link: 'тут ссылка на полную статью в самом разделе новости'
+    //     },
+    //     {
+    //         title: 'Акция ко дню влюбленных',
+    //         poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+    //         content: 'бла бла блабля бла чето атм расказывается бла бла блабля бла чето атм расказывается, короткое превью бла бла блабля бла чето атм расказывается, короткое превью бла бла блабля бла чето атм расказывается, короткое превью',
+    //         link: 'тут ссылка на полную статью в самом разделе новости'
+    //     },
+    //     {
+    //         title: 'Акция ко дню влюбленных',
+    //         poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+    //         content: 'бла бла блабля бла чето атм расказывается',
+    //         link: 'тут ссылка на полную статью в самом разделе новости'
+    //     },
+    //     {
+    //         title: 'Акция ко дню влюбленных',
+    //         poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+    //         content: 'бла бла блабля бла чето атм расказывается',
+    //         link: 'тут ссылка на полную статью в самом разделе новости'
+    //     },
+    //     {
+    //         title: 'Акция ко дню влюбленных',
+    //         poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+    //         content: 'бла бла блабля бла чето атм расказывается',
+    //         link: 'тут ссылка на полную статью в самом разделе новости'
+    //     },
+    //     {
+    //         title: 'Акция ко дню влюбленных',
+    //         poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+    //         content: 'бла бла блабля бла чето атм расказывается',
+    //         link: 'тут ссылка на полную статью в самом разделе новости'
+    //     },
+    //     {
+    //         title: 'Акция ко дню влюбленных',
+    //         poster: 'images/news/akcija_ko_dnu_vlublennyh_1/preview.jpg',
+    //         content: 'бла бла блабля бла чето атм расказывается',
+    //         link: 'тут ссылка на полную статью в самом разделе новости'
+    //     },
+    // ];
 
     var counter = 0,
+        mainNews = [],
         newsCounter = 0;//В зависимости от значения строяться определенные блоки новостей, сбрасывается в ноль каждые 6 итераций
         itemCount = 0;//Нужен для присвоения айдишников для блоков в которые вставляются темплейты
 
@@ -323,17 +301,18 @@ $(document).ready(function($) {
         });
     }
 
-    if ($('.news-page').length) {
+    // if ($('.news-page').length) {
 
-        // $.ajax({
-        //     url: 'newsMainPage',
-        //     type: 'GET',
-        // })
-        // .done(function(mainNews) {
-        //     bildNews(mainNews);// запуск построения страницы с новостями после получения массива с данными для темплейта по аякс
-        // }); 
-        bildNews(mainNews);
-    }
+    //     $.ajax({
+    //         url: 'newsMainPage',
+    //         type: 'GET',
+    //     })
+    //     .done(function(mainNews) {
+    //         bildNews(mainNews);// запуск построения страницы с новостями после получения массива с данными для темплейта по аякс
+    //         console.log(mainNews);
+    //     }); 
+    //     bildNews(mainNews);
+    // }
 
     function caruselSvipe(caruselObj, caruselId, template, carouselItemsClass, carouselBlockClass, tmplWrapp) {
 
@@ -420,19 +399,28 @@ $(document).ready(function($) {
         .done(function(video) {
             caruselSvipe(video, "#video-carousel", "../templates/video-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
         });
-        
-        caruselSvipe(news, "#news-carousel", "../templates/news-preview-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
-        caruselSvipe(portfolio, "#portfolio-carousel", "../templates/portfolio-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
-        
 
-        autoCaruselSvipe('#portfolio-carousel');
+        $.ajax({// построение карусели портфолио 
+            url: 'api.php?action=get_album',
+            type: 'GET',
+        })
+        .done(function(portfolio) {
+            caruselSvipe(portfolio, "#portfolio-carousel", "../templates/portfolio-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
+        });
 
+        $.ajax({// построение карусели портфолио 
+            url: 'api.php?action=get_news_preview',
+            type: 'GET',
+        })
+        .done(function(news) {// построение карусели новостей
+            caruselSvipe(news, "#news-carousel", "../templates/news-preview-tmpl.html", '.carousel-items', '.carousel-block', '<div class="carousel-block"></div>');
+        });
+        
+        autoCaruselSvipe('#portfolio-carousel');//Запуск каруселей
         autoCaruselSvipe('#news-carousel');
-
         autoCaruselSvipe('#video-carousel');
         
         $('.carousel').on('mouseenter', function(){$(this).addClass('hover')});//когда курсор на карусели, карусель останавливаеться
-
         $('.carousel').on('mouseleave', function(){$(this).removeClass('hover')});
     }
 
@@ -474,42 +462,42 @@ $(document).ready(function($) {
 
     function showGalery(event) {
         var partners = "Свадьба " + $(event.target).attr('alt'),
-            galeryId = $(event.target).attr('href'),
-            arrOfPhotosLinks = ["images/galery/svadba_leny_i_maksima_1/photo1.jpg","images/galery/svadba_leny_i_maksima_1/photo2.jpg","images/galery/svadba_leny_i_maksima_1/photo3.jpg", "images/galery/svadba_leny_i_maksima_1/photo4.jpg","images/galery/svadba_leny_i_maksima_1/photo5.jpg","images/galery/svadba_leny_i_maksima_1/photo6.jpg","images/galery/svadba_leny_i_maksima_1/photo7.jpg","images/galery/svadba_leny_i_maksima_1/photo8.jpg","images/galery/svadba_leny_i_maksima_1/photo9.jpg"],
+            galeryId = 'api.php?action=get_photo&id_album=' + $(event.target).attr('href'),
+            arrOfPhotosLinks = [],
             fotosInGaleryUrl = [];
 
-            // $.ajax({
-            //     url: galeryId,
-            //     type: 'GET',
-            // })
-            // .done(function(data) {
-            //     arrOfPhotosLinks = data;
-            // });
-            
-        for (var i = 0; i < arrOfPhotosLinks.length; i++) {
-            fotosInGaleryUrl.push({"url": arrOfPhotosLinks[i], "thumbUrl": arrOfPhotosLinks[i], "title": partners});  
-        }
+        $.ajax({
+            url: galeryId,
+            type: 'GET',
+        })
+        .done(function(data) {
+            arrOfPhotosLinks = data;
 
-        $('#gallery').show().jGallery({//галерея на главной странице
-            mode: 'full-screen',
-            slideshowAutostart: false,
-            canChangeMode: false,
-            canZoom:false,
-            canClose: true,
-            swipeEvents: true,
-            thumbnailsHideOnMobile: false,
-            slideshowCanRandom: false,
-            thumbnailsFullScreen: true,
-            canMinimalizeThumbnails: false,
-            maxMobileWidth: 300,
-            tooltipRandom: 'Рандом',
-            tooltipSlideshow: 'Слайдшоу',
-            tooltipClose: 'Закрыть',
-            tooltipSeeAllPhotos: 'Все фото',
-            tooltipToggleThumbnails: 'Скрыть миниатюры',
-            backgroundColor: '#25325a',
-            textColor: 'white',
-            items: fotosInGaleryUrl
+            for (var i = 0; i < arrOfPhotosLinks.length; i++) {
+                fotosInGaleryUrl.push({"url": arrOfPhotosLinks[i], "thumbUrl": arrOfPhotosLinks[i], "title": partners});  
+            }
+
+            $('#gallery').show().jGallery({//галерея на главной странице
+                mode: 'full-screen',
+                slideshowAutostart: false,
+                canChangeMode: false,
+                canZoom:false,
+                canClose: true,
+                swipeEvents: true,
+                thumbnailsHideOnMobile: false,
+                slideshowCanRandom: false,
+                thumbnailsFullScreen: true,
+                canMinimalizeThumbnails: false,
+                maxMobileWidth: 300,
+                tooltipRandom: 'Рандом',
+                tooltipSlideshow: 'Слайдшоу',
+                tooltipClose: 'Закрыть',
+                tooltipSeeAllPhotos: 'Все фото',
+                tooltipToggleThumbnails: 'Скрыть миниатюры',
+                backgroundColor: '#25325a',
+                textColor: 'white',
+                items: fotosInGaleryUrl
+            });
         });
     }
 
