@@ -87,7 +87,7 @@
 
     <div class="form-group">
         <label for="exampleTextarea">Заключительный текст (после видео и фото, если они есть)</label>
-        <textarea required class="form-control" name="end_text" id="exampleTextarea" rows="8"><?php echo ($data['end_text'] && $action == 'edit' ? $data['end_text'] : "")?></textarea>
+        <textarea class="form-control" name="end_text" id="exampleTextarea" rows="8"><?php echo ($data['end_text'] && $action == 'edit' ? $data['end_text'] : "")?></textarea>
     </div>
     <button style="margin-bottom: 30px" type="submit" class="btn btn-primary">Сохранить</button>
 </form>

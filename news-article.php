@@ -3,7 +3,7 @@ require_once('admin/config/db_config.php');
 $link = db_connect();
 $news_link = $_GET['link'];
 $topic = get_topic_by_link($link,$news_link);
-var_dump($topic['type']);
+
 if($topic['type'] == 'news'){
     $type = 'Новости';
 } else if($topic['type'] == 'trends'){
