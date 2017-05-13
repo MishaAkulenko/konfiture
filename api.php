@@ -97,7 +97,7 @@ if($action == 'get_reviews' ) {
 
         $items[$i]['title'] = $row['title'];
         $items[$i]['poster'] = 'images/news/'.$row['link_rewrite']."/".$row['preview'];
-        $items[$i]['content'] = mb_substr($row['text'], 175);
+        $items[$i]['content'] = mb_strimwidth($row['text'],0, 175);
         $items[$i]['link'] = ''.$row['link_rewrite'];
         $i ++;
     }
