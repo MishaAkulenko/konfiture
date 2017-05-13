@@ -5,8 +5,7 @@
  * Date: 17.04.2017
  * Time: 21:17
  */
-ini_set('display_errors',1);
-error_reporting(E_ALL);
+
 define('MYSQL_SERVER', '127.0.0.1');
 define('MYSQL_USER', 'root');
 define('MYSQL_PASSWORD', '');
