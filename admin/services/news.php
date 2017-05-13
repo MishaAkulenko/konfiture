@@ -107,10 +107,12 @@ if(isset($_GET['action'])){
 
             $news_title = rus2translit($_POST['title']);
 
-            if($data['link_rewrite'] != $news_title."_".$data['id_news']) {
+            if($data['link_rewrite'] !== $news_title."_".$data['id_news']) {
 
-                @rename("../../images/galery/" . $data['name_translit'], "../../images/galery/" . $news_title . '_' . $data['id_news']);
+                rename("../../images/news/" . $data['link_rewrite'], "../../images/news/" . $news_title . '_' . $data['id_news']);
+                news_update_key($link, 'link_rewrite', $news_title . "_" . $id, $id);
             }
+
             if ($_FILES['preview'] && is_uploaded_file($_FILES["preview"]["tmp_name"])) {
                 $inf_preview = pathinfo($_FILES["preview"]["name"]);
                 copy($_FILES["preview"]["tmp_name"], "../../images/news/" . $news_title . "_" . $id . "/preview." . $inf_preview['extension']);
