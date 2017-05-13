@@ -105,7 +105,7 @@ if($action == 'get_reviews' ) {
     echo json_encode($items);
 
 } elseif ($action == "get_news_html_preview"){
-    $query = "SELECT id_news, title, preview, text, link_rewrite FROM `news` WHERE 1 ORDER BY `date` DESC";
+    $query = "SELECT id_news, title, preview, text, link_rewrite, type FROM `news` WHERE 1 ORDER BY `date` DESC";
     $result = mysqli_query($link, $query);
     if (!$result)
         die(mysqli_error($link));
