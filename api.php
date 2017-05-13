@@ -87,7 +87,7 @@ if($action == 'get_reviews' ) {
     echo json_encode($items);
 
 } elseif ($action == "get_news_preview"){
-    $query = "SELECT id_news, title, preview, text, link_rewrite FROM `news` WHERE 1";
+    $query = "SELECT id_news, title, preview, text, link_rewrite FROM `news` WHERE 1 ORDER BY `date` DESC";
     $result = mysqli_query($link, $query);
     if (!$result)
         die(mysqli_error($link));
@@ -98,7 +98,7 @@ if($action == 'get_reviews' ) {
         $items[$i]['title'] = $row['title'];
         $items[$i]['poster'] = 'images/news/'.$row['link_rewrite']."/".$row['preview'];
         $items[$i]['content'] = mb_substr($row['text'], 175);
-        $items[$i]['link'] = 'news/'.$row['link_rewrite'];
+        $items[$i]['link'] = ''.$row['link_rewrite'];
         $i ++;
     }
     header('Content-Type: application/json');

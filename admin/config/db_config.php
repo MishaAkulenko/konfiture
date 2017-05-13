@@ -5,10 +5,11 @@
  * Date: 17.04.2017
  * Time: 21:17
  */
-
+ini_set('display_errors',1);
+error_reporting(E_ALL);
 define('MYSQL_SERVER', '127.0.0.1');
 define('MYSQL_USER', 'root');
-define('MYSQL_PASSWORD', '2345');
+define('MYSQL_PASSWORD', '1234');
 define('MYSQL_DB', 'konfiture');
 
 function db_connect(){
@@ -58,4 +59,16 @@ function removeDirectory($dir) {
         }
     }
     @rmdir($dir);
+}
+
+function get_topic_by_link($link, $news_link){
+
+    $query = 'SELECT * FROM news WHERE link_rewrite = "'.$news_link.'"';
+    $result = mysqli_query($link, $query);
+    if (!$result)
+        die(mysqli_error($link));
+
+
+    return mysqli_fetch_assoc($result);
+
 }
