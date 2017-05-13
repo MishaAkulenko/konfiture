@@ -9,11 +9,7 @@ ini_set('display_errors',1);
 error_reporting(E_ALL);
 define('MYSQL_SERVER', '127.0.0.1');
 define('MYSQL_USER', 'root');
-<<<<<<< HEAD
-define('MYSQL_PASSWORD', '');
-=======
 define('MYSQL_PASSWORD', '1234');
->>>>>>> ec30c286ca97dc02af2ea893c2c14fd25c107678
 define('MYSQL_DB', 'konfiture');
 
 function db_connect(){
