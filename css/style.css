@@ -2226,9 +2226,23 @@ header .article-header-title .back-to-news a {
 .coordination-page header .header-title,
 .organisation-page header .header-title {
   height: 580px;
-  background-image: url("../images/coordination-header-bg.jpg");
-  background-size: cover;
-  background-position: center;
+  background-image: none;
+  position: relative;
+  overflow: hidden;
+}
+.coordination-page header .header-title .first-header-img,
+.organisation-page header .header-title .first-header-img,
+.coordination-page header .header-title .second-header-img,
+.organisation-page header .header-title .second-header-img {
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  left: 0;
+  right: 0;
+}
+.coordination-page header .header-title .second-header-img,
+.organisation-page header .header-title .second-header-img {
+  display: none;
 }
 .coordination-page header h1,
 .organisation-page header h1 {
@@ -2240,6 +2254,11 @@ header .article-header-title .back-to-news a {
   .organisation-page header h1 {
     font-size: 36px;
   }
+}
+.coordination-page header h2,
+.organisation-page header h2 {
+  line-height: 1.5em;
+  font-size: 22px;
 }
 .coordination-page header .content-wrapper .content img,
 .organisation-page header .content-wrapper .content img {
