@@ -2017,9 +2017,20 @@ header {
 	header {
 		.header-title {
 			height: 580px;
-			background-image: url("../images/coordination-header-bg.jpg");
-			background-size: cover;
-			background-position: center;
+			background-image: none;
+			position: relative;
+			overflow: hidden;
+
+			.first-header-img, .second-header-img {
+				position: absolute;
+				min-height: 100%;
+				min-width: 100%;
+				left: 0;
+				right: 0;
+			}
+			.second-header-img {
+				display: none;
+			}
 		}
 
 		h1 {
@@ -2030,6 +2041,10 @@ header {
 				font-size: 36px;
 			}
 		}
+		h2 {
+			line-height: 1.5em;
+			font-size: 22px;
+		}
 		.content-wrapper {
 
 			.content {
@@ -2037,53 +2052,6 @@ header {
 				img {
 					max-width: 90%;
 					margin-bottom: 30px;
-				}
-			}
-		}
-	}
-	.info-about-coordinator {
-		background-color: #bedfff;
-		// padding: 40px 15px;
-
-		@media (max-width: 768px) {
-			padding: 0 15px;
-		}
-
-		.img-wrapp {
-			overflow: hidden;
-			height: 300px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			padding: 0;
-			max-height: 300px;
-		}
-		.content-wrapp {
-			padding: 0 110px;
-			max-height: 300px;
-
-			@media (max-width: 1200px) {
-				padding: 0 20px;
-			}
-
-			@media (max-width: 768px) {
-				padding: 0 30px;
-			}
-
-			h2 {
-				font-size: 20px;
-				color: #4a577c;
-				text-transform: uppercase;
-				padding: 10px;
-				text-align: center;
-			}
-
-			p {
-				color: #242c4f;
-				font-size: 18px;
-
-				@media (max-width: 768px) {
-					text-align: center;
 				}
 			}
 		}
