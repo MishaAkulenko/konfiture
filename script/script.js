@@ -543,7 +543,7 @@ $(document).ready(function($) {
         event.preventDefault();
         var phone = $(this).parent().find('#inputPhone'),
             clientName = $(this).parent().find('#inputName'),
-            organisatorForm = "Имя клиента: " + clientName.val() + " " + "Номер телефона: " + phone.val();
+            organisatorForm = "<b>Имя клиента:</b> " + clientName.val() + "<br>" + "<b>Номер телефона:</b> " + phone.val();
 
         if (clientName.val() === "") {
             clientName.css('outline', 'solid red').attr('placeholder', 'Введите ваше имя');
@@ -575,7 +575,7 @@ $(document).ready(function($) {
         var weddingDate = $(this).parent().find('[name = date]'),
             clientEmail = $(this).parent().find('[name = email]'),
             phone = $(this).parent().find('[name = phone]'),
-            contactForm = "Дата свадьбы: " + weddingDate.val() + " " + "Номер телефона: " + phone.val() + " " + "Емейл: " + clientEmail.val(),
+            contactForm = "<b>Дата свадьбы:</b> " + weddingDate.val() + " <br>" + "<b>Номер телефона:</b> " + phone.val() + "<br>" + "<b>Емейл:</b> " + clientEmail.val(),
             mailMask = /^[a-z0-9_-]+@[a-z0-9-]+\.([a-z]{1,6}\.)?[a-z]{2,6}$/i; 
 
         if (clientEmail.val().search(mailMask) === 0) {//проверка правильности введения емейл
