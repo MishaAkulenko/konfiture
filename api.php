@@ -154,15 +154,6 @@ if($action == 'get_reviews' ) {
 } elseif ($action = 'organization_form'){
 
     $data = $_POST['text'];
-
-    /*$to  = "<chezara40@gmail.com>" ;
-
-    $subject = "organization form message";
-
-    $headers  = "Content-type: text/html; charset=windows-1251 \r\n";
-    $headers .= "Konfiture <no-reply@konfiture.local>\r\n";
-   // $headers .= "Bcc: birthday-archive@example.com\r\n";*/
-
     $mail = new PHPMailer();
     $mail->IsSMTP();
     $mail->CharSet  = 'utf-8';
@@ -196,19 +187,6 @@ if($action == 'get_reviews' ) {
 } elseif ($action = 'contact_form'){
 
     $data = $_POST['text'];
-/*
-    $to  = "<chezara40@gmail.com>" ;
-
-    $subject = "organization form message";
-
-    $headers  = "Content-type: text/html; charset=windows-1251 \r\n";
-    $headers .= "Konfiture <no-reply@konfiture.local>\r\n";
-    // $headers .= "Bcc: birthday-archive@example.com\r\n";
-    if(mail($to, $subject, $data, $headers)){
-        echo 'ok';
-    } else {
-        echo 'fail';
-    }*/
     $mail = new PHPMailer();
     $mail->IsSMTP();
     $mail->CharSet  = 'utf-8';
