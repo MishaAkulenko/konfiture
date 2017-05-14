@@ -622,8 +622,8 @@ $(document).ready(function($) {
             $.ajax({
                 url: 'api.php?action=organization_form',
                 type: 'POST',
-                processData: false,
-                data: organisatorForm,
+
+                data: {text: organisatorForm},
             });
             $(this).parent().find('button').html("Данные отправлены").css('font-size', '16px');
         }
@@ -668,8 +668,8 @@ $(document).ready(function($) {
             $.ajax({
                 url: 'api.php?action=contact_form',
                 type: 'POST',
-                processData: false,
-                data: contactForm,
+
+                data: {text: contactForm},
             });
 
             if ($(window).width() >= 768) { 

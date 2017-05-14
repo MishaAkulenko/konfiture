@@ -6,6 +6,7 @@
  * Time: 11:11
  */
 require_once('admin/config/db_config.php');
+require_once('admin/lib/class.phpmailer.php');
 ini_set('display_errors',1);
 error_reporting(E_ALL);
 $link = db_connect();
@@ -150,4 +151,91 @@ if($action == 'get_reviews' ) {
     header('Content-Type: application/json');
     echo json_encode($items);
 
+} elseif ($action = 'organization_form'){
+
+    $data = $_POST['text'];
+
+    /*$to  = "<chezara40@gmail.com>" ;
+
+    $subject = "organization form message";
+
+    $headers  = "Content-type: text/html; charset=windows-1251 \r\n";
+    $headers .= "Konfiture <no-reply@konfiture.local>\r\n";
+   // $headers .= "Bcc: birthday-archive@example.com\r\n";*/
+
+    $mail = new PHPMailer();
+    $mail->IsSMTP();
+    $mail->CharSet  = 'utf-8';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'chezara23@gmail.com';
+    $mail->Password = '20091993';
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port = '465';
+
+
+    $mail->From     = 'chezara23@gmail.com';
+    $mail->FromName = 'eIIIkuHKoT';
+
+    /* кому */
+    $mail->AddAddress('chezara40@gmail.com', 'admin');
+    $mail->IsHTML(false);
+
+    /* тема */
+    $mail->Subject  = 'organization form message';
+    $mail->Body     = $data;
+
+
+    if(!$mail->send()) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        echo 'Message has been sent';
+    }
+
+} elseif ($action = 'contact_form'){
+
+    $data = $_POST['text'];
+/*
+    $to  = "<chezara40@gmail.com>" ;
+
+    $subject = "organization form message";
+
+    $headers  = "Content-type: text/html; charset=windows-1251 \r\n";
+    $headers .= "Konfiture <no-reply@konfiture.local>\r\n";
+    // $headers .= "Bcc: birthday-archive@example.com\r\n";
+    if(mail($to, $subject, $data, $headers)){
+        echo 'ok';
+    } else {
+        echo 'fail';
+    }*/
+    $mail = new PHPMailer();
+    $mail->IsSMTP();
+    $mail->CharSet  = 'utf-8';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'chezara23@gmail.com';
+    $mail->Password = '20091993';
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port = '465';
+
+    $mail->From     = 'chezara23@gmail.com';
+    $mail->FromName = 'eIIIkuHKoT';
+
+
+    $mail->AddAddress('chezara40@gmail.com', 'admin');
+    
+    $mail->IsHTML(false);
+    $mail->Subject  = 'contact form message';
+    $mail->Body     = $data;
+
+
+    if(!$mail->send()) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        echo 'Message has been sent';
+    }
+
 }
+
