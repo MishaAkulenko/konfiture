@@ -170,7 +170,7 @@ if($action == 'get_reviews' ) {
 
     /* кому */
     $mail->AddAddress('chezara40@gmail.com', 'admin');
-    $mail->IsHTML(false);
+    $mail->IsHTML(true);
 
     /* тема */
     $mail->Subject  = 'organization form message';
@@ -203,7 +203,7 @@ if($action == 'get_reviews' ) {
 
     $mail->AddAddress('chezara40@gmail.com', 'admin');
     
-    $mail->IsHTML(false);
+    $mail->IsHTML(true);
     $mail->Subject  = 'contact form message';
     $mail->Body     = $data;
 
