@@ -18,9 +18,9 @@
         <label for="exampleInputFile">фон блока</label>
         <input type="file" accept="video/mp4" name="video" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
     </div>
-
+    <hr>
     <h3>Блок О НАС (фото команды)</h3>
-    <div>
+    <div style="display: flex;">
         <div style="width: 45%;float: right">
     <div class="form-group">
         <img style="width: 80%;" src="../images/about-us-1.jpg">
@@ -40,7 +40,7 @@
     </div>
     </div>
     </div>
-
+    <hr>
 
     <h3>Блок "ЗАЧЕМ ВАМ СВАДЕБНЫЙ ОРГАНИЗАТОР?"</h3>
     <div class="form-group">
@@ -50,7 +50,7 @@
         <label for="exampleInputFile">фон блока</label>
         <input type="file" accept="image/vnd.sealedmedia.softseal-jpg" name="about_us" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
     </div>
-
+    <hr>
 
     <h3>Блок "Услуги"</h3>
     <div class="form-group">
@@ -60,7 +60,7 @@
         <label for="exampleInputFile">фон блока</label>
         <input type="file" accept="image/vnd.sealedmedia.softseal-jpg" name="services" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
     </div>
-
+    <hr>
 
     <h3>Блок "ПОЧЕМУ С НАМИ СТОИТ РАБОТАТЬ"</h3>
     <div class="form-group">
@@ -70,7 +70,7 @@
         <label for="exampleInputFile">фон блока</label>
         <input type="file" accept="image/vnd.sealedmedia.softseal-jpg" name="work_bg" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
     </div>
-
+    <hr>
 
     <h3>Блок "ПОРТФОЛИО"</h3>
     <div class="form-group">
@@ -80,7 +80,7 @@
         <label for="exampleInputFile">фон блока</label>
         <input type="file" accept="image/vnd.sealedmedia.softseal-jpg" name="portfolio_bg" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
     </div>
-
+    <hr>
 
     <h3>Блок "ОТЗЫВЫ О НАС"</h3>
     <div class="form-group">
@@ -91,7 +91,7 @@
         <input type="file" accept="image/vnd.sealedmedia.softseal-jpg" name="reviews_bg" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
     </div>
 
-
+    <hr>
     <h3>Блок "ЕСТЬ ВОПРОСЫ ПО ОРГАНИЗАЦИИ СВАДЬБЫ?"</h3>
     <div class="form-group">
         <img style="width: 35%;" src="../images/questions-bg.jpg">
@@ -100,7 +100,7 @@
         <label for="exampleInputFile">фон блока</label>
         <input type="file" accept="image/vnd.sealedmedia.softseal-jpg" name="questions_bg" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
     </div>
-
+    <hr>
 
     <h3>Блок "СООБЩИТЕ ВАШИ КОНТАКТЫ И МЫ ВАМ ПЕРЕЗВОНИМ"</h3>
     <div class="form-group">
@@ -110,6 +110,7 @@
         <label for="exampleInputFile">фон блока</label>
         <input type="file" accept="image/vnd.sealedmedia.softseal-jpg" name="letter_bg" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
     </div>
+    <hr>
     <h3>Блок "КОНТАКТЫ"</h3>
     <div class="form-group">
         <img style="width: 35%;" src="../images/footer-bg.jpg">
