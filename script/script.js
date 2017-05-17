@@ -40,11 +40,18 @@ $(document).ready(function($) {
 
         if ($(".main-page").length || $(".coordination-page").length || $(".organisation-page").length)  {
             var  distanceToFeedbackForm = $(".feedback-form").offset().top,
-                distanceToAboutUs = $("#about-us").offset().top;
+                distanceToAboutUs = $("#about-us").offset().top,
+                distanceToReviews = $("#news").offset().top
 
             if ($(window).width() >=  768 && distanceFromTop > distanceToFeedbackForm -200) {
                 setTimeout(openLetter, 500);
             } 
+
+            if (distanceFromTop > distanceToReviews - 200) {
+                $('.carousel').carousel('pause'); //пауза карусели если она не в фокусе
+            } else {
+                $('.carousel').carousel('cycle'); //старт карусели
+            }
         } 
     });
 
@@ -624,52 +631,39 @@ $(document).ready(function($) {
             $('.letter-wrap form').find('p').fadeOut('0');
         }
     });
-    // $(window).scroll(function() { //проверка на растояние от верха для изменения стилей некоторых элементов
-    //     var distanceToAboutUs = $("#about-us").offset().top, //растояние до блоков от верха окна
-    //         distanceToServHead = $(".services-header").offset().top,
-    //         distanceToServ = $(".services-wrapper").offset().top,
-    //         distanceToOrders = $("#orders").offset().top,
-    //         distanceFromTop = $(window).scrollTop();
+    
+    // РАБОТА С РЕДАКТИРУЕМЫМИ ЭЛЕМЕНТАМИ
+    $.ajax({ //Цена организации
+        url: 'action=get_config&key=get_organisation_price',
+        type: 'GET',
+    })
+    .done(function(data) {
+        $('.organisation-prise').html(data);
+    });
 
-    //     if (distanceFromTop < distanceToAboutUs) {
-    //         $(".home-arrow").css('display', 'none'); //скрыть боковую стрелку в шапке сайта
-    //         if ($(document).width() > 768) {
-    //             $(".menu-btn").css({ //сместить кнопку меню
-    //                 "top": '5rem',
-    //                 'right': '4rem',
-    //                 'color': '#dcd3b6'
-    //             });
-    //         } else {
-    //             $(".menu-btn").css({ //сместить кнопку меню
-    //                 "top": '4rem',
-    //                 'right': '2rem',
-    //                 'color': '#dcd3b6'
-    //             });
-    //         }
-    //     } else {
-    //         $(".home-arrow").css('display', 'block'); //отобразить боковую стрелку
-    //         $(".menu-btn").css({ //сместить кнопку меню
-    //             "top": '1rem',
-    //             'right': '1rem'
-    //         });
-    //         $(".fa-bars").css('color', 'black');
-    //     }
+    $.ajax({//Цена координации
+        url: 'action=get_config&key=get_coordination_price',
+        type: 'GET',
+    })
+    .done(function(data) {
+        $('.coordination-prise').html(data);
+    });
 
-    //     if (distanceFromTop > distanceToServHead - 10 && distanceFromTop < distanceToServ - 5) { //внутри блока .services-header
-    //         $(".fa-bars").css('color', 'white');
-    //         $(".home-arrow").css('color', 'white');
-    //     } else {
-    //         $(".home-arrow").css('color', 'black');
+    $.ajax({//Емейл для работы с клиентами
+        url: 'action=get_config&key=get_client_mail',
+        type: 'GET',
+    })
+    .done(function(data) {
+        $('.parner-mail a').eq(0).attr('href', data).html(data);
+    });
 
-    //     }
-
-    //     if (distanceFromTop > distanceToOrders - 200) {
-    //         $('.carousel').carousel('pause'); //пауза карусели если она не в фокусе
-    //     } else {
-    //         $('.carousel').carousel('cycle'); //старт карусели
-
-    //     }
-    // });
+    $.ajax({//Емейл для работы с партнерами
+        url: 'action=get_config&key=get_partner_mail',
+        type: 'GET',
+    })
+    .done(function(data) {
+        $('.parner-mail a').eq(1).attr('href', data).html(data);
+    });
 });
 
 
