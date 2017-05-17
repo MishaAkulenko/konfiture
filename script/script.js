@@ -40,19 +40,22 @@ $(document).ready(function($) {
 
         if ($(".main-page").length || $(".coordination-page").length || $(".organisation-page").length)  {
             var  distanceToFeedbackForm = $(".feedback-form").offset().top,
-                distanceToAboutUs = $("#about-us").offset().top,
-                distanceToReviews = $("#news").offset().top
+                distanceToAboutUs = $("#about-us").offset().top;
+                
 
             if ($(window).width() >=  768 && distanceFromTop > distanceToFeedbackForm -200) {
                 setTimeout(openLetter, 500);
             } 
-
+        } 
+         if ($(".main-page").length) {
+            var distanceToReviews = $("#news").offset().top;
+            
             if (distanceFromTop > distanceToReviews - 200) {
                 $('.carousel').carousel('pause'); //пауза карусели если она не в фокусе
             } else {
                 $('.carousel').carousel('cycle'); //старт карусели
             }
-        } 
+         }
     });
 
     $(".menu, .news-article-menu").on("click", "a", function(event) { //перход по якорным ссылкам из меню навигации
