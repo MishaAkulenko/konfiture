@@ -151,8 +151,8 @@ if($action == 'get_reviews' ) {
     header('Content-Type: application/json');
     echo json_encode($items);
 
-} elseif ($action = 'organization_form'){
-
+} else if ($action == 'organization_form'){
+    $mail_to = get_config($link,'main_email');
     $data = $_POST['text'];
     $mail = new PHPMailer();
     $mail->IsSMTP();
@@ -169,7 +169,7 @@ if($action == 'get_reviews' ) {
     $mail->FromName = 'eIIIkuHKoT';
 
     /* кому */
-    $mail->AddAddress('chezara40@gmail.com', 'admin');
+    $mail->AddAddress($mail_to['value'], 'admin');
     $mail->IsHTML(true);
 
     /* тема */
@@ -184,7 +184,8 @@ if($action == 'get_reviews' ) {
         echo 'Message has been sent';
     }
 
-} elseif ($action = 'contact_form'){
+} else if ($action == 'contact_form'){
+    $mail_to = get_config($link,'main_email');
 
     $data = $_POST['text'];
     $mail = new PHPMailer();
@@ -200,8 +201,7 @@ if($action == 'get_reviews' ) {
     $mail->From     = 'chezara23@gmail.com';
     $mail->FromName = 'eIIIkuHKoT';
 
-
-    $mail->AddAddress('chezara40@gmail.com', 'admin');
+    $mail->AddAddress($mail_to['value'], 'admin');
     
     $mail->IsHTML(true);
     $mail->Subject  = 'contact form message';
@@ -214,6 +214,14 @@ if($action == 'get_reviews' ) {
     } else {
         echo 'Message has been sent';
     }
+
+} else if ($action == 'get_config'){
+
+    $key = $_GET['key'];
+
+    $config = get_config($link, $key);
+
+    echo $config['value'];
 
 }
 

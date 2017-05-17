@@ -50,6 +50,8 @@ require_once("config/db_config.php");
                 </li>
                 <li><a href="./?page=video">Видео</a>
                 </li>
+                <li><a href="./?page=settings">Настройки</a>
+                </li>
             </ul>
            <!-- <?php /*foreach($games as $game): */?>
                 <ul class="nav nav-sidebar">

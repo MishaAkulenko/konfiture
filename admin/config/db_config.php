@@ -71,3 +71,15 @@ function get_topic_by_link($link, $news_link){
     return mysqli_fetch_assoc($result);
 
 }
+
+function get_config($link, $name){
+
+    $query = 'SELECT `value` FROM configuration WHERE `name` = "'.$name.'"';
+    $result = mysqli_query($link, $query);
+    if (!$result)
+        die(mysqli_error($link));
+
+
+    return mysqli_fetch_assoc($result);
+
+}

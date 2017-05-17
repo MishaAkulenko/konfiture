@@ -634,7 +634,7 @@ $(document).ready(function($) {
     
     // РАБОТА С РЕДАКТИРУЕМЫМИ ЭЛЕМЕНТАМИ
     $.ajax({ //Цена организации
-        url: 'action=get_config&key=get_organisation_price',
+        url: 'api.php?action=get_config&key=organisation_price',
         type: 'GET',
     })
     .done(function(data) {
@@ -642,7 +642,7 @@ $(document).ready(function($) {
     });
 
     $.ajax({//Цена координации
-        url: 'action=get_config&key=get_coordination_price',
+        url: 'api.php?action=get_config&key=coordination_price',
         type: 'GET',
     })
     .done(function(data) {
@@ -650,7 +650,7 @@ $(document).ready(function($) {
     });
 
     $.ajax({//Емейл для работы с клиентами
-        url: 'action=get_config&key=get_client_mail',
+        url: 'api.php?action=get_config&key=organisation_mail',
         type: 'GET',
     })
     .done(function(data) {
@@ -658,7 +658,7 @@ $(document).ready(function($) {
     });
 
     $.ajax({//Емейл для работы с партнерами
-        url: 'action=get_config&key=get_partner_mail',
+        url: 'api.php?action=get_config&key=partner_mail',
         type: 'GET',
     })
     .done(function(data) {
