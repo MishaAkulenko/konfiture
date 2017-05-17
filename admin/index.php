@@ -15,6 +15,11 @@ require_once("config/db_config.php");
 <head>
     <title>Admin panel</title>
     <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Cache-Control" content="private">
+    <meta http-equiv="Cache-Control" content="max-age=10800, must-revalidate">
+    <meta http-equiv="Cache-Control" content="max-age=10800, proxy-revalidate">
+
     <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
