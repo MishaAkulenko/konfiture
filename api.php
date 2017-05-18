@@ -158,15 +158,15 @@ if($action == 'get_reviews' ) {
     $mail->IsSMTP();
     $mail->CharSet  = 'utf-8';
     $mail->SMTPAuth = true;
-    $mail->Username = 'chezara23@gmail.com';
-    $mail->Password = '20091993';
-    $mail->Host = 'smtp.gmail.com';
+    $mail->Username = 'wedding@konfiture.com.ua';
+    $mail->Password = 'TrdSUqaeBy6S';
+    $mail->Host = 'mx1.mirohost.net';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = '465';
 
 
-    $mail->From     = 'chezara23@gmail.com';
-    $mail->FromName = 'eIIIkuHKoT';
+    $mail->From     = 'wedding@konfiture.com.ua';
+    $mail->FromName = 'Konfiture notification';
 
     /* кому */
     $mail->AddAddress($mail_to['value'], 'admin');
@@ -192,14 +192,15 @@ if($action == 'get_reviews' ) {
     $mail->IsSMTP();
     $mail->CharSet  = 'utf-8';
     $mail->SMTPAuth = true;
-    $mail->Username = 'chezara23@gmail.com';
-    $mail->Password = '20091993';
-    $mail->Host = 'smtp.gmail.com';
+    $mail->Username = 'wedding@konfiture.com.ua';
+    $mail->Password = 'TrdSUqaeBy6S';
+    $mail->Host = 'mx1.mirohost.net';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = '465';
 
-    $mail->From     = 'chezara23@gmail.com';
-    $mail->FromName = 'eIIIkuHKoT';
+
+    $mail->From     = 'wedding@konfiture.com.ua';
+    $mail->FromName = 'Konfiture notification';
 
     $mail->AddAddress($mail_to['value'], 'admin');
     
