@@ -549,10 +549,12 @@ $(document).ready(function($) {
     // РАБОТА С ФОРМАМИ СВЯЗИ
     $('#inputPhone').mask("+3 (999) 999-99-99");
 
-    $('.form-group').on('click', 'button', function(event) {
+    $('.form-group').on('click', 'button', function(event) {//Форма без письма
         event.preventDefault();
         var phone = $(this).parent().find('#inputPhone'),
             clientName = $(this).parent().find('#inputName'),
+            formBtn = $(this).parent().find('button'),
+            formInput = $(this).parent().find('input'),
             organisatorForm = "<b>Имя клиента:</b> " + clientName.val() + "<br>" + "<b>Номер телефона:</b> " + phone.val();
 
         if (clientName.val() === "") {
@@ -573,17 +575,31 @@ $(document).ready(function($) {
                 type: 'POST',
 
                 data: {text: organisatorForm},
-            });
-            $(this).parent().find('button').html("Данные отправлены").css('font-size', '16px');
+            }).done(function () {
+                formBtn.html("Данные отправлены").css({
+                    'font-size': '16px',
+                    'color': '#fff'
+                });
+
+                formInput.val('');
+                
+            }).fail(function () {
+                formBtn.html("Повторите запрос").css({
+                    'font-size': '16px',
+                    'color': 'black'
+                });;
+            }); 
         }
     });
 
     $('.letter-wrap').find('[name = phone]').mask("+3 (999) 999-99-99");
 
-    $('.letter-wrap').on('click', 'button', function(event) {
+    $('.letter-wrap').on('click', 'button', function(event) {//Форма внутри письма
         event.preventDefault();
         var weddingDate = $(this).parent().find('[name = date]'),
             clientEmail = $(this).parent().find('[name = email]'),
+            formBtn = $(this).parent().find('button'),
+            formInput = $(this).parent().find('input'),
             phone = $(this).parent().find('[name = phone]'),
             contactForm = "<b>Дата свадьбы:</b> " + weddingDate.val() + " <br>" + "<b>Номер телефона:</b> " + phone.val() + "<br>" + "<b>Емейл:</b> " + clientEmail.val(),
             mailMask = /^[a-z0-9_-]+@[a-z0-9-]+\.([a-z]{1,6}\.)?[a-z]{2,6}$/i; 
@@ -619,13 +635,27 @@ $(document).ready(function($) {
                 type: 'POST',
 
                 data: {text: contactForm},
+            }).done(function () {
+                formBtn.html("Данные отправлены").css({
+                    'font-size': '16px',
+                    'color': '#fff'
+                });
+
+                formInput.val('');
+
+                if ($(window).width() >= 768) { 
+                    closeLetter();
+                }
+            }).fail(function () {
+                formBtn.html("Повторите запрос").css({
+                    'font-size': '16px',
+                    'color': 'black'
+                });
             });
 
-            if ($(window).width() >= 768) { 
-                closeLetter();
-            } 
+             
 
-            $(this).parent().find('button').html("Данные отправлены").css('font-size', '16px');
+            // $(this).parent().find('button').html("Данные отправлены").css('font-size', '16px');
         }
     });
 
@@ -657,7 +687,7 @@ $(document).ready(function($) {
         type: 'GET',
     })
     .done(function(data) {
-        $('.parner-mail a').eq(0).attr('href', data).html(data);
+        $('.parner-mail a').eq(0).attr('href', 'mailto:' + data).html(data);
     });
 
     $.ajax({//Емейл для работы с партнерами
@@ -665,7 +695,7 @@ $(document).ready(function($) {
         type: 'GET',
     })
     .done(function(data) {
-        $('.parner-mail a').eq(1).attr('href', data).html(data);
+        $('.parner-mail a').eq(1).attr('href', 'mailto:' + data).html(data);
     });
 });
 
