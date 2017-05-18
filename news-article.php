@@ -212,7 +212,7 @@ if($topic['type'] == 'news'){
     <script type="text/javascript" src="node_modules\jgallery\dist\js\touchswipe.min.js"></script>
     <script src="bower_components/plyr/dist/plyr.js"></script>
     <script src="bower_components/jquery.maskedinput.min.js"></script>
-    <script type="text/javascript" src="script/script.js"></script>
+    <script type="text/javascript" src="dist/script.js"></script>
 </body>
 
 </html>
