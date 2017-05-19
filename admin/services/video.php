@@ -89,7 +89,7 @@ function video_delete($link, $id){
     if (!$result)
         die(mysqli_error($link));
 
-    @unlink('../images/galery/video_preview/'.$video['preview']);
+    @unlink('../../images/galery/video_preview/'.$video['preview']);
 }
 function video_add($link, $name, $video_link, $file_name){
     $query = "INSERT INTO video (id_video, user_name, link, preview) VALUES ('', '".$name."', '".$video_link."', '".$file_name."')";

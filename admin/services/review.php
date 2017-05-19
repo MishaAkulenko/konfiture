@@ -90,7 +90,7 @@ function review_delete($link, $id){
     if (!$result)
         die(mysqli_error($link));
 
-   @unlink('../images/review/'.$review['photo']);
+   @unlink('../../images/review/'.$review['photo']);
 }
 function review_add($link, $name, $text, $file_name){
     $query = "INSERT INTO review (id_review, user_name, text, photo) VALUES ('', '".$name."', '".$text."', '".$file_name."')";
