@@ -494,6 +494,10 @@ $(document).ready(function($) {
                     textColor: 'white',
                     items: fotosInGaleryUrl
                 });
+            } else {
+                if (!$('.video-wrapp').length) {
+                    $('.article-galery').hide();
+                }
             }
         });
     }
