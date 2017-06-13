@@ -62,7 +62,7 @@ if($topic['type'] == 'news'){
                             <div class="text-left social-wrapp">
                                 <span class="glyphicon glyphicon-map-marker"></span>
                                 <span>г.Киев</span>
-                                <a href="https://www.facebook.com/wd.konfiture/"><span class="fa g fa-facebook-square"></span></a>
+                                <a href="https://www.facebook.com/konfiture.com.ua/?ref=bookmarks"><span class="fa g fa-facebook-square"></span></a>
                                 <a href="https://vk.com/wd.konfiture"><span class="fa g fa-vk"></span></a>
                                 <a href="https://www.instagram.com/konfiture_agency/"><span class="fa g fa-instagram"></span></a>
                             </div>
@@ -195,7 +195,7 @@ if($topic['type'] == 'news'){
                             <h3 class="social">
                             <a href="https://www.youtube.com/channel/UCqpHmHvJMQB76p2e9kfExgw"><span class="fa fa-youtube-square"></span></a>
                             <a href="https://vk.com/wd.konfiture"><span class="fa fa-vk"></span></a>
-                            <a href="https://www.facebook.com/wd.konfiture/"><span class="fa fa-facebook-square"></span></a>
+                            <a href="https://www.facebook.com/konfiture.com.ua/?ref=bookmarks"><span class="fa fa-facebook-square"></span></a>
                             <a href="https://www.instagram.com/konfiture_agency/"><span class="fa fa-instagram"></span></a></h3>
                         </div>
                     </div>
