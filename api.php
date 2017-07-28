@@ -6,7 +6,7 @@
  * Time: 11:11
  */
 require_once('admin/config/db_config.php');
-require_once('admin/lib/class.phpmailer.php');
+require_once('admin/lib/PHPMailerAutoload.php');
 ini_set('display_errors',1);
 error_reporting(E_ALL);
 $link = db_connect();
@@ -158,14 +158,14 @@ if($action == 'get_reviews' ) {
     $mail->IsSMTP();
     $mail->CharSet  = 'utf-8';
     $mail->SMTPAuth = true;
-    $mail->Username = 'wedding@konfiture.com.ua';
-    $mail->Password = 'TrdSUqaeBy6S';
-    $mail->Host = 'mx1.mirohost.net';
+    $mail->Username = 'info.konfiture@gmail.com';
+    $mail->Password = 'adgjl123456';
+    $mail->Host = 'smtp.gmail.com';;
     $mail->SMTPSecure = 'ssl';
     $mail->Port = '465';
 
-
-    $mail->From     = 'wedding@konfiture.com.ua';
+    $mail->setLanguage('en');
+    $mail->From     = 'info.konfiture@gmail.com';
     $mail->FromName = 'Konfiture notification';
 
     /* кому */
@@ -190,16 +190,21 @@ if($action == 'get_reviews' ) {
     $data = $_POST['text'];
     $mail = new PHPMailer();
     $mail->IsSMTP();
-    $mail->CharSet  = 'utf-8';
+    $mail->SMTPDebug = 1;
     $mail->SMTPAuth = true;
-    $mail->Username = 'wedding@konfiture.com.ua';
+    $mail->CharSet  = 'utf-8';
+    /*$mail->Username = 'wedding@konfiture.com.ua';
     $mail->Password = 'TrdSUqaeBy6S';
-    $mail->Host = 'mx1.mirohost.net';
+    $mail->Host = 'mx1.mirohost.net';*/
     $mail->SMTPSecure = 'ssl';
     $mail->Port = '465';
+    $mail->Username = 'info.konfiture@gmail.com';
+    $mail->Password = 'adgjl123456';
+    $mail->Host = 'smtp.gmail.com';
 
+    $mail->setLanguage('en');
 
-    $mail->From     = 'wedding@konfiture.com.ua';
+    $mail->From     = 'info.konfiture@gmail.com';
     $mail->FromName = 'Konfiture notification';
 
     $mail->AddAddress($mail_to['value'], 'admin');
